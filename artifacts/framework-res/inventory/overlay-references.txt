@@ -1,6 +1,0 @@
-analysis/apktool/res/interpolator/accelerate_cubic.xml:2:<accelerateInterpolator android:factor="1.5"
-analysis/apktool/res/interpolator/accelerate_quint.xml:2:<accelerateInterpolator android:factor="2.5"
-analysis/apktool/res/interpolator/decelerate_cubic.xml:2:<decelerateInterpolator android:factor="1.5"
-analysis/apktool/res/interpolator/decelerate_quint.xml:2:<decelerateInterpolator android:factor="2.5"
-analysis/apktool/res/interpolator/accelerate_quart.xml:2:<accelerateInterpolator android:factor="2.0"
-analysis/apktool/res/interpolator/decelerate_quart.xml:2:<decelerateInterpolator android:factor="2.0"

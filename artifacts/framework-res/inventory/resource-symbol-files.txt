@@ -1,3 +1,0 @@
-analysis/apktool/res/values/attrs.xml
-analysis/apktool/res/values/ids.xml
-analysis/apktool/res/values/public.xml

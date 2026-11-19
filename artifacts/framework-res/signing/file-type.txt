@@ -1,1 +1,0 @@
-firmware/framework-res.apk: Java archive data (JAR)
