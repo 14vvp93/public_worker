@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/y20" android:layout_marginStart="@dimen/x50">
+        <RelativeLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <TableLayout android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <TableRow android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:id="@id/btn_call_one" android:background="@drawable/dp_one" android:layout_width="@dimen/btn_call_layout_width" android:layout_height="@dimen/btn_call_layout_height" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_two" android:background="@drawable/dp_two" android:layout_width="@dimen/btn_call_layout_width" android:layout_height="@dimen/btn_call_layout_height" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_three" android:background="@drawable/dp_three" android:layout_width="@dimen/btn_call_layout_width" android:layout_height="@dimen/btn_call_layout_height" android:layout_margin="@dimen/x12" />
+                </TableRow>
+                <TableRow android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/btn_call_tableRow_layout_marginTop">
+                    <Button android:id="@id/btn_call_four" android:background="@drawable/dp_four" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_five" android:background="@drawable/dp_five" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_six" android:background="@drawable/dp_six" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                </TableRow>
+                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/btn_call_tableRow_layout_marginTop">
+                    <Button android:id="@id/btn_call_seven" android:background="@drawable/dp_seven" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_eight" android:background="@drawable/dp_eight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_nine" android:background="@drawable/dp_nine" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                </TableRow>
+                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/btn_call_tableRow_layout_marginTop">
+                    <Button android:id="@id/btn_call_pound" android:background="@drawable/dp_sharp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_zero" android:background="@drawable/dp_zero" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                    <Button android:id="@id/btn_call_asterisk" android:background="@drawable/dp_star" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/x12" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:background="@drawable/set_device_bg" android:layout_width="fill_parent" android:layout_height="@dimen/y430" android:layout_marginBottom="@dimen/y20" android:layout_marginStart="@dimen/x20" android:layout_marginEnd="@dimen/x50">
+            <LinearLayout android:orientation="horizontal" android:background="@drawable/bg_num_edit" android:layout_width="@dimen/num_edit_layout_width" android:layout_height="@dimen/y60" android:layout_marginLeft="@dimen/x20" android:layout_marginTop="@dimen/y10" android:layout_marginRight="@dimen/x20">
+                <EditText android:textSize="35.0dip" android:textColor="@color/color_blue_dark" android:layout_gravity="center" android:id="@id/text_call_info" android:background="@android:color/transparent" android:layout_width="@dimen/text_call_info_layout_width" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x20" android:singleLine="true" />
+                <Button android:layout_gravity="center" android:id="@id/btn_del_num" android:background="@drawable/backspace" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <ListView android:scrollbarThumbVertical="@drawable/bg_scroll_bar" android:id="@id/listview_calls" android:layout_width="fill_parent" android:layout_height="@dimen/listview_calls_height" android:layout_marginLeft="@dimen/x20" android:layout_marginTop="@dimen/y15" android:layout_marginRight="@dimen/x20" android:divider="@drawable/line_setting" />
+            <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/btn_call_margin_top">
+                <Button android:layout_gravity="center_horizontal" android:id="@id/btn_call" android:background="@drawable/call" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

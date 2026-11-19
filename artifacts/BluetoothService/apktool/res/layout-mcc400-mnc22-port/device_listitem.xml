@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/device_item" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="@dimen/device_listitem_layout_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/device_item_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/device_listitem_item_remote_device_name_textSize" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/item_remote_device_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/device_select" android:background="@drawable/set_rb_off" android:layout_width="@dimen/device_listitem_device_select_layout_width" android:layout_height="@dimen/device_listitem_device_select_layout_height" android:layout_marginStart="8.0dip" />
+    </LinearLayout>
+    <Button android:layout_gravity="center_vertical" android:id="@id/btn_config_profile" android:background="@drawable/more" android:layout_width="@dimen/device_listitem_device_select_layout_width" android:layout_height="@dimen/device_listitem_device_select_layout_height" />
+</LinearLayout>

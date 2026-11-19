@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/layout_main" android:background="@drawable/bg" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/bottom_menu" android:background="@drawable/bg_dock" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:gravity="center" android:id="@id/btn_telephone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/tab_dialpad" android:layout_weight="1.0" />
+        <ImageView android:gravity="center" android:id="@id/btn_phonebook" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/tab_contacts" android:layout_weight="1.0" />
+        <ImageView android:gravity="center" android:id="@id/btn_record" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/tab_history" android:layout_weight="1.0" />
+        <ImageView android:gravity="center" android:id="@id/btn_setup" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/tab_settings" android:layout_weight="1.0" />
+        <ImageView android:gravity="center" android:id="@id/btn_pared" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/tab_paired" android:layout_weight="1.0" />
+    </LinearLayout>
+    <com.autochips.bluetooth.adapter.EnableScrollViewPager android:id="@id/viewPager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

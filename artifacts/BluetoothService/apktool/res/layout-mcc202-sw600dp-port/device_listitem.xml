@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/device_item" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/x24"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="25.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/item_remote_device_name" android:layout_width="0.0dip" android:layout_height="@dimen/y60" android:singleLine="true" android:layout_weight="1.0" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/device_select" android:background="@drawable/set_rb_off" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/x10" android:layout_marginEnd="@dimen/x20" />
+    <Button android:layout_gravity="center_vertical" android:id="@id/btn_config_profile" android:background="@drawable/more" android:layout_width="@dimen/x37" android:layout_height="@dimen/x41" android:layout_marginStart="@dimen/x20" android:layout_marginEnd="@dimen/x20" />
+</LinearLayout>

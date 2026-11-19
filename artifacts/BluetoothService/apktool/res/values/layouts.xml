@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="layout" name="bt_calling_status">@null</item>
+    <item type="layout" name="bt_calling_status_mini">@null</item>
+    <item type="layout" name="pair_list_operation_dialog">@null</item>
+    <item type="layout" name="pin_code_change_dialog">@null</item>
+    <item type="layout" name="unpair_device_listitem">@null</item>
+</resources>

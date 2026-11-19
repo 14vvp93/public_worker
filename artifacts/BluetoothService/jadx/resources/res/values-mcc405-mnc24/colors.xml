@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#404040</color>
+    <color name="bluetooth_close_text_color">#ffffff</color>
+    <color name="bluetooth_net_text_color">#fefefe</color>
+    <color name="bt_connect_color">@color/theme_color</color>
+    <color name="bt_device_name_color">#abadae</color>
+    <color name="callhistory_download_text">@android:color/white</color>
+    <color name="calling_status_text_color">@android:color/white</color>
+    <color name="color_paired_n">#999999</color>
+    <color name="color_paired_p">#999999</color>
+    <color name="color_text_n">#999999</color>
+    <color name="color_text_p">@color/theme_color</color>
+    <color name="dial_name_color">#d6d8da</color>
+    <color name="dial_tv_color">@color/theme_color</color>
+    <color name="item_history_name_color">#b6babc</color>
+    <color name="item_phonebook_name_color">#979b9f</color>
+    <color name="item_phonebook_number_color">#565d62</color>
+    <color name="progressbar_endColor">@color/theme_color</color>
+    <color name="tel_search_txt_color_uix">@color/item_phonebook_name_color</color>
+    <color name="theme_color">#b20001</color>
+    <color name="txt_color_choose">@color/theme_color</color>
+</resources>

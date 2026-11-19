@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/ll_main" android:background="@drawable/bg" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x18" android:layout_centerHorizontal="true">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/x130">
+            <ImageView android:background="@drawable/poster" android:layout_width="@dimen/x243" android:layout_height="@dimen/x167" android:layout_marginStart="@dimen/x10" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/x69">
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="@dimen/x30" android:layout_height="@dimen/x30" android:src="@drawable/music" />
+                <TextView android:textSize="@dimen/x25" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/tv_music_title" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="@dimen/x440" android:layout_height="wrap_content" android:text="@string/str_music_title" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:layout_marginStart="@dimen/x23" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x26">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/iv_music_icon_album" android:visibility="visible" android:layout_width="@dimen/x30" android:layout_height="@dimen/x30" android:src="@drawable/album" />
+                <TextView android:textSize="@dimen/x25" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/tv_music_icon_album" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="@dimen/x440" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:layout_marginStart="@dimen/x23" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x26">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/iv_music_icon_artist" android:visibility="visible" android:layout_width="@dimen/x30" android:layout_height="@dimen/x30" android:src="@drawable/actors" />
+                <TextView android:textSize="@dimen/x25" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/tv_music_icon_artist" android:focusable="true" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="@dimen/x440" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:layout_marginStart="@dimen/x23" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/x15">
+            <ImageView android:id="@id/bt_connect_state" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/y15" android:layout_marginStart="@dimen/x5">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/y30" android:layout_marginStart="0.0dip">
+                    <TextView android:textSize="@dimen/x16" android:textColor="@android:color/white" android:id="@id/tv_a2dp_title" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/y5" android:text="@string/a2dp_status_title" />
+                    <TextView android:textSize="@dimen/x16" android:textColor="@android:color/white" android:id="@id/tv_A2DP_status" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/y5" android:layout_marginStart="0.0dip" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="0.0dip">
+                    <TextView android:textSize="@dimen/x16" android:textColor="@android:color/white" android:id="@id/tv_avrcp_title" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="@dimen/y5" android:text="@string/avrcp_status_title" android:layout_marginStart="0.0dip" />
+                    <TextView android:textSize="@dimen/x16" android:textColor="@android:color/white" android:id="@id/tv_AVRCP_status" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="@dimen/y5" android:layout_marginStart="0.0dip" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/x5" android:layout_above="@id/music_bottom" android:layout_marginStart="@dimen/x40" android:layout_marginEnd="@dimen/x40">
+        <TextView android:textSize="@dimen/x20" android:textColor="@color/color_blue_dark" android:layout_gravity="center_vertical" android:id="@id/tv_music_play_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/music_playing_time" android:alpha="0.5" />
+        <SeekBar android:id="@id/tv_music_playing_progress" android:layout_width="wrap_content" android:layout_height="@dimen/x50" android:progressDrawable="@drawable/seekbar_bg" android:thumb="@drawable/seekbar_thumb_n" android:layout_weight="8.0" android:paddingStart="@dimen/x20" android:paddingEnd="@dimen/x20" style="@android:style/Widget.ProgressBar.Horizontal" />
+        <TextView android:textSize="@dimen/x20" android:textColor="@color/color_blue_dark" android:layout_gravity="center_vertical" android:id="@id/tv_music_total_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/music_total_time" android:alpha="0.5" />
+    </LinearLayout>
+    <Button android:background="@null" android:layout_width="fill_parent" android:layout_height="@dimen/x50" android:layout_marginBottom="@dimen/x8" android:layout_above="@id/music_bottom" />
+    <LinearLayout android:gravity="center" android:id="@id/music_bottom" android:background="@drawable/bg_dock" android:layout_width="fill_parent" android:layout_height="@dimen/x64" android:layout_alignParentBottom="true">
+        <Button android:id="@id/btn_music_prev" android:background="@drawable/music_prev" android:layout_width="@dimen/x60" android:layout_height="@dimen/x60" />
+        <Button android:id="@id/btn_music_pause" android:background="@drawable/music_pause" android:layout_width="@dimen/x60" android:layout_height="@dimen/x60" android:layout_marginStart="@dimen/x90" />
+        <Button android:id="@id/btn_music_play" android:background="@drawable/music_play" android:visibility="gone" android:layout_width="@dimen/x60" android:layout_height="@dimen/x60" android:layout_marginStart="@dimen/x90" />
+        <Button android:id="@id/btn_music_next" android:background="@drawable/music_next" android:layout_width="@dimen/x60" android:layout_height="@dimen/x60" android:layout_marginStart="@dimen/x90" />
+    </LinearLayout>
+</RelativeLayout>

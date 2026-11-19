@@ -1,0 +1,222 @@
+.class public Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;
+.super Ljava/lang/Object;
+.source "HSDCardUtils.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/hcn/common/utils/HSDCardUtils;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "SDCardInfo"
+.end annotation
+
+
+# instance fields
+.field private final availableSize:J
+
+.field private final isRemovable:Z
+
+.field private final path:Ljava/lang/String;
+
+.field private final state:Ljava/lang/String;
+
+.field private final totalSize:J
+
+
+# direct methods
+.method static bridge synthetic -$$Nest$fgetpath(Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->path:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetstate(Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->state:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method constructor <init>(Ljava/lang/String;Ljava/lang/String;Z)V
+    .locals 0
+
+    .line 173
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 174
+    iput-object p1, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->path:Ljava/lang/String;
+
+    .line 175
+    iput-object p2, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->state:Ljava/lang/String;
+
+    .line 176
+    iput-boolean p3, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->isRemovable:Z
+
+    .line 177
+    invoke-static {p1}, Lcom/hcn/common/utils/HFileUtils;->getFsTotalSize(Ljava/lang/String;)J
+
+    move-result-wide p2
+
+    iput-wide p2, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->totalSize:J
+
+    .line 178
+    invoke-static {p1}, Lcom/hcn/common/utils/HFileUtils;->getFsAvailableSize(Ljava/lang/String;)J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->availableSize:J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getAvailableSize()J
+    .locals 2
+
+    .line 198
+    iget-wide v0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->availableSize:J
+
+    return-wide v0
+.end method
+
+.method public getPath()Ljava/lang/String;
+    .locals 1
+
+    .line 182
+    iget-object v0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->path:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getState()Ljava/lang/String;
+    .locals 1
+
+    .line 186
+    iget-object v0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->state:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getTotalSize()J
+    .locals 2
+
+    .line 194
+    iget-wide v0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->totalSize:J
+
+    return-wide v0
+.end method
+
+.method public isRemovable()Z
+    .locals 1
+
+    .line 190
+    iget-boolean v0, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->isRemovable:Z
+
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 4
+
+    .line 204
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "SDCardInfo {path = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->path:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", state = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->state:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", isRemovable = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->isRemovable:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", totalSize = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 208
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    iget-wide v2, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->totalSize:J
+
+    invoke-static {v1, v2, v3}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", availableSize = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 209
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    iget-wide v2, p0, Lcom/hcn/common/utils/HSDCardUtils$SDCardInfo;->availableSize:J
+
+    invoke-static {v1, v2, v3}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const/16 v1, 0x7d
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method

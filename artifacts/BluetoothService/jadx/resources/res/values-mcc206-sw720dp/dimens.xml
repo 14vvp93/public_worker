@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_menu_layout_marginTop">20dp</dimen>
+    <dimen name="btn_call_layout_height">103dp</dimen>
+    <dimen name="btn_call_layout_width">156dp</dimen>
+    <dimen name="btn_call_margin_top">35dp</dimen>
+    <dimen name="btn_call_tableRow_layout_marginTop">17dp</dimen>
+    <dimen name="btnplay_margin_top">55dp</dimen>
+    <dimen name="callhistory_margin_start">275dp</dimen>
+    <dimen name="history_listview_layout_marginTop">90dp</dimen>
+    <dimen name="item_history_name_textSize">24sp</dimen>
+    <dimen name="line_setting_layout_width">950dp</dimen>
+    <dimen name="listview_calls_height">293dp</dimen>
+    <dimen name="musictitle_margin_top">45dp</dimen>
+    <dimen name="musictitle_text_size">27sp</dimen>
+    <dimen name="num_edit_layout_width">521dp</dimen>
+    <dimen name="paired_devices_margin_top">3px</dimen>
+    <dimen name="poster_width">400dp</dimen>
+    <dimen name="progressbar_length">860dp</dimen>
+    <dimen name="progressbar_margin_top">60dp</dimen>
+    <dimen name="tabcontent_height">554dp</dimen>
+    <dimen name="text_call_info_layout_width">432dp</dimen>
+    <dimen name="text_call_info_width">560dp</dimen>
+</resources>
