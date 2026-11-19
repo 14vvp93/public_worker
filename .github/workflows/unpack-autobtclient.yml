@@ -1,0 +1,41 @@
+name: Unpack AutoBtClient
+
+on:
+  push:
+    paths:
+      - ".github/workflows/unpack-autobtclient.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Extract split archive
+        run: |
+          mkdir -p artifacts/AutoBtClient/unpacked
+          cd artifacts/AutoBtClient
+          7z x AutoBtClient.zip -ounpacked -y
+          test "$(find unpacked -type f | wc -l)" -gt 0
+
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts/AutoBtClient/unpacked
+          if ! git diff --cached --quiet; then
+            git commit -m "Unpack AutoBtClient archive"
+            git push
+          else
+            echo "No extracted file changes."
+          fi
