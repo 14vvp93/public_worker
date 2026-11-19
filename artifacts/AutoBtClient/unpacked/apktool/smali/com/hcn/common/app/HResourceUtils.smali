@@ -1,0 +1,797 @@
+.class public Lcom/hcn/common/app/HResourceUtils;
+.super Ljava/lang/Object;
+.source "HResourceUtils.java"
+
+
+# static fields
+.field private static final BUFFER_SIZE:I = 0x2000
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 2
+
+    .line 28
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 29
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string v1, "u can\'t instantiate me..."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public static copyFileFromAssets(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 9
+
+    const-string v0, "/"
+
+    const/4 v1, 0x0
+
+    .line 162
+    :try_start_0
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/app/Application;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Landroid/content/res/AssetManager;->list(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    .line 163
+    array-length v3, v2
+
+    if-lez v3, :cond_1
+
+    .line 164
+    array-length v3, v2
+
+    const/4 v4, 0x1
+
+    move v5, v1
+
+    :goto_0
+    if-ge v5, v3, :cond_0
+
+    aget-object v6, v2, v5
+
+    .line 165
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v7, v6}, Lcom/hcn/common/app/HResourceUtils;->copyFileFromAssets(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v6
+
+    and-int/2addr v4, v6
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v4
+
+    goto :goto_1
+
+    .line 171
+    :cond_1
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 169
+    invoke-static {p1, p0}, Lcom/hcn/common/utils/HFileIOUtils;->writeFileFromIS(Ljava/lang/String;Ljava/io/InputStream;)Z
+
+    move-result p0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move v1, p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p0
+
+    .line 175
+    invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
+
+    :goto_1
+    return v1
+.end method
+
+.method public static copyFileFromRaw(ILjava/lang/String;)Z
+    .locals 1
+
+    .line 262
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 260
+    invoke-static {p1, p0}, Lcom/hcn/common/utils/HFileIOUtils;->writeFileFromIS(Ljava/lang/String;Ljava/io/InputStream;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getAnimIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 137
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 138
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "anim"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getColorIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 71
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 72
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "color"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getDimenIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 82
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 83
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "dimen"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getDrawable(I)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    .line 39
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-static {v0, p0}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static getDrawableIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 93
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 94
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "drawable"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 49
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 50
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "id"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getLayoutIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 115
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 116
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "layout"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getMenuIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 148
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 149
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "menu"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getMipmapIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 104
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 105
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "mipmap"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getStringIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 60
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 61
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "string"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static getStyleIdByName(Ljava/lang/String;)I
+    .locals 3
+
+    .line 126
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 127
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "style"
+
+    invoke-virtual {v0, p0, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static readAssets2List(Ljava/lang/String;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const-string v0, ""
+
+    .line 229
+    invoke-static {p0, v0}, Lcom/hcn/common/app/HResourceUtils;->readAssets2List(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static readAssets2List(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .line 243
+    :try_start_0
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 244
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 242
+    invoke-static {p0, p1}, Lcom/hcn/common/utils/HConvertUtils;->inputStream2Lines(Ljava/io/InputStream;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p0
+
+    :catch_0
+    move-exception p0
+
+    .line 246
+    invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
+
+    .line 247
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static readAssets2String(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    .line 188
+    invoke-static {p0, v0}, Lcom/hcn/common/app/HResourceUtils;->readAssets2String(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static readAssets2String(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    const-string v0, ""
+
+    .line 200
+    :try_start_0
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Application;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 201
+    invoke-static {p0}, Lcom/hcn/common/utils/HConvertUtils;->inputStream2Bytes(Ljava/io/InputStream;)[B
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    return-object v0
+
+    .line 206
+    :cond_0
+    invoke-static {p1}, Lcom/hcn/common/utils/HStringUtils;->isSpace(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 207
+    new-instance p1, Ljava/lang/String;
+
+    invoke-direct {p1, p0}, Ljava/lang/String;-><init>([B)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+
+    return-object p1
+
+    .line 210
+    :cond_1
+    :try_start_1
+    new-instance v1, Ljava/lang/String;
+
+    invoke-direct {v1, p0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    :try_end_1
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+
+    return-object v1
+
+    :catch_0
+    move-exception p0
+
+    .line 212
+    :try_start_2
+    invoke-virtual {p0}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+
+    return-object v0
+
+    :catch_1
+    move-exception p0
+
+    .line 217
+    invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
+
+    return-object v0
+.end method
+
+.method public static readRaw2List(I)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const-string v0, ""
+
+    .line 309
+    invoke-static {p0, v0}, Lcom/hcn/common/app/HResourceUtils;->readRaw2List(ILjava/lang/String;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static readRaw2List(ILjava/lang/String;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .line 322
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .line 323
+    invoke-virtual {v0, p0}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 321
+    invoke-static {p0, p1}, Lcom/hcn/common/utils/HConvertUtils;->inputStream2Lines(Ljava/io/InputStream;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static readRaw2String(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    .line 273
+    invoke-static {p0, v0}, Lcom/hcn/common/app/HResourceUtils;->readRaw2String(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static readRaw2String(ILjava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    .line 284
+    invoke-static {}, Lcom/hcn/common/utils/HUtilsEx;->getApp()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object p0
+
+    .line 285
+    invoke-static {p0}, Lcom/hcn/common/utils/HConvertUtils;->inputStream2Bytes(Ljava/io/InputStream;)[B
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    .line 290
+    :cond_0
+    invoke-static {p1}, Lcom/hcn/common/utils/HStringUtils;->isSpace(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 291
+    new-instance p1, Ljava/lang/String;
+
+    invoke-direct {p1, p0}, Ljava/lang/String;-><init>([B)V
+
+    return-object p1
+
+    .line 294
+    :cond_1
+    :try_start_0
+    new-instance v0, Ljava/lang/String;
+
+    invoke-direct {v0, p0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception p0
+
+    .line 296
+    invoke-virtual {p0}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
+
+    const-string p0, ""
+
+    return-object p0
+.end method

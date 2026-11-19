@@ -1,0 +1,219 @@
+package com.hcn.common.utils;
+
+import android.content.SharedPreferences;
+import com.autochips.bluetooth.skin.SkinID;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+/* JADX INFO: loaded from: classes.dex */
+public class HSPUtils {
+    private static final Map<String, HSPUtils> SP_UTILS_MAP = new HashMap();
+
+    /* JADX INFO: renamed from: sp */
+    private SharedPreferences f85sp;
+
+    public static HSPUtils getInstance() {
+        return getInstance(SkinID.SKIN_NONE, 0);
+    }
+
+    public static HSPUtils getInstance(int i) {
+        return getInstance(SkinID.SKIN_NONE, i);
+    }
+
+    public static HSPUtils getInstance(String str) {
+        return getInstance(str, 0);
+    }
+
+    public static HSPUtils getInstance(String str, int i) {
+        if (isSpace(str)) {
+            str = "spUtils";
+        }
+        Map<String, HSPUtils> map = SP_UTILS_MAP;
+        HSPUtils hSPUtils = map.get(str);
+        if (hSPUtils == null) {
+            synchronized (HSPUtils.class) {
+                hSPUtils = map.get(str);
+                if (hSPUtils == null) {
+                    hSPUtils = new HSPUtils(str, i);
+                    map.put(str, hSPUtils);
+                }
+            }
+        }
+        return hSPUtils;
+    }
+
+    private HSPUtils(String str) {
+        this.f85sp = HUtilsEx.getApp().getSharedPreferences(str, 0);
+    }
+
+    private HSPUtils(String str, int i) {
+        this.f85sp = HUtilsEx.getApp().getSharedPreferences(str, i);
+    }
+
+    public void put(String str, String str2) {
+        put(str, str2, false);
+    }
+
+    public void put(String str, String str2, boolean z) {
+        if (z) {
+            this.f85sp.edit().putString(str, str2).commit();
+        } else {
+            this.f85sp.edit().putString(str, str2).apply();
+        }
+    }
+
+    public String getString(String str) {
+        return getString(str, SkinID.SKIN_NONE);
+    }
+
+    public String getString(String str, String str2) {
+        return this.f85sp.getString(str, str2);
+    }
+
+    public void put(String str, int i) {
+        put(str, i, false);
+    }
+
+    public void put(String str, int i, boolean z) {
+        if (z) {
+            this.f85sp.edit().putInt(str, i).commit();
+        } else {
+            this.f85sp.edit().putInt(str, i).apply();
+        }
+    }
+
+    public int getInt(String str) {
+        return getInt(str, -1);
+    }
+
+    public int getInt(String str, int i) {
+        return this.f85sp.getInt(str, i);
+    }
+
+    public void put(String str, long j) {
+        put(str, j, false);
+    }
+
+    public void put(String str, long j, boolean z) {
+        if (z) {
+            this.f85sp.edit().putLong(str, j).commit();
+        } else {
+            this.f85sp.edit().putLong(str, j).apply();
+        }
+    }
+
+    public long getLong(String str) {
+        return getLong(str, -1L);
+    }
+
+    public long getLong(String str, long j) {
+        return this.f85sp.getLong(str, j);
+    }
+
+    public void put(String str, float f) {
+        put(str, f, false);
+    }
+
+    public void put(String str, float f, boolean z) {
+        if (z) {
+            this.f85sp.edit().putFloat(str, f).commit();
+        } else {
+            this.f85sp.edit().putFloat(str, f).apply();
+        }
+    }
+
+    public float getFloat(String str) {
+        return getFloat(str, -1.0f);
+    }
+
+    public float getFloat(String str, float f) {
+        return this.f85sp.getFloat(str, f);
+    }
+
+    public void put(String str, boolean z) {
+        put(str, z, false);
+    }
+
+    public void put(String str, boolean z, boolean z2) {
+        if (z2) {
+            this.f85sp.edit().putBoolean(str, z).commit();
+        } else {
+            this.f85sp.edit().putBoolean(str, z).apply();
+        }
+    }
+
+    public boolean getBoolean(String str) {
+        return getBoolean(str, false);
+    }
+
+    public boolean getBoolean(String str, boolean z) {
+        return this.f85sp.getBoolean(str, z);
+    }
+
+    public void put(String str, Set<String> set) {
+        put(str, set, false);
+    }
+
+    public void put(String str, Set<String> set, boolean z) {
+        if (z) {
+            this.f85sp.edit().putStringSet(str, set).commit();
+        } else {
+            this.f85sp.edit().putStringSet(str, set).apply();
+        }
+    }
+
+    public Set<String> getStringSet(String str) {
+        return getStringSet(str, Collections.emptySet());
+    }
+
+    public Set<String> getStringSet(String str, Set<String> set) {
+        return this.f85sp.getStringSet(str, set);
+    }
+
+    public Map<String, ?> getAll() {
+        return this.f85sp.getAll();
+    }
+
+    public boolean contains(String str) {
+        return this.f85sp.contains(str);
+    }
+
+    public void remove(String str) {
+        remove(str, false);
+    }
+
+    public void remove(String str, boolean z) {
+        if (z) {
+            this.f85sp.edit().remove(str).commit();
+        } else {
+            this.f85sp.edit().remove(str).apply();
+        }
+    }
+
+    public void clear() {
+        clear(false);
+    }
+
+    public void clear(boolean z) {
+        if (z) {
+            this.f85sp.edit().clear().commit();
+        } else {
+            this.f85sp.edit().clear().apply();
+        }
+    }
+
+    private static boolean isSpace(String str) {
+        if (str == null) {
+            return true;
+        }
+        int length = str.length();
+        for (int i = 0; i < length; i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

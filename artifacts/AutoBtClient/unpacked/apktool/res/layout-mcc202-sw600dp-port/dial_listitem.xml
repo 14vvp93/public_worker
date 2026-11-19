@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="50.0dip" android:paddingStart="30.0dip" android:paddingEnd="30.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="24.0sp" android:textColor="@android:color/white" android:gravity="center_vertical" android:id="@id/dial_name" android:layout_width="0.0dip" android:layout_height="fill_parent" android:singleLine="true" android:layout_weight="1.0" />
+    <TextView android:textSize="24.0sp" android:textColor="@android:color/white" android:gravity="end|center" android:id="@id/dial_num" android:layout_width="0.0dip" android:layout_height="fill_parent" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="20.0dip" />
+</LinearLayout>

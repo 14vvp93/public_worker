@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingEnd="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/phonebook_listitem_paddingTop" android:paddingBottom="@dimen/phonebook_listitem_paddingTop" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_width="@dimen/phonebook_listitem_contact_layout_width" android:layout_height="@dimen/phonebook_listitem_contact_layout_width" android:src="@drawable/contact" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/history_item" android:paddingBottom="@dimen/phonebook_listitem_phonebook_item_paddingBottom" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/phonebook_listitem_phonebook_item_layout_marginStart">
+            <TextView android:textSize="@dimen/dial_listitem_dial_name_textSize" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:id="@id/item_history_name" android:layout_width="@dimen/phonebook_listitem_item_phonebook_name_layout_width" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textSize="@dimen/phonebook_listitem_item_phonebook_number_textSize" android:textColor="@color/color_white_light" android:ellipsize="end" android:id="@id/item_history_number" android:layout_width="@dimen/phonebook_listitem_item_phonebook_name_layout_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/phonebook_listitem_item_phonebook_number_layout_marginTop" android:singleLine="true" />
+            <TextView android:textSize="@dimen/phonebook_listitem_item_phonebook_number_textSize" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:id="@id/item_history_time" android:visibility="gone" android:layout_width="@dimen/phonebook_listitem_item_phonebook_name_layout_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/phonebook_listitem_item_phonebook_number_layout_marginTop" android:singleLine="true" />
+            <ImageView android:id="@id/btn_call_history_img" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/contact" android:layout_marginEnd="@dimen/x3" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="@dimen/x1024" android:layout_height="@dimen/y600"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/network_layout" android:background="@drawable/dialog_bg" android:visibility="gone" android:layout_width="@dimen/x1024" android:layout_height="@dimen/y600" layout="@layout/activity_bluetooth_net_info" />
+    <LinearLayout android:background="#3f000000" android:visibility="gone" android:layout_width="@dimen/x734" android:layout_height="@dimen/x68" android:layout_marginLeft="@dimen/x60" android:layout_marginTop="@dimen/x19" android:layout_marginStart="@dimen/x60">
+        <TextView android:textSize="@dimen/x19" android:textColor="@android:color/black" android:layout_gravity="center_vertical" android:id="@id/bt_device" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/x30" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/y10">
+        <TextView android:textSize="@dimen/x30" android:textColor="@color/color_blue_dark" android:layout_gravity="center_horizontal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x8" android:text="@string/BtSettingsLabel" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x81" android:text="@string/device_name_string" android:layout_marginStart="@dimen/x81" />
+            <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/tv_edit_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/bt_device_name_text" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="@dimen/x8" />
+            <Button android:id="@id/btn_edit_name_bt" android:background="@drawable/more" android:layout_width="@dimen/y60" android:layout_height="@dimen/y60" android:layout_marginTop="@dimen/x4" android:layout_marginRight="@dimen/x71" android:layout_marginBottom="@dimen/y8" />
+        </LinearLayout>
+        <TextView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="@dimen/y2" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/layout_pin" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x5" android:layout_marginBottom="@dimen/x5" android:minHeight="@dimen/x32">
+                <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x81" android:layout_marginTop="@dimen/x7" android:text="@string/device_pin_string" android:layout_marginStart="@dimen/x81" />
+                <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/tv_edit_pin" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x7" android:text="@string/bt_device_pin_text" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="@dimen/x8" />
+                <Button android:id="@id/btn_edit_pin_bt" android:background="@drawable/more" android:layout_width="@dimen/x60" android:layout_height="@dimen/x60" android:layout_marginTop="@dimen/x4" android:layout_marginRight="@dimen/x71" android:layout_marginBottom="@dimen/y4" />
+            </LinearLayout>
+            <TextView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="@dimen/y2" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x5" android:layout_marginBottom="@dimen/x5" android:minHeight="@dimen/x32">
+            <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x81" android:text="@string/autoanswer_string" android:layout_weight="1.0" android:layout_marginStart="@dimen/x81" />
+            <Button android:id="@id/switch_autoanswer" android:background="@drawable/set_tumbler_off" android:layout_width="@dimen/y104" android:layout_height="@dimen/y56" android:layout_marginTop="@dimen/x4" android:layout_marginRight="@dimen/x71" android:layout_marginBottom="@dimen/y4" />
+        </LinearLayout>
+        <TextView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="@dimen/y2" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x5" android:layout_marginBottom="@dimen/x5" android:minHeight="@dimen/x32">
+            <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x81" android:text="@string/autoconnect_string" android:layout_weight="1.0" android:layout_marginStart="@dimen/x81" />
+            <Button android:id="@id/switch_autoconnect" android:background="@drawable/set_tumbler_off" android:layout_width="@dimen/y104" android:layout_height="@dimen/y56" android:layout_marginTop="@dimen/x4" android:layout_marginRight="@dimen/x71" android:layout_marginBottom="@dimen/y4" />
+        </LinearLayout>
+        <TextView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="@dimen/y2" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x5" android:layout_marginBottom="@dimen/x5" android:minHeight="@dimen/x32">
+            <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x81" android:text="@string/bluetooth_network" android:layout_weight="1.0" android:layout_marginStart="@dimen/x81" />
+            <Button android:id="@id/network_tips" android:background="@drawable/network_tips" android:layout_width="@dimen/x45" android:layout_height="@dimen/x45" android:layout_marginEnd="@dimen/x16" />
+            <Button android:id="@id/network" android:background="@drawable/set_tumbler_off" android:layout_width="@dimen/y104" android:layout_height="@dimen/y56" android:layout_marginTop="@dimen/x4" android:layout_marginRight="@dimen/x71" android:layout_marginBottom="@dimen/y4" android:minWidth="@dimen/x52" />
+        </LinearLayout>
+        <TextView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="@dimen/y2" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x5" android:layout_marginBottom="@dimen/x5" android:minHeight="@dimen/x32">
+            <TextView android:textSize="@dimen/x19" android:textColor="@color/color_blue_dark" android:ellipsize="end" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/x81" android:maxWidth="@dimen/x190" android:text="@string/power_string" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="@dimen/x81" />
+            <Button android:id="@id/switch_power" android:background="@drawable/set_tumbler_on" android:layout_width="@dimen/y104" android:layout_height="@dimen/y56" android:layout_marginTop="@dimen/x4" android:layout_marginRight="@dimen/x71" android:layout_marginBottom="@dimen/y4" />
+        </LinearLayout>
+        <TextView android:background="@drawable/line" android:layout_width="fill_parent" android:layout_height="@dimen/y2" />
+    </LinearLayout>
+</LinearLayout>

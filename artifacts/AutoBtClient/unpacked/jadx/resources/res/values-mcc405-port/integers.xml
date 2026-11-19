@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="mini_call_view_type">0</integer>
+    <integer name="paired_fragment_type">0</integer>
+    <integer name="setup_fragment_type">-1</integer>
+    <integer name="setup_tab_btn_type">-1</integer>
+    <integer name="side_bar_direction">1</integer>
+    <integer name="side_bar_text_size">13</integer>
+</resources>

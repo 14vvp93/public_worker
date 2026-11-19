@@ -1,0 +1,157 @@
+package com.autochips.bluetooth.language;
+
+/* JADX INFO: renamed from: com.autochips.bluetooth.language.R */
+/* JADX INFO: loaded from: classes.dex */
+public final class C0454R {
+
+    /* JADX INFO: renamed from: com.autochips.bluetooth.language.R$string */
+    public static final class string {
+        public static final int BtSettingsLabel = 2131558400;
+        public static final int a2dp_status_title = 2131558401;
+        public static final int a2dpsink_status_connected_info = 2131558402;
+        public static final int a2dpsink_status_notconnected_info = 2131558403;
+        public static final int activate_online = 2131558431;
+        public static final int android_system = 2131558432;
+        public static final int app_name = 2131558434;
+        public static final int auth_passcode = 2131558435;
+        public static final int autoanswer_bt_string = 2131558436;
+        public static final int autoanswer_string = 2131558437;
+        public static final int autoconnect_bt_string = 2131558438;
+        public static final int autoconnect_string = 2131558439;
+        public static final int aux_source = 2131558440;
+        public static final int avrcp_status_title = 2131558441;
+        public static final int avrcpct_status_connected_info = 2131558442;
+        public static final int avrcpct_status_notconnected_info = 2131558443;
+        public static final int bluetooth_device_context_connect = 2131558444;
+        public static final int bluetooth_device_context_disconnect = 2131558445;
+        public static final int bluetooth_device_info_toast = 2131558446;
+        public static final int bluetooth_network = 2131558447;
+        public static final int bluetooth_pairing_device_down_error_message = 2131558448;
+        public static final int bluetooth_pairing_error_message = 2131558449;
+        public static final int bluetooth_pairing_pin_error_message = 2131558450;
+        public static final int bluetooth_pairing_rejected_error_message = 2131558451;
+        public static final int bluetooth_please_power_on_toast = 2131558452;
+        public static final int bluetooth_profile_a2dp = 2131558453;
+        public static final int bluetooth_profile_a2dp_sink = 2131558454;
+        public static final int bluetooth_profile_headset_client = 2131558455;
+        public static final int bluetooth_profile_pan_NAP = 2131558456;
+        public static final int bluetooth_profile_pbap = 2131558457;
+        public static final int bluetooth_unpair_device_message = 2131558458;
+        public static final int bt_device_info = 2131558459;
+        public static final int bt_device_name_text = 2131558460;
+        public static final int bt_device_name_title = 2131558461;
+        public static final int bt_device_pin_text = 2131558462;
+        public static final int bt_device_pin_title = 2131558463;
+        public static final int bt_phonebook_pause_string = 2131558464;
+        public static final int bt_phonebook_search_hint = 2131558465;
+        public static final int bt_phonebook_syn_string = 2131558466;
+        public static final int bt_phonebook_text_hint = 2131558467;
+        public static final int bt_settings_text = 2131558468;
+        public static final int bt_sms_draft = 2131558469;
+        public static final int bt_sms_readed = 2131558470;
+        public static final int bt_sms_sented = 2131558471;
+        public static final int bt_sms_unread = 2131558472;
+        public static final int bt_source = 2131558473;
+        public static final int bt_status_connected = 2131558474;
+        public static final int bt_status_paired = 2131558475;
+        public static final int bt_status_unpair = 2131558476;
+        public static final int bt_switch = 2131558477;
+        public static final int close = 2131558478;
+        public static final int connect = 2131558479;
+        public static final int connecting = 2131558480;
+        public static final int device_name_string = 2131558481;
+        public static final int device_pin_string = 2131558482;
+        public static final int disconnect = 2131558483;
+        public static final int discovery_bt_string = 2131558484;
+        public static final int headrest_a2dp_source = 2131558485;
+        public static final int headrest_a2dp_source_warning = 2131558486;
+        public static final int headrest_reboot_tip = 2131558487;
+        public static final int indiscovery_bt_string = 2131558488;
+        public static final int inputnetwork = 2131558489;
+        public static final int ios_system = 2131558490;
+        public static final int mode_string = 2131558491;
+        public static final int music_label = 2131558492;
+        public static final int music_playing_time = 2131558493;
+        public static final int music_total_time = 2131558494;
+        public static final int next = 2131558495;
+        public static final int non_autoanswer_bt_string = 2131558496;
+        public static final int non_autoconnect_bt_string = 2131558497;
+        public static final int open_bt_string = 2131558498;
+        public static final int openapplenet = 2131558499;
+        public static final int openbtnewshare = 2131558500;
+        public static final int openphonebluetoot = 2131558501;
+        public static final int operation_tip = 2131558502;
+        public static final int pair_fail = 2131558503;
+        public static final int paired_devices_string = 2131558504;
+        public static final int permission_forbidden_toast = 2131558505;
+        public static final int phonebook_unknow_name = 2131558506;
+        public static final int power_string = 2131558507;
+        public static final int scan_btdevice_string = 2131558508;
+        public static final int scan_device = 2131558509;
+        public static final int str_Delete = 2131558512;
+        public static final int str_a2dp_device_connected = 2131558513;
+        public static final int str_a2dp_label = 2131558514;
+        public static final int str_bt_call_abnormal = 2131558515;
+        public static final int str_bt_call_accept_held = 2131558516;
+        public static final int str_bt_call_accept_terminate = 2131558517;
+        public static final int str_bt_call_active = 2131558518;
+        public static final int str_bt_call_held = 2131558519;
+        public static final int str_bt_call_merge = 2131558520;
+        public static final int str_bt_call_multiparty = 2131558521;
+        public static final int str_bt_call_swap = 2131558522;
+        public static final int str_bt_call_waiting = 2131558523;
+        public static final int str_bt_power = 2131558524;
+        public static final int str_call_number_is_empty = 2131558525;
+        public static final int str_call_number_is_too_long = 2131558526;
+        public static final int str_calling = 2131558527;
+        public static final int str_calling_phone_number = 2131558528;
+        public static final int str_connect_a2dp_avrcp = 2131558529;
+        public static final int str_connect_hf = 2131558530;
+        public static final int str_dialed_154 = 2131558531;
+        public static final int str_dicconnected = 2131558532;
+        public static final int str_download_history = 2131558533;
+        public static final int str_download_phonebook = 2131558534;
+        public static final int str_download_phonebook_fail = 2131558535;
+        public static final int str_download_wait_history_tip = 2131558536;
+        public static final int str_download_wait_phonebook_tip = 2131558537;
+        public static final int str_edit_cancel = 2131558538;
+        public static final int str_edit_ok = 2131558539;
+        public static final int str_emergency_service_only = 2131558540;
+        public static final int str_handsfree_device_connected = 2131558541;
+        public static final int str_hfp_label = 2131558542;
+        public static final int str_hid_device_connected = 2131558543;
+        public static final int str_hid_label = 2131558544;
+        public static final int str_income_call_status = 2131558545;
+        public static final int str_invalid_character_in_dial_string = 2131558546;
+        public static final int str_missed_154 = 2131558547;
+        public static final int str_music_album = 2131558548;
+        public static final int str_music_artist = 2131558549;
+        public static final int str_music_title = 2131558550;
+        public static final int str_network_timeout = 2131558551;
+        public static final int str_out_call_status = 2131558552;
+        public static final int str_phone_failure = 2131558553;
+        public static final int str_phone_no_response = 2131558554;
+        public static final int str_rc_browse_not_supported = 2131558555;
+        public static final int str_received_154 = 2131558556;
+        public static final int str_search_devices = 2131558557;
+        public static final int str_update_154 = 2131558558;
+        public static final int str_wifi_and_btnet = 2131558559;
+        public static final int str_zlink_mode = 2131558560;
+        public static final int tab_contacts = 2131558561;
+        public static final int tab_device = 2131558562;
+        public static final int tab_keypad = 2131558563;
+        public static final int tab_recents = 2131558564;
+        public static final int time_text = 2131558565;
+        public static final int title_1 = 2131558566;
+        public static final int title_2 = 2131558567;
+        public static final int unkown = 2131558568;
+        public static final int usable_devices_string = 2131558569;
+        public static final int usb_source = 2131558570;
+
+        private string() {
+        }
+    }
+
+    private C0454R() {
+    }
+}

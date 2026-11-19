@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="@dimen/x1024" android:layout_height="@dimen/y600"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/y5" android:layout_marginStart="@dimen/x38">
+        <RelativeLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="@dimen/y10">
+            <TableLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:layoutDirection="ltr">
+                <TableRow android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:id="@id/btn_call_one" android:background="@drawable/dp_one" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_two" android:background="@drawable/dp_two" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_three" android:background="@drawable/dp_three" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                </TableRow>
+                <TableRow android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:id="@id/btn_call_four" android:background="@drawable/dp_four" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_five" android:background="@drawable/dp_five" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_six" android:background="@drawable/dp_six" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                </TableRow>
+                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:id="@id/btn_call_seven" android:background="@drawable/dp_seven" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_eight" android:background="@drawable/dp_eight" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_nine" android:background="@drawable/dp_nine" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                </TableRow>
+                <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <Button android:id="@id/btn_call_pound" android:background="@drawable/dp_sharp" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_zero" android:background="@drawable/dp_zero" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                    <Button android:id="@id/btn_call_asterisk" android:background="@drawable/dp_star" android:layout_width="@dimen/x150" android:layout_height="@dimen/y106" android:layout_margin="@dimen/y2" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:background="@drawable/call_number_bg" android:layout_width="fill_parent" android:layout_height="@dimen/y445" android:layout_marginTop="@dimen/y13" android:layout_marginBottom="@dimen/y20" android:layout_marginStart="@dimen/x20" android:layout_marginEnd="@dimen/x38">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/y85" android:layout_marginTop="@dimen/y15" android:layout_marginStart="@dimen/x20" android:layout_marginEnd="@dimen/x20">
+                <EditText android:textSize="@dimen/y50" android:textColor="@color/color_blue_dark" android:gravity="center_vertical" android:id="@id/text_call_info" android:background="@android:color/transparent" android:paddingTop="@dimen/y5" android:layout_width="@dimen/x330" android:layout_height="wrap_content" android:layout_marginTop="@dimen/x10" android:singleLine="true" android:layout_marginStart="@dimen/x25" />
+                <Button android:layout_gravity="center" android:id="@id/btn_del_num" android:background="@drawable/backspace" android:layout_width="@dimen/x48" android:layout_height="@dimen/y48" />
+            </LinearLayout>
+            <TextView android:background="@drawable/line" android:layout_width="@dimen/x425" android:layout_height="@dimen/y2" android:layout_marginTop="@dimen/y5" android:layout_marginStart="@dimen/x17" />
+            <ListView android:id="@id/listview_calls" android:layout_width="fill_parent" android:layout_height="@dimen/y215" android:layout_marginTop="@dimen/y5" android:divider="@drawable/line" android:layout_marginStart="@dimen/x20" android:layout_marginEnd="@dimen/x20" />
+            <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/y10">
+                <Button android:layout_gravity="center_horizontal" android:id="@id/btn_call" android:background="@drawable/call" android:layout_width="@dimen/y95" android:layout_height="@dimen/y95" android:layout_marginBottom="@dimen/y25" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

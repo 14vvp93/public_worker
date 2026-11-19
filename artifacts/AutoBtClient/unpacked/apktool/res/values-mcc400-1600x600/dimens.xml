@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="dimen" name="x14">@dimen/x6</item>
+    <item type="dimen" name="x15">@dimen/x8</item>
+    <item type="dimen" name="x16">@dimen/x6</item>
+    <item type="dimen" name="x20">@dimen/x17</item>
+    <item type="dimen" name="x21">@dimen/x17</item>
+    <item type="dimen" name="x22">@dimen/x18</item>
+    <item type="dimen" name="x23">@dimen/x20</item>
+    <item type="dimen" name="x24">@dimen/x20</item>
+    <item type="dimen" name="x30">@dimen/x25</item>
+    <item type="dimen" name="x48">@dimen/x40</item>
+    <item type="dimen" name="x84">@dimen/x70</item>
+    <item type="dimen" name="y1">@dimen/y10</item>
+</resources>
