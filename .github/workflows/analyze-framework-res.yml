@@ -1,0 +1,101 @@
+name: Analyze framework-res APK
+
+on:
+  push:
+    paths:
+      - ".github/workflows/analyze-framework-res.yml"
+      - "artifacts/framework-res/framework-res.apk"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install analysis tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apktool jadx p7zip-full unzip file
+
+      - name: Analyze APK with apktool and JADX
+        working-directory: artifacts/framework-res
+        shell: bash
+        run: |
+          set +e
+          mkdir -p analysis
+          APK="framework-res.apk"
+
+          {
+            echo "# framework-res.apk — analysis report"
+            echo
+            echo "- Generated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            echo "- File: $APK"
+            echo "- Size: $(stat -c '%s bytes' "$APK")"
+            echo
+            echo "## Tool versions"
+            apktool --version
+            jadx --version
+            echo
+            echo "## File identification"
+            file "$APK"
+            echo
+            echo "## ZIP integrity"
+            unzip -t "$APK" | tail -n 3
+            echo
+            echo "## APK entries (first 250)"
+            unzip -Z1 "$APK" | head -n 250
+            echo
+            echo "## DEX files"
+            unzip -Z1 "$APK" | grep -E '(^|/)classes([0-9]+)?\.dex$' || echo "No DEX files found (expected for a resource-only framework APK)."
+          } > analysis/REPORT.md 2>&1
+
+          echo "Running apktool decode..."
+          apktool d -f "$APK" -o analysis/apktool 2>&1 | tee analysis/apktool.log
+          APKTOOL_EXIT=${PIPESTATUS[0]}
+          echo "apktool exit code: $APKTOOL_EXIT" >> analysis/REPORT.md
+
+          echo "Running JADX..."
+          jadx -d analysis/jadx "$APK" > analysis/jadx.log 2>&1
+          JADX_EXIT=$?
+          echo "$JADX_EXIT" > analysis/jadx-exit-code.txt
+          {
+            echo
+            echo "## JADX result"
+            echo "- Exit code: $JADX_EXIT"
+            echo "JADX log follows:"
+            tail -n 80 analysis/jadx.log
+            if ! unzip -Z1 "$APK" | grep -qE '(^|/)classes([0-9]+)?\.dex$'; then
+              echo
+              echo "JADX has no DEX bytecode to decompile because this APK contains no classes*.dex. Resource analysis is provided by apktool."
+            fi
+          } >> analysis/REPORT.md
+
+          echo "Collecting resource statistics..."
+          if [ -d analysis/apktool/res ]; then
+            find analysis/apktool/res -type f | sort > analysis/resource-files.txt
+            find analysis/apktool/res -type f | wc -l > analysis/resource-file-count.txt
+            du -sh analysis/apktool/res > analysis/resource-size.txt
+          fi
+          if [ -d analysis/apktool ]; then
+            find analysis/apktool -maxdepth 2 -type f | sort > analysis/apktool-file-list.txt
+          fi
+          echo "apktool_exit=$APKTOOL_EXIT" >> "$GITHUB_OUTPUT" || true
+          echo "Analysis finished."
+
+      - name: Commit analysis results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A artifacts/framework-res/analysis
+          if ! git diff --cached --quiet; then
+            git commit -m "Analyze framework-res APK with apktool and JADX"
+            git push
+          else
+            echo "No analysis output to commit."
+          fi
