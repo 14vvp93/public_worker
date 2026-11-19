@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="pip_size1_bottom">108</integer>
+    <integer name="pip_size1_right">192</integer>
+    <integer name="pip_size2_bottom">162</integer>
+    <integer name="pip_size2_right">288</integer>
+    <integer name="pip_size3_bottom">216</integer>
+    <integer name="pip_size3_right">384</integer>
+    <integer name="pip_size4_bottom">270</integer>
+    <integer name="pip_size4_right">480</integer>
+</resources>

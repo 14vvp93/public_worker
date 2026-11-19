@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="xt540_btn_all_app_layout_marginStart">270.0dip</dimen>
+    <dimen name="xt540_tv_time_marginStart">706.0dip</dimen>
+    <dimen name="xt540_tv_week_marginStart">26.0dip</dimen>
+    <dimen name="xt540_volume_text_margin_bottom">40.0dip</dimen>
+    <dimen name="xt540_volume_text_margin_start">20.0dip</dimen>
+    <dimen name="xt636_btn_all_app_layout_marginStart">270.0dip</dimen>
+    <dimen name="xt636_tv_time_marginStart">706.0dip</dimen>
+    <dimen name="xt636_tv_week_marginStart">26.0dip</dimen>
+    <dimen name="xt636_volume_text_margin_bottom">60.0dip</dimen>
+    <dimen name="xt636_volume_text_margin_bottom_210">70.0dip</dimen>
+    <dimen name="xt636_volume_text_margin_start">10.0dip</dimen>
+    <dimen name="xt636_volume_text_margin_start_210">15.0dip</dimen>
+</resources>

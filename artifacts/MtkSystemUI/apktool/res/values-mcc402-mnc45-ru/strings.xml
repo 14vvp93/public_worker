@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bt_connected">BT Cоединено</string>
+    <string name="bt_disconnected">BT Нет соединения</string>
+    <string name="quick_settings_screenoff_label">Выкл. Экран</string>
+    <string name="quick_settings_screenshot_label">Перехват экрана</string>
+</resources>

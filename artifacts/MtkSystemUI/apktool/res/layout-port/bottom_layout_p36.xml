@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/bottom_bg_p4" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/air_frame" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="36.0dip">
+        <TextView android:textSize="23.0sp" android:textColor="@color/air_text" android:id="@id/left_temp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="128.0dip" android:layout_marginTop="2.0dip" />
+        <ImageView android:id="@id/wind_direction" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="239.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/wind_null" />
+        <ImageView android:background="@drawable/wind" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="334.0dip" android:layout_marginTop="2.0dip" />
+        <ImageView android:id="@id/wind_level" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="360.0dip" android:layout_marginTop="2.0dip" />
+        <TextView android:textSize="23.0sp" android:textColor="@color/air_text" android:id="@id/wind_level_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="421.0dip" android:layout_marginTop="2.0dip" android:text="@string/wind_0" />
+        <ImageView android:id="@id/cycle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="486.0dip" android:layout_marginTop="2.0dip" android:src="@drawable/cycle_out" />
+        <TextView android:textSize="23.0sp" android:textColor="@color/air_text" android:id="@id/right_temp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="598.0dip" android:layout_marginTop="2.0dip" />
+    </FrameLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageButton android:id="@id/menu_home" android:background="@drawable/hcn_home_p3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageButton android:id="@id/menu_back" android:background="@drawable/btn_back_p3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/menu_home" android:layout_alignLeft="@id/menu_home" />
+        <ImageButton android:id="@id/btn_apps" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        <include layout="@layout/ac_layout_all_p4" />
+        <com.android.systemui.statusbar.phone.VolButton android:id="@id/add_vol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/vol_add_p3" android:layout_alignParentEnd="true" />
+        <com.android.systemui.statusbar.phone.VolButton android:id="@id/reduce_vol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/vol_reduce_p3" android:layout_below="@id/add_vol" android:layout_alignLeft="@id/add_vol" />
+    </RelativeLayout>
+</FrameLayout>

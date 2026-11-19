@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="qs_quick_tile_padding">13.0dip</dimen>
+    <dimen name="qs_quick_tile_size">64.0dip</dimen>
+    <dimen name="qs_tile_height">126.0dip</dimen>
+    <dimen name="qs_tile_icon_size">38.0dip</dimen>
+    <dimen name="qs_tile_text_size">22.0sp</dimen>
+    <dimen name="qs_time_expanded_size">28.0sp</dimen>
+    <dimen name="status_bar_clock_size">28.0sp</dimen>
+    <dimen name="status_bar_icon_drawing_size">42.0dip</dimen>
+    <dimen name="status_bar_icon_size">42.0dip</dimen>
+    <dimen name="xt540_volume_text_size_125_hyx">35.0sp</dimen>
+    <dimen name="xt540_volume_text_size_140_hyx">43.0sp</dimen>
+</resources>

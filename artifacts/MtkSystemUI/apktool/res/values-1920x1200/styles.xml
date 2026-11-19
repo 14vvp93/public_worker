@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BrightnessDialogContainer" parent="@style/BaseBrightnessDialogContainer" />
+    <style name="DockedDividerBackground">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">10.0dip</item>
+    </style>
+    <style name="DockedDividerHandle">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">96.0dip</item>
+        <item name="android:layout_height">48.0dip</item>
+    </style>
+    <style name="DockedDividerMinimizedShadow">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">8.0dip</item>
+    </style>
+    <style name="TextAppearance.Volume.Header" parent="@style/TextAppearance.Volume">
+        <item name="android:textSize">24.0sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Volume.Header.Secondary" parent="@style/TextAppearance.Volume.Header">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">?android:textColorTertiary</item>
+    </style>
+    <style name="Theme.SystemUI" parent="@android:style/TextAppearance.Material.DatePicker.List.YearLabel.Activated">
+        <item name="android:colorControlHighlight">@android:color/btn_leanback_focused</item>
+        <item name="@android:bool/config_batteryStatsResetOnUnplugAfterSignificantCharge">false</item>
+        <item name="@android:bool/config_callNotificationActionColorsRequireColorized">@style/LockPatternStyle</item>
+        <item name="darkIconTheme">@style/DualToneDarkTheme</item>
+        <item name="lightIconTheme">@style/DualToneLightTheme</item>
+        <item name="passwordStyle">@style/PasswordTheme</item>
+        <item name="wallpaperTextColor">@android:color/btn_leanback_focused</item>
+        <item name="wallpaperTextColorSecondary">@android:color/car_body2</item>
+    </style>
+    <style name="Theme.SystemUI.Dialog.Alert" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
+    <style name="Theme.SystemUI.Light" parent="@android:style/TextAppearance.Material.DatePicker.List.YearLabel.Activated">
+        <item name="android:colorControlHighlight">#40000000</item>
+        <item name="passwordStyle">@style/PasswordTheme.Light</item>
+        <item name="wallpaperTextColor">@android:color/btn_leanback_text_color</item>
+        <item name="wallpaperTextColorSecondary">@android:color/car_body2_dark</item>
+    </style>
+    <style name="UserDetailView">
+        <item name="numColumns">3</item>
+    </style>
+</resources>

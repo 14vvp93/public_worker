@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/root" android:background="@drawable/checkbox_dialog_bg" android:paddingTop="@dimen/layout_checkbox_rv_dialog_padding" android:paddingBottom="@dimen/layout_checkbox_rv_dialog_padding" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/layout_checkbox_rv_dialog_title_textSize" android:textColor="@color/layout_checkbox_rv_dialog_title_textColor" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginBottom="20.0dip" android:text="@string/choose_app_title" android:maxLines="1" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" />
+    <android.support.v7.widget.RecyclerView android:id="@id/selected_recyclerview" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ImageView android:id="@id/split_line" android:background="@drawable/pop_line" android:layout_width="fill_parent" android:layout_height="2.0dip" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" android:layout_marginStart="52.0dip" android:layout_marginEnd="52.0dip" />
+    <android.support.v7.widget.RecyclerView android:id="@id/unselected_recyclerview" android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22.0dip" android:layout_marginBottom="22.0dip">
+        <View android:layout_width="0.0dip" android:layout_height="10.0dip" android:layout_weight="3.8" />
+        <Button android:textSize="@dimen/layout_checkbox_rv_dialog_btn_confirm_textSize" android:textColor="@color/layout_checkbox_rv_dialog_btn_confirm_textColor" android:id="@id/btn_confirm" android:background="@drawable/btn_confirm_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_confirm" android:textAllCaps="false" />
+        <View android:layout_width="0.0dip" android:layout_height="10.0dip" android:layout_weight="1.0" />
+        <Button android:textSize="@dimen/layout_checkbox_rv_dialog_btn_confirm_textSize" android:textColor="@color/layout_checkbox_rv_dialog_btn_confirm_textColor" android:id="@id/btn_cancel" android:background="@drawable/btn_cancel_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_cancel" android:textAllCaps="false" />
+        <View android:layout_width="0.0dip" android:layout_height="10.0dip" android:layout_weight="3.8" />
+    </LinearLayout>
+</LinearLayout>

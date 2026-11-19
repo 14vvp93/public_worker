@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apps>
+    <app packageName="com.hcn.autoradio">xt617_bottom_icon_radio_n</app>
+    <app packageName="com.hcn.autosetting">xt617_bottom_icon_auto_settings_n</app>
+    <app packageName="com.hcn.voicesystem">xt617_bottom_icon_voice_n</app>
+    <app packageName="com.hcn.gallery">xt617_bottom_icon_gallery_n</app>
+    <app className="com.hcn.MediaActivity.MusicPlayerUiActivity" packageName="com.hcn.AutoMediaPlayer">xt617_bottom_icon_music_n </app>
+    <app className="com.hcn.MediaActivity.VideoPlayerUiActivity" packageName="com.hcn.AutoMediaPlayer">xt617_bottom_icon_video_n </app>
+    <app packageName="com.hcn.autoeq">xt617_bottom_icon_eq_n</app>
+    <app packageName="com.hcn.autouserguide">xt617_bottom_icon_user_n</app>
+    <app packageName="com.hcn.autocan">xt617_bottom_icon_auto_can_n</app>
+    <app hidden="true" packageName="com.hcn.swc" />
+    <app hidden="true" packageName="com.hcn.mcuupgrade" />
+    <app hidden="true" packageName="com.hcn.canupgrade" />
+    <app hidden="true" packageName="com.hcn.screensaver" />
+    <app className="com.auto.hcamera.VideoInActivity" packageName="com.auto.hcamera">xt617_bottom_icon_aux_n </app>
+    <app className="com.auto.hcamera.VideoInActivityTV" packageName="com.auto.hcamera">xt617_bottom_icon_tv_n </app>
+    <app className="com.auto.hcamera.FCameraVideoInActivity" packageName="com.auto.hcamera">xt617_bottom_icon_fcamera_n </app>
+    <app className="com.auto.hcamera.HCameraActivity" packageName="com.auto.hcamera">xt617_bottom_icon_avm_n </app>
+    <app className="com.hcn.autoupdate.MainActivity" packageName="com.hcn.autoupdate">xt617_bottom_icon_auto_update_n </app>
+    <app className="com.hcn.autoupdate.MainActivity" packageName="icon_download_n">xt617_bottom_icon_download_n </app>
+    <app packageName="com.autochips.avmplayer">xt617_bottom_icon_avm_n</app>
+    <app packageName="ivicar.cn.ivicaravm">xt617_bottom_icon_avm_n</app>
+    <app className="com.autochips.bluetooth.MainBluetoothActivity" packageName="com.autochips.bluetooth">xt617_bottom_icon_bluetooth_n </app>
+    <app className="com.autochips.bluetooth.BtMusicActivity" packageName="com.autochips.bluetooth">xt617_bottom_icon_bt_music_n </app>
+    <app packageName="com.android.browser">xt617_bottom_icon_browser_n</app>
+    <app packageName="com.calendar.hcncalendar">xt617_bottom_icon_calendar_n</app>
+    <app packageName="com.mediatek.filemanager">xt617_bottom_icon_folder_n</app>
+    <app packageName="com.hcn.autofilemanager">xt617_bottom_icon_folder_n</app>
+    <app hidden="true" packageName="com.android.documentsui">xt617_bottom_icon_folder_n</app>
+    <app packageName="com.android.settings">xt617_bottom_icon_settings_n</app>
+    <app packageName="com.android.chrome">xt617_bottom_icon_chrome_n</app>
+    <app packageName="com.android.vending">xt617_bottom_icon_play_store_n</app>
+    <app packageName="com.iflytek.inputmethod.pad">xt617_bottom_icon_ifly_n</app>
+    <app packageName="com.papago.M11SGMY">xt617_bottom_icon_papago_n</app>
+    <app packageName="com.google.android.youtube">xt617_bottom_icon_youtube_n</app>
+    <app packageName="com.cloudtv">xt617_bottom_icon_cloudtv_n</app>
+    <app packageName="com.autonavi.amapauto">xt617_bottom_icon_gaodemap_n</app>
+    <app packageName="com.txznet.webchat">xt617_bottom_icon_wechat_n</app>
+    <app packageName="cn.kuwo.kwmusiccar">xt617_bottom_icon_ku_wo_n</app>
+    <app packageName="com.kaolafm.kradio.k_radio_horizontal">xt617_bottom_icon_kao_la_fm_n</app>
+    <app packageName="cn.kuwo.tingshucar">xt617_bottom_icon_kuwo_ting_shu_car_n</app>
+    <app packageName="net.easyconn">xt617_bottom_icon_connect_n</app>
+    <app packageName="com.hcn.autoweather">xt617_bottom_icon_weather_n</app>
+    <app packageName="com.google.android.apps.maps">xt617_bottom_icon_google_maps_n</app>
+    <app packageName="com.google.android.googlequicksearchbox">xt617_bottom_icon_google_n</app>
+    <app packageName="com.netflix.mediaclient">xt617_bottom_icon_netflix_n</app>
+    <app packageName="com.android.vending">xt617_bottom_icon_play_store_n</app>
+    <app packageName="com.spotify.music">xt617_bottom_icon_spotify_n</app>
+    <app packageName="com.edog.car">xt617_bottom_icon_yunting_n</app>
+    <app packageName="com.zjinnova.zlink">xt617_bottom_icon_zlink_n</app>
+    <app packageName="com.autochips.avmplayer">xt617_bottom_icon_360_n</app>
+    <app packageName="com.tencent.wecarflow">xt617_bottom_icon_aiquting_n</app>
+    <app className="com.autochips.bluetooth.BtPairedHistoryActivity_CP" packageName="com.autochips.bluetooth">xt617_bottom_icon_androidauto_n </app>
+    <app className="com.hcn.carplayapp.activity.CarplayAppActivity" packageName="com.hcn.carplayapp">xt617_bottom_icon_carplay_n </app>
+    <app packageName="com.google.android.apps.maps">xt617_bottom_icon_maps_n</app>
+    <app packageName="com.hcn.themepicker">xt617_bottom_icon_themepicker_n</app>
+    <app packageName="com.waze">xt617_bottom_icon_waze_n</app>
+</apps>

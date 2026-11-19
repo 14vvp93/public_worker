@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:background="@drawable/p45_voice_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SeekBar android:id="@id/seekbar" android:layout_width="@dimen/p45_volume_dialog_seekbar_width" android:layout_height="@dimen/p45_volume_dialog_seekbar_height" android:maxHeight="@dimen/p45_volume_dialog_seekbar_height" android:progressDrawable="@drawable/p45_volume_seekbar" android:minHeight="@dimen/p45_volume_dialog_seekbar_height" android:thumb="@null" android:paddingStart="10.0dip" android:paddingEnd="10.0dip" />
+    <ImageView android:id="@id/ivVolume" android:background="@drawable/p45_icon_volume_add_n" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_marginStart="12.0dip" android:layout_alignStart="@id/seekbar" />
+</RelativeLayout>

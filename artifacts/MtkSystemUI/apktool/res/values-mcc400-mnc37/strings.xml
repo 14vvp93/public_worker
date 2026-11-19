@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auto_quick_settings_tiles_default">wifi,screenoff,reboot,memorycleaner,screenshot</string>
+    <string name="auto_quick_settings_tiles_stock">wifi,screenoff,reboot,memorycleaner,screenshot</string>
+</resources>

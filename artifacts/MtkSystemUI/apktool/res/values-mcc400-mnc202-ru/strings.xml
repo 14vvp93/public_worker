@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quick_settings_mute_label">Выкл. Звук</string>
+    <string name="reboot">Перезагрузка</string>
+    <string name="reboot_msg">Подтвердите перезагрузку！</string>
+    <string name="sure">Ок</string>
+</resources>

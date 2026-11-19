@@ -1,0 +1,846 @@
+		broadcast
+	 service=
+	broadcast
+	isService
+	mServices
+  Service states:
+  Service version: 
+  config_systemUIServiceComponents
+  mLastServiceState=
+  mServiceState=
+  runningservices_settings_summary
+ Contact your wireless service provider for another SIM card.
+ ForegroundServiceController.java
+ Landroid/content/pm/ServiceInfo;
+ Landroid/service/dreams/Sandman;
+ Landroid/telephony/ServiceState;
+ Makipag-ugnayan sa iyong wireless service provider para sa isa pang SIM card.
+ Neem contact op met je mobiele serviceprovider voor een nieuwe simkaart.
+ SIM ready and in service: subId=
+ android.media.token.service_name
+ callServiceDisconnectedListeners
+ config_systemUIServiceComponents
+ from service 
+ getServiceStateForCustomizedView
+ onServiceConnected 
+ runningservices_settings_summary
+ serviceState=
+ servicestate = 
+ updateAccessibilityServicesState
+!!Fehler des Sprachfreigabeservice.
+!!https://www.example.com/proxy.pac
+!!running_foreground_services_title
+!Caught exception from TileService
+!Landroid/os/IThermalService$Stub;
+!Service State changed...phoneId: 
+!SystemUISecondaryUserService.java
+![Landroid/content/pm/ServiceInfo;
+!lambda$sendUserPresentBroadcast$1
+!running_foreground_services_title
+"#Erreur du service d
+"Could not send message to service.
+"Landroid/media/IAudioService$Stub;
+"Landroid/net/INetworkStatsService;
+"SELECT_LOGPERSIST_PROPERTY_SERVICE
+"Session service needs service name
+"android.media.MediaLibraryService2
+"com.hcn.autocan.service.CanService
+"getEnabledAccessibilityServiceList
+"mSendRemoveIPOWinBroadcastRunnable
+"startSecondaryUserServicesIfNeeded
+##com.android.systemui.VendorServices
+#KeyguardService.mBinder#setOccluded
+#Landroid/content/BroadcastReceiver;
+#Landroid/content/ServiceConnection;
+#Landroid/security/IKeyChainService;
+#Lost connection to launcher service
+#MediaBrowserServiceCompatApi21.java
+#MediaBrowserServiceCompatApi23.java
+#MediaBrowserServiceCompatApi26.java
+#MediatekZeroTopPaddingTextView.java
+#ScreenshotServiceErrorReceiver.java
+#android.intent.action.SERVICE_STATE
+#android.permission.CONTROL_KEYGUARD
+#com.mediatek.ims.MTK_IMS_SERVICE_UP
+#com.mediatek.server.lwa.EXTRA_STATE
+#onAccessibilityServicesStateChanged
+#sServicesSystemSharedLibPackageName
+$ForegroundServiceControllerImpl.java
+$KeyguardService.mBinder#verifyUnlock
+$Landroid/service/quicksettings/Tile;
+$Landroid/service/vr/IVrManager$Stub;
+$Lmediatek/telephony/MtkServiceState;
+$Starting SystemUI services for user 
+$com.hcn.appstore.START_STORE_SERVICE
+$com.mediatek.intent.action.MSIM_MODE
+$show spn instead 'no service' here: 
+%%config_systemUIVendorServiceComponent
+%Failed to get value from hvac service
+%KeyguardService.mBinder#onSystemReady
+%Landroid/service/dreams/DreamService;
+%Lcom/android/systemui/VendorServices;
+%Lcom/mediatek/common/ppl/IPplManager;
+%com.hcn.autocan.aidl.IAirCtrlServices
+%config_systemUIVendorServiceComponent
+&&res/layout/foreground_service_item.xml
+&ForegroundServiceLifetimeExtender.java
+&Landroid/service/dreams/IDreamManager;
+&Landroid/service/vr/IVrStateCallbacks;
+&Lcom/android/systemui/SystemUIService;
+&Ljava/util/concurrent/ExecutorService;
+&com.mediatek.server.lwa.EXTRA_PHONE_ID
+&onImsDisconnected STATE_OUT_OF_SERVICE
+''config_systemUIServiceComponentsPerUser
+''res/layout/foreground_service_title.xml
+'Landroid/net/INetworkStatsService$Stub;
+'Lcom/android/systemui/doze/DozeService;
+'Lcom/hcn/autocan/aidl/IAirCtrlServices;
+'activeServiceSupportsLaunchFromKeyguard
+'android.intent.action.QUICKSTEP_SERVICE
+'android.media.MediaRouteProviderService
+'android.permission.ACCESS_FINE_LOCATION
+'config_systemUIServiceComponentsPerUser
+'doBindAntiThftLockServices() is called.
+(KeyguardService.mBinder#onScreenTurnedOn
+(Landroid/service/notification/Condition;
+(Lcom/android/systemui/SystemUIService$1;
+(android.media.browse.MediaBrowserService
+(android.permission.WRITE_SECURE_SETTINGS
+(com.mediatek.phone.SIMME_LOCK_LEFT_COUNT
+(com.mediatek.systemui.KEYCODE_MEDIA_NEXT
+)KeyguardService.mBinder#onScreenTurningOn
+)KeyguardService.mBinder#onStartedWakingUp
+)Lcom/android/systemui/tuner/TunerService;
+)Lcom/mediatek/ims/internal/MtkImsManager;
+)android.permission.ACCESS_COARSE_LOCATION
+)android.service.quicksettings.ACTIVE_TILE
+)com.mediatek.phone.ACTION_UNLOCK_SIM_LOCK
+)getServicesSystemSharedLibraryPackageName
+**config_systemUIServiceComponents_atc_later
+*KeyguardService.mBinder#onFinishedWakingUp
+*Landroid/service/quicksettings/IQSService;
+*Lcom/mediatek/common/ppl/IPplManager$Stub;
+*Lcom/mediatek/systemui/ext/IMobileIconExt;
+*Unable to bind to prewarm service package=
+*com.mediatek.phone.QUERY_SIMME_LOCK_RESULT
+*config_systemUIServiceComponents_atc_later
+*http://schemas.android.com/apk/res/android
+*updateTelephonySignalStrength: hasService=
+++View and control currently running services
+++config_systemUIServiceComponents_atc_normal
++: Service returned invalid messenger binder
++Landroid/service/dreams/IDreamManager$Stub;
++Landroid/service/media/MediaBrowserService;
++Landroid/service/vr/IVrStateCallbacks$Stub;
++Lcom/android/systemui/OverviewProxyService;
++Lcom/android/systemui/SysUiServiceProvider;
++Lcom/android/systemui/tuner/TunerService$1;
++Lcom/mediatek/keyguard/PowerOffAlarm/Alarm;
++Lcom/mediatek/keyguard/ext/ICarrierTextExt;
++addAccessibilityServicesStateChangeListener
++android.permission.BIND_QUICK_SETTINGS_TILE
++config_systemUIServiceComponents_atc_normal
++content://com.android.systemui.keyguard/dnd
++mediatek.intent.action.LOCATED_PLMN_CHANGED
+, mServiceStartTime=
+, serviceState=
+,Landroid/service/notification/ZenModeConfig;
+,Landroid/service/wallpaper/WallpaperService;
+,Lcom/hcn/autocan/aidl/IAirCtrlServices$Stub;
+,Lcom/mediatek/keyguard/PowerOffAlarm/Alarms;
+,Lcom/mediatek/keyguard/ext/IKeyguardUtilExt;
+,[Lcom/mediatek/keyguard/PowerOffAlarm/Alarm;
+,android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+,android.permission.NOTIFICATION_DURING_SETUP
+,android.service.quicksettings.action.QS_TILE
+,com.mediatek.systemui.KEYCODE_MEDIA_PREVIOUS
+,content://com.android.systemui.keyguard/date
+,content://com.android.systemui.keyguard/main
+,mediatek.intent.action.ACTION_MD_TYPE_CHANGE
+,mediatek.intent.action.LAUNCH_POWEROFF_ALARM
+-Lcom/android/systemui/OverviewProxyService$1;
+-Lcom/android/systemui/OverviewProxyService$2;
+-Lcom/android/systemui/OverviewProxyService$3;
+-Lcom/android/systemui/OverviewProxyService$4;
+-Lcom/android/systemui/tuner/TunerServiceImpl;
+-Lcom/mediatek/keyguard/PowerOffAlarm/Alarm$1;
+-bindPplService() - error in bind ppl service.
+-content://com.android.systemui.keyguard/alarm
+-mBroadcastReceiver fail not qspanel, action: 
+-mRemote service detached before able to query
+.Landroid/service/notification/SnoozeCriterion;
+.Landroid/service/quicksettings/IQSTileService;
+.Landroid/view/textservice/TextServicesManager;
+.Lcom/android/internal/policy/IShortcutService;
+.Lcom/mediatek/keyguard/ext/IOperatorSIMString;
+.Lcom/mediatek/settingslib/wifi/AccessPointExt;
+.Lcom/mediatek/telephony/MtkTelephonyManagerEx;
+.content://com.android.systemui.keyguard/action
+.removeAccessibilityServicesStateChangeListener
+//com.android.systemui.SliceBroadcastRelayHandler
+/Landroid/service/quicksettings/IQSService$Stub;
+/Lcom/android/systemui/ForegroundServicesDialog;
+/Lcom/android/systemui/doze/DozeMachine$Service;
+/Lcom/android/systemui/keyguard/KeyguardService;
+/Lcom/android/systemui/qs/external/TileServices;
+/Lcom/android/systemui/tuner/TunerServiceImpl$1;
+/Lcom/mediatek/keyguard/ext/IEmergencyButtonExt;
+/PhoneStateListener:onServiceStateChanged, slot 
+/com.mediatek.phone.ACTION_EF_CSP_CONTENT_NOTIFY
+/com.mediatek.server.lwa.LWA_STATE_CHANGE_ACTION
+0Cannot notify state to WallpaperManagerService: 
+0Lcom/android/systemui/fragments/FragmentService;
+0Lcom/android/systemui/plugins/DozeServicePlugin;
+0Lcom/mediatek/ims/MtkImsConnectionStateListener;
+0Lcom/mediatek/systemui/ext/DefaultMobileIconExt;
+0Lcom/mediatek/systemui/ext/INavigationBarPlugin;
+0Lcom/mediatek/systemui/ext/IQuickSettingsPlugin;
+0Lcom/mediatek/systemui/ext/IStatusBarPlmnPlugin;
+0Lcom/mediatek/systemui/statusbar/util/SIMHelper;
+0android.media.still_image_camera_preview_service
+0onImsConnected STATE_IN_SERVICE, imsRadioTech = 
+1Cannot send toggle recents through proxy service.
+1Landroid/bluetooth/BluetoothPbap$ServiceListener;
+1Landroid/service/settings/suggestions/Suggestion;
+1Lcom/android/systemui/ForegroundServicesDialog$1;
+1Lcom/android/systemui/SliceBroadcastRelayHandler;
+1Lcom/android/systemui/keyguard/KeyguardService$1;
+1Lcom/android/systemui/qs/external/TileServices$1;
+1Lcom/android/systemui/qs/external/TileServices$2;
+1Lcom/android/systemui/qs/external/TileServices$3;
+1Lcom/android/systemui/tuner/TunerService$Tunable;
+1Lcom/mediatek/internal/telephony/IMtkTelephonyEx;
+1Lcom/mediatek/keyguard/ext/DefaultCarrierTextExt;
+1Lcom/mediatek/systemui/ext/ISystemUIStatusBarExt;
+1doPplLockCheck() - error in get PPLAgent service.
+2KeyguardService.mBinder#startKeyguardExitAnimation
+2Landroid/service/media/MediaBrowserService$Result;
+2Landroid/service/media/MediaBrowserService$Result<
+2Lcom/android/internal/statusbar/IStatusBarService;
+2Lcom/android/systemui/ForegroundServiceController;
+2Lcom/hcn/autocan/aidl/IAirCtrlServices$Stub$Proxy;
+2Lcom/mediatek/keyguard/AntiTheft/AntiTheftManager;
+2Lcom/mediatek/keyguard/Clock/MediatekDigitalClock;
+2Lcom/mediatek/keyguard/ext/DefaultKeyguardUtilExt;
+2Lcom/mediatek/systemui/qs/tiles/ext/QsIconWrapper;
+2Lvendor/mediatek/hardware/pplagent/V1_0/IPplAgent;
+3Landroid/accessibilityservice/AccessibilityService;
+3Landroid/service/quicksettings/IQSTileService$Stub;
+3Landroid/service/wallpaper/WallpaperService$Engine;
+3Lcom/android/internal/policy/IKeyguardService$Stub;
+3Lcom/android/internal/policy/IShortcutService$Stub;
+3Lcom/android/systemui/SliceBroadcastRelayHandler$1;
+3Lcom/android/systemui/SystemUISecondaryUserService;
+3Lcom/mediatek/systemui/qs/tiles/ext/MobileDataTile;
+3android.permission.RECORD_AUDIO required for search
+3mediatek.intent.action.EMBMS_SESSION_STATUS_CHANGED
+4Landroid/bluetooth/BluetoothProfile$ServiceListener;
+4Landroid/service/notification/StatusBarNotification;
+4Landroid/service/notification/ZenModeConfig$ZenRule;
+4Landroid/support/v4/media/MediaBrowserServiceCompat;
+4Lcom/mediatek/keyguard/AntiTheft/AntiTheftManager$1;
+4Lcom/mediatek/keyguard/AntiTheft/AntiTheftManager$2;
+4Lcom/mediatek/keyguard/AntiTheft/AntiTheftManager$3;
+4Lcom/mediatek/keyguard/AntiTheft/AntiTheftManager$4;
+4Lcom/mediatek/keyguard/Clock/MediatekDigitalClock$1;
+4Lcom/mediatek/keyguard/ext/DefaultOperatorSIMString;
+4Lcom/mediatek/systemui/qs/tiles/ext/ApnSettingsTile;
+4com.mediatek.keyguard.VoiceWakeup.VoiceWakeupManager
+4phoneService is gone, skip supplyPinForSubscriber().
+4phoneService is gone, skip supplyPukForSubscriber().
+5Lcom/android/systemui/qs/external/TileServiceManager;
+5Lcom/mediatek/keyguard/ext/DefaultEmergencyButtonExt;
+5Lcom/mediatek/systemui/qs/tiles/ext/MobileDataTile$1;
+5Lcom/mediatek/systemui/statusbar/extcb/IconIdWrapper;
+5Lcom/mediatek/systemui/statusbar/util/FeatureOptions;
+5[Landroid/service/notification/StatusBarNotification;
+5bindPplService() -- the ppl service is already bound.
+6Landroid/support/v4/media/MediaBrowserServiceCompat$1;
+6Landroid/support/v4/media/MediaBrowserServiceCompat$2;
+6Landroid/support/v4/media/MediaBrowserServiceCompat$3;
+6Landroid/support/v4/media/MediaBrowserServiceCompat$4;
+6Lcom/android/systemui/ForegroundServiceControllerImpl;
+6Lcom/android/systemui/tuner/TunerServiceImpl$Observer;
+6Lcom/mediatek/internal/telephony/IMtkTelephonyEx$Stub;
+6Lcom/mediatek/keyguard/Clock/MediatekDigitalClock$1$1;
+6Lcom/mediatek/keyguard/PowerOffAlarm/Alarm$DaysOfWeek;
+6Lcom/mediatek/systemui/ext/DefaultNavigationBarPlugin;
+6Lcom/mediatek/systemui/ext/DefaultQuickSettingsPlugin;
+6Lcom/mediatek/systemui/ext/DefaultStatusBarPlmnPlugin;
+6Lcom/mediatek/systemui/qs/tiles/ext/ApnSettingsTile$1;
+6Lcom/mediatek/systemui/qs/tiles/ext/ApnSettingsTile$2;
+6[Lcom/mediatek/systemui/statusbar/extcb/IconIdWrapper;
+6android.service.quicksettings.action.REQUEST_LISTENING
+6com.mediatek.filemanager/.FileManagerOperationActivity
+77%1$s Disable eSIM to use device without mobile service.
+77%1$s. Tap to mute. Accessibility services may be muted.
+7Landroid/accessibilityservice/AccessibilityServiceInfo;
+7Landroid/service/media/MediaBrowserService$BrowserRoot;
+7Lcom/android/internal/statusbar/IStatusBarService$Stub;
+7Lcom/android/systemui/qs/external/QSTileServiceWrapper;
+7Lcom/android/systemui/qs/external/TileServiceManager$1;
+7Lcom/android/systemui/qs/external/TileServiceManager$2;
+7Lcom/android/systemui/qs/external/TileServiceManager$3;
+7Lcom/android/systemui/recents/RecentsSystemUserService;
+7Lcom/android/systemui/recents/misc/SystemServicesProxy;
+7Lcom/android/systemui/screenshot/TakeScreenshotService;
+7Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;
+7Lcom/android/systemui/tuner/TunerService$ClearReceiver;
+7Lcom/android/systemui/util/leak/GarbageMonitor$Service;
+7Lcom/mediatek/keyguard/Clock/MediatekDigitalClock$AmPm;
+7Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmView;
+7Lcom/mediatek/keyguard/Telephony/KeyguardDialogManager;
+7Lcom/mediatek/systemui/ext/DefaultSystemUIStatusBarExt;
+88Services die momenteel actief zijn, weergeven en beheren
+8Lcom/android/systemui/ForegroundServiceControllerImpl$1;
+8Lcom/android/systemui/doze/DozeMachine$Service$Delegate;
+8Lcom/mediatek/internal/telephony/MtkSubscriptionManager;
+8Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease;
+8Lcom/mediatek/systemui/qs/tiles/ext/DualSimSettingsTile;
+8android.service.quicksettings.action.QS_TILE_PREFERENCES
+9Landroid/service/settings/suggestions/ISuggestionService;
+9Landroid/support/v4/media/MediaBrowserServiceCompatApi21;
+9Landroid/support/v4/media/MediaBrowserServiceCompatApi23;
+9Landroid/support/v4/media/MediaBrowserServiceCompatApi26;
+9Lcom/android/systemui/recents/misc/SystemServicesProxy$1;
+9Lcom/android/systemui/screenshot/TakeScreenshotService$1;
+9Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$1;
+9Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;
+9Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmView$1;
+9Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmView$2;
+9Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView;
+9android.service.media.CameraPrewarmService.ACTION_PREWARM
+: Service connection died
+: Service connection error - 
+: Service disconnected
+:Landroid/service/notification/NotificationListenerService;
+:Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager;
+:Lcom/mediatek/systemui/qs/tiles/ext/DualSimSettingsTile$1;
+:Lcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile;
+;Landroid/support/v4/media/MediaBrowserServiceCompat$Result;
+;Landroid/support/v4/media/MediaBrowserServiceCompat$Result<
+;Lcom/android/systemui/screenshot/TakeScreenshotService$1$1;
+;Lcom/hcn/autocan/aidl/AirCtrlManager$InitBroadcastReceiver;
+;Lcom/mediatek/keyguard/AntiTheft/KeyguardAntiTheftLockView;
+;Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Tweener;
+;Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$1;
+;Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$2;
+;Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$3;
+;Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$4;
+;Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$5;
+;Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$6;
+;Lcom/mediatek/keyguard/VoiceWakeup/VoiceWakeupManagerProxy;
+;com.mediatek.keyguard.op01.Op01KeyguardCustomizationFactory
+;com.mediatek.keyguard.op02.Op02KeyguardCustomizationFactory
+;com.mediatek.keyguard.op09.Op09KeyguardCustomizationFactory
+;com.mediatek.op03.systemui.Op03SystemUICustomizationFactory
+;com.mediatek.op07.systemui.OP07SystemUICustomizationFactory
+;com.mediatek.op08.systemui.Op08SystemUICustomizationFactory
+;com.mediatek.op18.systemui.Op18SystemUICustomizationFactory
+;com.mediatek.op20.systemui.Op20SystemUICustomizationFactory
+;com.mediatek.systemui.op01.Op01SystemUICustomizationFactory
+;com.mediatek.systemui.op02.Op02SystemUICustomizationFactory
+;com.mediatek.systemui.op09.Op09SystemUICustomizationFactory
+<Lcom/android/systemui/plugins/DozeServicePlugin$RequestDoze;
+<Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager$1;
+<Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager$2;
+<Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager$3;
+<Lcom/mediatek/keyguard/ext/IOperatorSIMString$SIMChangedTag;
+<Lcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$1;
+<cannot find thermalservice, no throttling push notifications
+=Lcom/mediatek/common/util/OperatorCustomizationFactoryLoader;
+=Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quad;
+=Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Tweener$1;
+=[Lcom/mediatek/keyguard/ext/IOperatorSIMString$SIMChangedTag;
+>Lcom/mediatek/internal/telephony/MtkIccCardConstants$CardType;
+>Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager$1$1;
+>Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager$2$1;
+>Lcom/mediatek/keyguard/PowerOffAlarm/PowerOffAlarmManager$2$2;
+>Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Cubic;
+>Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quart;
+>Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/PointCloud;
+>Lcom/mediatek/keyguard/ext/OpKeyguardCustomizationFactoryBase;
+>Lcom/mediatek/systemui/ext/OpSystemUICustomizationFactoryBase;
+>Lcom/mediatek/systemui/statusbar/networktype/NetworkTypeUtils;
+?Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quad$1;
+?Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quad$2;
+?Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quad$3;
+?Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView;
+?Lcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$Toast;
+?com.mediatek.keyguard.op09clip.Op09KeyguardCustomizationFactory
+?com.mediatek.systemui.op09clip.Op09SystemUICustomizationFactory
+@Landroid/support/v4/media/MediaBrowserServiceCompat$BrowserRoot;
+@Landroid/support/v4/media/MediaBrowserServiceCompat$Result<TT;>;
+@Lcom/android/systemui/SliceBroadcastRelayHandler$BroadcastRelay;
+@Lcom/android/systemui/screenshot/ScreenshotServiceErrorReceiver;
+@Lcom/android/systemui/statusbar/phone/StatusBar$DozeServiceHost;
+@Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Cubic$1;
+@Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Cubic$2;
+@Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Cubic$3;
+@Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quart$1;
+@Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quart$2;
+@Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Ease$Quart$3;
+@Lcom/mediatek/systemui/qs/tiles/ext/MobileDataTile$CallbackInfo;
+@Lcom/mediatek/systemui/statusbar/networktype/NetworkTypeUtils$1;
+@Ljava/util/List<Landroid/service/notification/SnoozeCriterion;>;
+A2dpServiceListener
+A2dpSinkServiceListener
+AA%1$s. Tap to set to vibrate. Accessibility services may be muted.
+ALandroid/support/v4/content/ContextCompat$LegacyServiceMapHolder;
+ALcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;
+ALcom/android/settingslib/bluetooth/PanProfile$PanServiceListener;
+ALcom/android/systemui/OverviewProxyService$OverviewProxyListener;
+ALcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;
+ALcom/android/systemui/tuner/TunablePadding$TunablePaddingService;
+ALcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$1;
+ALcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$2;
+ALcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$3;
+ALcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$4;
+ALcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$5;
+Actieve services
+Aucun service.
+BLandroid/service/notification/NotificationListenerService$Ranking;
+BLcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;
+BLcom/android/systemui/fragments/FragmentService$FragmentHostState;
+BLcom/android/systemui/statusbar/ForegroundServiceLifetimeExtender;
+BLcom/android/systemui/statusbar/phone/StatusBar$DozeServiceHost$1;
+BLcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/TargetDrawable;
+BLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$Toast$TN;
+BLjava/util/Set<Lcom/android/systemui/tuner/TunerService$Tunable;>;
+Blocco broadcast
+Bluetooth service connected
+Bluetooth service connected :-)
+Bluetooth service disconnected
+Broadcast Tile
+Broadcast na Tile
+Broadcast sent successfully
+Broadcast-Kachel
+Broadcast-ikon
+BroadcastRelay
+CLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceHandler;
+CLcom/android/settingslib/bluetooth/A2dpProfile$A2dpServiceListener;
+CLcom/android/systemui/ForegroundServiceControllerImpl$UserServices;
+CLcom/mediatek/systemui/ext/ISystemUIStatusBarExt$StatusBarCallback;
+CLjava/util/List<Landroid/service/settings/suggestions/Suggestion;>;
+CarNavigationButton_broadcast
+Connecting to HVAC service
+DLcom/mediatek/keyguard/PowerOffAlarm/MediatekZeroTopPaddingTextView;
+DLcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/PointCloud$Point;
+DLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimMe;
+DLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$Toast$TN$1;
+DLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$Toast$TN$2;
+DozeService
+DozeService.java
+DozeServiceHost
+DozeServicePlugin.java
+ELandroid/service/notification/NotificationListenerService$RankingMap;
+ELandroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
+ELandroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
+ELandroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;
+ELcom/android/settingslib/bluetooth/HidProfile$HidHostServiceListener;
+FCaller needs permission 'android.permission.CONTROL_KEYGUARD' to call 
+FF%1$s. Tik om te dempen. Toegankelijkheidsservices kunnen zijn gedempt.
+FLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;
+FLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimMe$1;
+FLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimMe$2;
+Failed to bind to service
+ForegroundServicesDialog
+ForegroundServicesDialog.java
+FragmentService.java
+GLandroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord$1;
+GLandroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;
+GLandroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper<
+GLandroid/support/v4/media/MediaBrowserServiceCompatApi26$ResultWrapper;
+GLcom/mediatek/keyguard/Clock/MediatekDigitalClock$FormatChangeObserver;
+GLcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$SIMConnState;
+Geen service.
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$1;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$2;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$3;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$4;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$5;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$6;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$7;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$8;
+HLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$9;
+HLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimPinPuk;
+H[Lcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$SIMConnState;
+HeadsetServiceListener
+HearingAidServiceListener
+HfpClientServiceListener
+HidDeviceServiceListener
+HidHostServiceListener
+IAirCtrlServices.java
+ILcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;
+ILcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener;
+ILjava/util/List<Landroid/accessibilityservice/AccessibilityServiceInfo;>;
+IQSTileServiceWrapper
+IUsbService connection failed
+InitBroadcastReceiver
+JLcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/PointCloud$GlowManager;
+JLcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/PointCloud$WaveManager;
+JLcom/mediatek/keyguard/Telephony/KeyguardDialogManager$DialogShowCallBack;
+JLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimPinPuk$1;
+JLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimPinPuk$2;
+JLcom/mediatek/keyguard/Telephony/KeyguardSimPinPukMeView$CheckSimPinPuk$3;
+KLandroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;
+KLcom/android/settingslib/bluetooth/A2dpSinkProfile$A2dpSinkServiceListener;
+KeyguardService
+KeyguardService.java
+LLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImpl;
+LLandroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper<TT;>;
+LLandroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;
+LLandroid/support/v4/media/MediaBrowserServiceCompatApi23$ServiceCompatProxy;
+LLandroid/support/v4/media/MediaBrowserServiceCompatApi26$ServiceCompatProxy;
+LLcom/mediatek/systemui/qs/tiles/ext/MobileDataTile$MobileDataSignalCallback;
+LLjava/util/ArrayList<Lcom/android/systemui/qs/external/TileServiceManager;>;
+Landroid/app/Service;
+Landroid/media/IAudioService;
+Landroid/os/IThermalService;
+Landroid/os/ServiceManager;
+Landroid/service/vr/IVrManager;
+Landroid/support/v4/media/MediaBrowserServiceCompat$Result<Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;>;
+LegacyServiceMapHolder
+MBServiceCompat
+MLcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;
+MLcom/android/settingslib/bluetooth/HidDeviceProfile$HidDeviceServiceListener;
+MLcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;
+MLcom/mediatek/keyguard/Telephony/KeyguardDialogManager$DialogSequenceManager;
+MN%1$s. Appuyez pour ignorer. Vous pouvez ignorer les services d'accessibilit
+MapClientServiceListener
+MapServiceListener
+MediaBrowserServiceAdaptor
+MediaBrowserServiceCompat.java
+MediaBrowserServiceImpl
+MediaBrowserServiceImplApi21
+MediaBrowserServiceImplApi23
+MediaBrowserServiceImplApi26
+MediaBrowserServiceImplApi28
+MediaBrowserServiceImplBase
+MediatekDigitalClock.java
+No service
+No service.
+OLcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;
+OLcom/android/settingslib/bluetooth/PbapClientProfile$PbapClientServiceListener;
+OLcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$AnimationBundle;
+OLcom/mediatek/keyguard/Telephony/KeyguardDialogManager$DialogSequenceManager$1;
+OverviewProxyService
+OverviewProxyService state:
+OverviewProxyService.java
+P$SwitchMap$com$mediatek$systemui$qs$tiles$ext$SimDataConnectionTile$SIMConnState
+PKeyguardUpdateMonitor.mBroadcastAllReceiver#onReceive ACTION_FACE_UNLOCK_STARTED
+PLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;
+PLandroid/support/v4/media/MediaBrowserServiceCompat$Result<Landroid/os/Bundle;>;
+PLcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$ServiceListener;
+PSB.DozeServiceHost[mCallbacks=
+PThe media router service must only be accessed on the application's main thread.
+PackageManagerService is dead
+PanServiceListener
+PbapClientServiceListener
+PbapServiceListener
+QLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
+QLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;
+QLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi26;
+QLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi28;
+QLcom/android/systemui/-$$Lambda$OverviewProxyService$SlBFfY-D9O-Us5sbpzzPXvtyKy4;
+QLcom/android/systemui/-$$Lambda$OverviewProxyService$iQ_AhE_jQV1-6xCMm0AowIu_bDY;
+QLcom/mediatek/common/util/OperatorCustomizationFactoryLoader$OperatorFactoryInfo;
+QLcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/GlowPadView$OnTriggerListener;
+QSTileServiceWrapper.java
+RecentsSystemUserService.java
+Running services
+SERVICES
+SERVICE_PROVIDER
+SERVICE_SORT
+SLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$2;
+SLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1;
+SLandroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi26$1;
+SLcom/android/systemui/-$$Lambda$OverviewProxyService$1$2pq3hQvAlKaOK9NXRBZWEO44FEQ;
+SLcom/android/systemui/-$$Lambda$OverviewProxyService$1$OIMBB4z7B0rilnGoiEee2hjNc3M;
+SLcom/android/systemui/-$$Lambda$OverviewProxyService$1$n8i2zr6lzYUUiPl7iRdxrhsa5Wk;
+SLcom/android/systemui/-$$Lambda$OverviewProxyService$1$zYh14hGzctRPjhdkAv_VxvbnwC4;
+SLcom/android/systemui/tuner/-$$Lambda$TunerServiceImpl$6-LaNwUHcRc1UGw8s8y1YCsTRbQ;
+SS%1$s Schakel de e-simkaart uit om het apparaat te gebruiken zonder mobiele service.
+Sending broadcast: 
+Service
+Service already bound
+Service connection 
+Service not bound
+Service state is null
+ServiceBinderImpl
+ServiceCallbacks
+ServiceCallbacksCompat
+ServiceCompatProxy
+ServiceHandler
+ServiceListener
+ServiceState is null
+Services en cours d'ex
+ShortcutKeyServiceProxy.java
+SliceBroadcastRelayHandler.java
+StartServices
+SysUiServiceProvider.java
+SystemServicesProxy
+SystemServicesProxy.java
+SystemUIService
+SystemUIService.java
+TLandroid/support/v4/media/MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor;
+TLandroid/support/v4/media/MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor;
+TLandroid/support/v4/media/MediaBrowserServiceCompatApi26$MediaBrowserServiceAdaptor;
+TLcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$SimDataSwitchStateMachine;
+TakeScreenshotService
+TakeScreenshotService.java
+TileServiceManager
+TileServiceManager.java
+TileServices
+TileServices.java
+TunablePaddingService
+TunerService.java
+TunerService.mTunables
+TunerServiceImpl.java
+ULcom/android/systemui/qs/external/-$$Lambda$TileServices$m2qCzd8BVbBUzSnClFn7o_chF7k;
+UU%1$s. Tik om in te stellen op trillen. Toegankelijkheidsservices kunnen zijn gedempt.
+Unable to notify Usb service
+UserServices
+UserServices{mRunning=
+VLcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$SimDataSwitchStateMachine$1;
+VLcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$SimDataSwitchStateMachine$2;
+VLcom/mediatek/systemui/qs/tiles/ext/SimDataConnectionTile$SimDataSwitchStateMachine$3;
+VendorServices.java
+Voice service error!
+YLjava/util/ArrayList<Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/TargetDrawable;>;
+ZLandroid/view/accessibility/AccessibilityManager$AccessibilityServicesStateChangeListener;
+[Ljava/util/ArrayList<Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/PointCloud$Point;>;
+[ServiceState]
+\Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper<Landroid/os/Parcel;>;
+\]%1$s. Appuyez pour mettre en mode vibreur. Vous pouvez ignorer les services d'accessibilit
+]Landroid/content/Loader<Ljava/util/List<Landroid/service/settings/suggestions/Suggestion;>;>;
+]Lcom/android/systemui/recents/misc/-$$Lambda$SystemServicesProxy$14WNoAPwhU0GwlQXHqE_l3lK1kI;
+]Lcom/android/systemui/recents/misc/-$$Lambda$SystemServicesProxy$N7nq4D_yvcF7wooCA6t2HP24UJI;
+]Lcom/android/systemui/recents/misc/-$$Lambda$SystemServicesProxy$qne41-2ZLAnF5q0szRXUTgxl7BA;
+]Lcom/android/systemui/recents/misc/-$$Lambda$SystemServicesProxy$ve6L74feVQWkpga-S7KU2FyhUuE;
+]Lcom/android/systemui/recents/misc/-$$Lambda$SystemServicesProxy$yx6uKMR_Ve4h8p3CZXLJmEmcWpI;
+]Ljava/util/Map$Entry<Ljava/lang/String;Landroid/service/notification/StatusBarNotification;>;
+_Binder supposed established connection but actual connection to service timed out, trying again
+aLandroid/service/media/MediaBrowserService$Result<Landroid/media/browse/MediaBrowser$MediaItem;>;
+addServiceListener
+airCtrlServices
+airCtrlServices is null
+android.permission.DEVICE_POWER
+android.permission.DUMP
+android.permission.RECORD_AUDIO
+anySimReadyAndInService
+binPplService() is called.
+bindCameraPrewarmService
+bindPplService
+bindService
+bindServiceAsUser
+bindServices
+broadcast_tile
+callServiceConnectedListeners
+checkService
+com.atoto.keepaliveservice
+com.atoto.service.business
+com.atoto.vendorservice
+com.mediatek.op03.systemui
+com.mediatek.op07.systemui
+com.mediatek.op08.systemui
+com.mediatek.op18.systemui
+com.mediatek.op20.systemui
+com.mediatek.ppl
+com.mediatek.ppl.NOTIFY_LOCK
+com.mediatek.ppl.NOTIFY_UNLOCK
+com.mediatek.ppl.PplService
+com.mediatek.ppl.service
+com.mediatek.systemui.op01
+com.mediatek.systemui.op02
+com.mediatek.systemui.op09
+com.mediatek.systemui.op09clip
+config_enableKeyguardService
+connectToCarService
+createService
+dLjava/util/Map$Entry<Ljava/lang/Object;Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Tweener;>;
+disconnectFromLauncherService
+doBindAntiThftLockServices
+dozeService
+dumpServiceState
+dumping service: 
+extra_service_version
+foreground_service_item
+foreground_service_title
+freeService
+getActiveServiceComponentName
+getBroadcast
+getBroadcastAsUser
+getControllserHasService
+getPPLBroadcastReceiverInstance
+getRecommendationServiceLabel
+getService
+getServiceInfo
+getServiceState
+getServiceStateForSubscriber
+getServices
+getSystemService
+getSystemServiceName
+getSystemServices
+getSystemUiBroadcast
+getTileService
+getTileServices
+getWidgetInfoFromService
+getWifiServiceMessenger
+getWindowManagerService
+hLcom/android/systemui/fragments/-$$Lambda$FragmentService$FragmentHostState$kEJEvu5Mq9Z5e9srOLcsFn7Glto;
+hLcom/android/systemui/statusbar/-$$Lambda$ForegroundServiceLifetimeExtender$Mvrg70o5Dvq2zdoQZB_HrCnGC_w;
+handleBroadcast
+handleIMSServiceUp
+handleServiceStateChange
+handleServiceStateChange(subId=
+hasService
+inflatePreviewFromService
+instantiateService
+isHasSimService
+isMediatekSimMeLockSupport
+isServiceSupportEcc
+lambda$freeService$0
+lambda$onServiceConnected$33
+launcherServiceIntent
+ler les services en cours d'ex
+mAccessibilityService
+mAudioService
+mBackcarBroadcastReceiver
+mBannerActionBroadcastReceiver
+mBarService
+mBaseBroadcastReceiver
+mBroadcastAllReceiver
+mBroadcastIntent
+mBroadcastReceiver
+mConnectivityManagerService
+mDelayedLockBroadcastReceiver
+mDozeService
+mDozeServiceHost
+mExecutorService
+mForegroundServiceController
+mHfpServiceListener
+mIsMediatekSimMeLockSupport
+mLastServiceState
+mOverviewProxyService
+mOverviewServiceConnection
+mOverviewServiceDeathRcpt
+mPplServiceConnection
+mProfileBroadcastReceiver
+mRemoteService
+mSecondaryUserServiceIntent
+mService
+mServiceBinderImpl
+mServiceConnection
+mServiceIntent
+mServiceListeners
+mServiceManager
+mServiceMessenger
+mServiceName
+mServiceObj
+mServiceProxy
+mServiceStartTime
+mServiceState
+mServiceStates
+mServiceVersion
+mServiceWrapper
+mServicesStarted
+mShortcutKeyServiceProxy
+mStatsService
+mSystemBroadcastReceiver
+mSystemServicesProxy
+mThermalService
+mTunerService
+mUserServices
+mUserToSystemServiceConnection
+mWallpaperManagerService
+mWindowManagerService
+maybeSendUserPresentBroadcast
+nLandroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper<Ljava/util/List<Landroid/os/Parcel;>;>;
+onCreateTileService
+onServiceConnected
+onServiceConnected() -- PPL
+onServiceDisconnected
+onServiceDisconnected()
+onServiceStateChanged
+onServiceStateChanged: 
+output_none_found_service_off
+output_service_bt
+output_service_bt_wifi
+output_service_wifi
+overviewProxyService
+pendingBroadcast
+phoneService
+policyService
+queryIntentServices
+queryIntentServicesAsUser
+rebroadcastOnUnlock
+receive broadcast update skin:
+received broadcast 
+registerAsSystemService
+registerBackcarBroadcast
+requestingServices
+res/layout/foreground_service_item.xmlPK
+res/layout/foreground_service_item.xmlu
+res/layout/foreground_service_title.xml
+res/layout/foreground_service_title.xmlPK
+resolveServiceAsUser
+running_foreground_services_msg
+runningservices_settings_title
+s au service
+sLandroid/service/media/MediaBrowserService$Result<Ljava/util/List<Landroid/media/browse/MediaBrowser$MediaItem;>;>;
+sSystemServicesProxy
+sactivez la carte eSIM pour utiliser l'appareil sans service mobile.
+sendBroadcast
+sendBroadcastAsUser
+sendRemoveIPOWinBroadcast ... 
+sendUserPresentBroadcast
+service
+service.adb.tcp.port
+serviceClass
+serviceConnection
+serviceInfo
+serviceIntent
+serviceMessenger
+serviceName
+serviceObj
+serviceProxy
+serviceStartTime
+serviceState
+serviceVersion
+serviceWrapper
+servicediscovery
+services
+setBindService
+setRunningServices
+setService
+shouldSendBroadcast
+showEccByServiceState
+showSessionForActiveService
+startAlarmService
+startAppStoreService
+startForegroundService
+startOtherServicesAtc
+startService
+startServiceAsUser
+startServicesIfNeeded
+stopServiceAsUser
+systemUserServiceIntent
+tLandroid/support/v4/media/MediaBrowserServiceCompat$Result<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;
+telephony_subscription_service
+textservices
+thermalservice
+tileServiceManager
+tileServices
+tunerService
+unbindCameraPrewarmService
+unbindService
+unbindService 
+unregisterAsSystemService
+unregisterBackcarBroadcast
+userServices
+voice_unlock_service_error
+wallpaperManagerService
+windowManagerService
+wrappedService
+zLjava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Lcom/mediatek/keyguard/PowerOffAlarm/multiwaveview/Tweener;>;>;

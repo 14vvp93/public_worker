@@ -1,0 +1,1 @@
+firmware/extracted/system/MtkSystemUI/MtkSystemUI.apk: Android package (APK), with classes.dex

@@ -1,0 +1,166 @@
+.class public final Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;
+.super Ljava/lang/Object;
+.source "WifiNewTile.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/qs/tiles/WifiNewTile;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x14
+    name = "WifiSignalCallback"
+.end annotation
+
+
+# instance fields
+.field final mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+.field final synthetic this$0:Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+
+# direct methods
+.method protected constructor <init>(Lcom/android/systemui/qs/tiles/WifiNewTile;)V
+    .locals 1
+    .param p1, "this$0"    # Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+    .line 281
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 282
+    new-instance v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    invoke-direct {v0}, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;ZLjava/lang/String;)V
+    .locals 3
+    .param p1, "enabled"    # Z
+    .param p2, "statusIcon"    # Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    .param p3, "qsIcon"    # Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    .param p4, "activityIn"    # Z
+    .param p5, "activityOut"    # Z
+    .param p6, "description"    # Ljava/lang/String;
+    .param p7, "isTransient"    # Z
+    .param p8, "statusLabel"    # Ljava/lang/String;
+
+    .line 288
+    invoke-static {}, Lcom/android/systemui/qs/tiles/WifiNewTile;->access$000()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiNewTile;->access$100(Lcom/android/systemui/qs/tiles/WifiNewTile;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onWifiSignalChanged enabled="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 289
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iput-boolean p1, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->enabled:Z
+
+    .line 290
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iget-boolean v1, p3, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+
+    iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->connected:Z
+
+    .line 291
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iget v1, p3, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+
+    iput v1, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->wifiSignalIconId:I
+
+    .line 292
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iput-object p6, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->ssid:Ljava/lang/String;
+
+    .line 293
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iput-boolean p4, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->activityIn:Z
+
+    .line 294
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iput-boolean p5, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->activityOut:Z
+
+    .line 295
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iget-object v1, p3, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->wifiSignalContentDescription:Ljava/lang/String;
+
+    .line 296
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iput-boolean p7, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->isTransient:Z
+
+    .line 297
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;
+
+    iput-object p8, v0, Lcom/android/systemui/qs/tiles/WifiNewTile$CallbackInfo;->statusLabel:Ljava/lang/String;
+
+    .line 298
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiNewTile;->access$200(Lcom/android/systemui/qs/tiles/WifiNewTile;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 299
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiNewTile;->access$300(Lcom/android/systemui/qs/tiles/WifiNewTile;)Lcom/android/systemui/qs/tiles/WifiNewTile$WifiDetailAdapter;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiDetailAdapter;->access$400(Lcom/android/systemui/qs/tiles/WifiNewTile$WifiDetailAdapter;)V
+
+    .line 301
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiNewTile$WifiSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiNewTile;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/WifiNewTile;->refreshState()V
+
+    .line 302
+    return-void
+.end method

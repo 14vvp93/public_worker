@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SystemUI" parent="@android:style/TextAppearance.Material.DatePicker.List.YearLabel.Activated">
+        <item name="android:colorControlHighlight">@android:color/btn_leanback_focused</item>
+        <item name="android:colorError">@android:color/system_on_primary_dark</item>
+        <item name="@android:bool/config_batteryStatsResetOnUnplugAfterSignificantCharge">false</item>
+        <item name="@android:bool/config_callNotificationActionColorsRequireColorized">@style/LockPatternStyle</item>
+        <item name="darkIconTheme">@style/DualToneDarkTheme</item>
+        <item name="lightIconTheme">@style/DualToneLightTheme</item>
+        <item name="passwordStyle">@style/PasswordTheme</item>
+        <item name="wallpaperTextColor">@android:color/btn_leanback_focused</item>
+        <item name="wallpaperTextColorSecondary">@android:color/car_body2</item>
+    </style>
+    <style name="Theme.SystemUI.Light" parent="@android:style/TextAppearance.Material.DatePicker.List.YearLabel.Activated">
+        <item name="android:colorControlHighlight">#40000000</item>
+        <item name="android:colorError">@android:color/system_secondary_container_dark</item>
+        <item name="passwordStyle">@style/PasswordTheme.Light</item>
+        <item name="wallpaperTextColor">@android:color/btn_leanback_text_color</item>
+        <item name="wallpaperTextColorSecondary">@android:color/car_body2_dark</item>
+    </style>
+</resources>

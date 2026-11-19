@@ -1,0 +1,177 @@
+# MtkSystemUI static analysis
+
+Tools: Apktool 2.11.1, JADX 1.5.6, Java 17
+
+# Android manifest summary
+
+Package: com.android.systemui
+Version code: unknown
+Version name: unknown
+
+## Permissions
+
+- android.car.permission.CAR_CONTROL_AUDIO_VOLUME
+- android.car.permission.CONTROL_CAR_CLIMATE
+- android.permission.ACCESS_COARSE_LOCATION
+- android.permission.ACCESS_INSTANT_APPS
+- android.permission.ACCESS_KEYGUARD_SECURE_STORAGE
+- android.permission.ACCESS_NETWORK_STATE
+- android.permission.ACCESS_VOICE_INTERACTION_SERVICE
+- android.permission.ACCESS_VR_MANAGER
+- android.permission.ACCESS_WIFI_STATE
+- android.permission.BATTERY_STATS
+- android.permission.BIND_APPWIDGET
+- android.permission.BIND_DEVICE_ADMIN
+- android.permission.BIND_QUICK_SETTINGS_TILE
+- android.permission.BIND_RESOLVER_RANKER_SERVICE
+- android.permission.BLUETOOTH
+- android.permission.BLUETOOTH_ADMIN
+- android.permission.BLUETOOTH_PRIVILEGED
+- android.permission.CAMERA
+- android.permission.CHANGE_ACCESSIBILITY_VOLUME
+- android.permission.CHANGE_COMPONENT_ENABLED_STATE
+- android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST
+- android.permission.CHANGE_NETWORK_STATE
+- android.permission.CHANGE_OVERLAY_PACKAGES
+- android.permission.CHANGE_WIFI_STATE
+- android.permission.CONFIGURE_WIFI_DISPLAY
+- android.permission.CONNECTIVITY_INTERNAL
+- android.permission.CONTROL_DISPLAY_BRIGHTNESS
+- android.permission.CONTROL_KEYGUARD
+- android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS
+- android.permission.CONTROL_VPN
+- android.permission.DEVICE_POWER
+- android.permission.DISABLE_KEYGUARD
+- android.permission.DUMP
+- android.permission.EXPAND_STATUS_BAR
+- android.permission.FORCE_STOP_PACKAGES
+- android.permission.GET_ACCOUNTS
+- android.permission.GET_APP_OPS_STATS
+- android.permission.GET_DETAILED_TASKS
+- android.permission.GET_INTENT_SENDER_INTENT
+- android.permission.GET_TOP_ACTIVITY_INFO
+- android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS
+- android.permission.INJECT_EVENTS
+- android.permission.INTERACT_ACROSS_USERS
+- android.permission.INTERACT_ACROSS_USERS_FULL
+- android.permission.INTERNAL_SYSTEM_WINDOW
+- android.permission.MANAGE_ACCOUNTS
+- android.permission.MANAGE_ACTIVITY_STACKS
+- android.permission.MANAGE_APP_TOKENS
+- android.permission.MANAGE_MEDIA_PROJECTION
+- android.permission.MANAGE_NETWORK_POLICY
+- android.permission.MANAGE_NOTIFICATIONS
+- android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS
+- android.permission.MANAGE_SLICE_PERMISSIONS
+- android.permission.MANAGE_USB
+- android.permission.MANAGE_USERS
+- android.permission.MANAGE_VOICE_KEYPHRASES
+- android.permission.MASTER_CLEAR
+- android.permission.MEDIA_CONTENT_CONTROL
+- android.permission.MODIFY_ACCESSIBILITY_DATA
+- android.permission.MODIFY_PHONE_STATE
+- android.permission.MODIFY_THEME_OVERLAY
+- android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+- android.permission.NETWORK_SETTINGS
+- android.permission.OVERRIDE_WIFI_CONFIG
+- android.permission.PEERS_MAC_ADDRESS
+- android.permission.READ_CONTACTS
+- android.permission.READ_DREAM_STATE
+- android.permission.READ_EXTERNAL_STORAGE
+- android.permission.READ_FRAME_BUFFER
+- android.permission.READ_NETWORK_USAGE_HISTORY
+- android.permission.READ_PHONE_STATE
+- android.permission.READ_PRECISE_PHONE_STATE
+- android.permission.READ_PRIVILEGED_PHONE_STATE
+- android.permission.READ_PROFILE
+- android.permission.REAL_GET_TASKS
+- android.permission.REBOOT
+- android.permission.RECEIVE_BOOT_COMPLETED
+- android.permission.RECEIVE_MEDIA_RESOURCE_USAGE
+- android.permission.REGISTER_WINDOW_MANAGER_LISTENERS
+- android.permission.REMOTE_AUDIO_PLAYBACK
+- android.permission.REMOVE_TASKS
+- android.permission.REORDER_TASKS
+- android.permission.REQUEST_NETWORK_SCORES
+- android.permission.RESET_FINGERPRINT_LOCKOUT
+- android.permission.RESET_SHORTCUT_MANAGER_THROTTLING
+- android.permission.SET_ORIENTATION
+- android.permission.SET_SCREEN_COMPATIBILITY
+- android.permission.SET_WALLPAPER
+- android.permission.START_ANY_ACTIVITY
+- android.permission.START_TASKS_FROM_RECENTS
+- android.permission.STATUS_BAR
+- android.permission.STATUS_BAR_SERVICE
+- android.permission.STOP_APP_SWITCHES
+- android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME
+- android.permission.SYSTEM_ALERT_WINDOW
+- android.permission.TABLET_MODE
+- android.permission.TETHER_PRIVILEGED
+- android.permission.TRUST_LISTENER
+- android.permission.UPDATE_APP_OPS_STATS
+- android.permission.USE_FINGERPRINT
+- android.permission.USE_RESERVED_DISK
+- android.permission.VIBRATE
+- android.permission.WAKE_LOCK
+- android.permission.WRITE_APN_SETTINGS
+- android.permission.WRITE_DREAM_STATE
+- android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS
+- android.permission.WRITE_EXTERNAL_STORAGE
+- android.permission.WRITE_MEDIA_STORAGE
+- android.permission.WRITE_SECURE_SETTINGS
+- android.permission.WRITE_SETTINGS
+- com.android.alarm.permission.SET_ALARM
+- com.android.systemui.permission.SELF
+- com.mediatek.ims.config.provider.PERMISSION.READ
+- com.mediatek.ims.config.provider.PERMISSION.WRITE
+- com.mediatek.ppl.permission.ACCESS_PPL_MANAGER
+
+## Application components
+
+- activity: com.android.systemui.tuner.TunerActivity; exported=true; permission=none
+- activity: com.android.systemui.recents.RecentsActivity; exported=unspecified; permission=none
+- activity: com.android.systemui.stackdivider.ForcedResizableInfoActivity; exported=false; permission=none
+- activity: com.android.systemui.usb.UsbConfirmActivity; exported=true; permission=android.permission.MANAGE_USB
+- activity: com.android.systemui.usb.UsbPermissionActivity; exported=true; permission=android.permission.MANAGE_USB
+- activity: com.android.systemui.usb.UsbResolverActivity; exported=true; permission=android.permission.MANAGE_USB
+- activity: com.android.systemui.usb.UsbAccessoryUriActivity; exported=true; permission=android.permission.MANAGE_USB
+- activity: com.android.systemui.usb.UsbDebuggingActivity; exported=unspecified; permission=android.permission.MANAGE_USB
+- activity: com.android.systemui.usb.UsbDebuggingSecondaryUserActivity; exported=unspecified; permission=none
+- activity: com.android.systemui.net.NetworkOverLimitActivity; exported=true; permission=android.permission.MANAGE_NETWORK_POLICY
+- activity: com.android.systemui.media.MediaProjectionPermissionActivity; exported=true; permission=none
+- activity: com.android.systemui.pip.tv.PipMenuActivity; exported=false; permission=com.android.systemui.permission.SELF
+- activity: com.android.systemui.pip.phone.PipMenuActivity; exported=false; permission=com.android.systemui.permission.SELF
+- activity: com.android.systemui.SlicePermissionActivity; exported=unspecified; permission=none
+- activity: com.android.systemui.DessertCase; exported=true; permission=none
+- activity: com.android.systemui.egg.MLandActivity; exported=true; permission=none
+- activity: com.android.systemui.keyguard.WorkLockActivity; exported=false; permission=android.permission.MANAGE_USERS
+- activity: com.android.systemui.Somnambulator; exported=true; permission=none
+- activity: com.android.systemui.settings.BrightnessDialog; exported=true; permission=none
+- activity: com.android.systemui.ForegroundServicesDialog; exported=unspecified; permission=none
+- activity-alias: com.android.systemui.DemoMode; exported=true; permission=none
+- activity-alias: com.android.systemui.UsbDebuggingActivityAlias; exported=true; permission=android.permission.DUMP
+- service: com.android.systemui.SystemUIService; exported=true; permission=none
+- service: com.android.systemui.SystemUISecondaryUserService; exported=true; permission=com.android.systemui.permission.SELF
+- service: com.android.systemui.screenshot.TakeScreenshotService; exported=false; permission=none
+- service: com.android.systemui.ImageWallpaper; exported=true; permission=android.permission.BIND_WALLPAPER
+- service: com.android.systemui.recents.RecentsSystemUserService; exported=false; permission=com.android.systemui.permission.SELF
+- service: com.android.systemui.DessertCaseDream; exported=true; permission=android.permission.BIND_DREAM_SERVICE
+- service: com.android.systemui.keyguard.KeyguardService; exported=true; permission=none
+- service: com.android.systemui.doze.DozeService; exported=true; permission=android.permission.BIND_DREAM_SERVICE
+- receiver: com.android.systemui.screenshot.ScreenshotServiceErrorReceiver; exported=false; permission=none
+- receiver: com.android.systemui.SysuiRestartReceiver; exported=false; permission=none
+- receiver: com.android.systemui.screenshot.GlobalScreenshot$ScreenshotActionReceiver; exported=false; permission=none
+- receiver: com.android.systemui.screenshot.GlobalScreenshot$TargetChosenReceiver; exported=false; permission=none
+- receiver: com.android.systemui.screenshot.GlobalScreenshot$DeleteScreenshotReceiver; exported=false; permission=none
+- receiver: com.android.systemui.tuner.TunerService$ClearReceiver; exported=false; permission=none
+- receiver: com.android.systemui.statusbar.KeyboardShortcutsReceiver; exported=unspecified; permission=none
+- provider: android.support.v4.content.FileProvider; exported=false; permission=none
+- provider: com.android.systemui.keyguard.KeyguardSliceProvider; exported=true; permission=none
+
+## DEX inventory
+classes.dex
+
+## Native libraries
+
+## JADX status
+JADX returned 3; partial source output and log are retained.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="volume_dialog_panel_transparent_padding">10.0dip</dimen>
+    <dimen name="volume_dialog_panel_width">520.0dip</dimen>
+    <dimen name="volume_dialog_slider_width">440.0dip</dimen>
+</resources>

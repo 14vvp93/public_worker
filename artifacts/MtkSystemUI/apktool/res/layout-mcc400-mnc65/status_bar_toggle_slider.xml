@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/toggle" android:background="@android:drawable/pointer_wait_vector_38" android:visibility="gone" android:layout_width="48.0dip" android:layout_height="0.0dip" android:button="@null" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_alignParentStart="true" />
+    <com.android.systemui.settings.ToggleSeekBar android:id="@id/slider" android:layout_width="fill_parent" android:layout_height="@dimen/seek_bar_height" android:progressDrawable="@drawable/brightness_progress_drawable" android:layout_centerVertical="true" android:layout_toEndOf="@id/toggle" android:layout_alignParentEnd="true" />
+    <TextView android:textSize="20.0sp" android:textColor="?android:colorControlNormal" android:gravity="center" android:id="@id/label" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+</merge>

@@ -1,0 +1,8 @@
+package androidx.lifecycle;
+
+/* JADX INFO: loaded from: classes.dex */
+public class ViewModelProvider {
+
+    public interface Factory {
+    }
+}

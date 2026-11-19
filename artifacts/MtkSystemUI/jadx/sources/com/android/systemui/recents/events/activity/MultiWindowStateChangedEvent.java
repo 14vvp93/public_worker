@@ -1,0 +1,17 @@
+package com.android.systemui.recents.events.activity;
+
+import com.android.systemui.recents.events.EventBus;
+import com.android.systemui.shared.recents.model.TaskStack;
+
+/* JADX INFO: loaded from: classes.dex */
+public class MultiWindowStateChangedEvent extends EventBus.AnimatedEvent {
+    public final boolean inMultiWindow;
+    public final boolean showDeferredAnimation;
+    public final TaskStack stack;
+
+    public MultiWindowStateChangedEvent(boolean inMultiWindow, boolean showDeferredAnimation, TaskStack stack) {
+        this.inMultiWindow = inMultiWindow;
+        this.showDeferredAnimation = showDeferredAnimation;
+        this.stack = stack;
+    }
+}

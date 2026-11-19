@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quick_settings_screenoff_label">Откл. экран</string>
+    <string name="quick_settings_screenshot_label">Скриншот</string>
+    <string name="reboot">Перезагрузить</string>
+    <string name="status_bar_settings_mute_label">Откл. звук</string>
+</resources>

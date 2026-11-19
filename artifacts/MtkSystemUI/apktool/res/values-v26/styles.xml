@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.AppCompat" parent="@style/Base.V26.Theme.AppCompat" />
+    <style name="Base.Theme.AppCompat.Light" parent="@style/Base.V26.Theme.AppCompat.Light" />
+    <style name="Base.Widget.AppCompat.Toolbar" parent="@style/Base.V26.Widget.AppCompat.Toolbar" />
+    <style name="Theme.SystemUI" parent="@android:style/TextAppearance.Material.DatePicker.List.YearLabel.Activated">
+        <item name="android:colorControlHighlight">@android:color/btn_leanback_focused</item>
+        <item name="android:colorError">@android:color/system_on_primary_dark</item>
+        <item name="@android:bool/config_batteryStatsResetOnUnplugAfterSignificantCharge">false</item>
+        <item name="@android:bool/config_callNotificationActionColorsRequireColorized">@style/LockPatternStyle</item>
+        <item name="darkIconTheme">@style/DualToneDarkTheme</item>
+        <item name="lightIconTheme">@style/DualToneLightTheme</item>
+        <item name="passwordStyle">@style/PasswordTheme</item>
+        <item name="wallpaperTextColor">@android:color/btn_leanback_focused</item>
+        <item name="wallpaperTextColorSecondary">@android:color/car_body2</item>
+    </style>
+    <style name="Theme.SystemUI.Light" parent="@android:style/TextAppearance.Material.DatePicker.List.YearLabel.Activated">
+        <item name="android:colorControlHighlight">#40000000</item>
+        <item name="android:colorError">@android:color/system_secondary_container_dark</item>
+        <item name="passwordStyle">@style/PasswordTheme.Light</item>
+        <item name="wallpaperTextColor">@android:color/btn_leanback_text_color</item>
+        <item name="wallpaperTextColorSecondary">@android:color/car_body2_dark</item>
+    </style>
+    <style name="Widget.Design.AppBarLayout" parent="@android:style/Widget">
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:stateListAnimator">@animator/design_appbar_state_list_animator</item>
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+    <style name="Base.V26.Theme.AppCompat" parent="@style/Base.V23.Theme.AppCompat">
+        <item name="colorError">?android:colorError</item>
+    </style>
+    <style name="Base.V26.Theme.AppCompat.Light" parent="@style/Base.V23.Theme.AppCompat.Light">
+        <item name="colorError">?android:colorError</item>
+    </style>
+    <style name="Base.V26.Widget.AppCompat.Toolbar" parent="@style/Base.V7.Widget.AppCompat.Toolbar">
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+</resources>

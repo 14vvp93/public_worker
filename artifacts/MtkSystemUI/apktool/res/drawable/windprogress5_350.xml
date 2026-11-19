@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" android:drawable="@drawable/air_set_fen_pro_5_2_n_350" />
+    <item android:id="@android:id/progress" android:drawable="@drawable/air_set_fen_pro_5_2_p_350" />
+</layer-list>

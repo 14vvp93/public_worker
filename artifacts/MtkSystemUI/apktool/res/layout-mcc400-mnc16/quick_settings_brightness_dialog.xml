@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <com.android.systemui.settings.ToggleSliderView android:id="@id/brightness_slider" android:layout_width="@dimen/seek_bar_width" android:layout_height="@dimen/seek_bar_height" android:layout_centerInParent="true" android:contentDescription="@string/accessibility_brightness" android:importantForAccessibility="no" systemui:text="" systemui:thumb="@null" />
+    <ImageView android:id="@id/brightness_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/brightness_icon_marginLeft" android:src="@drawable/ic_qs_brightness_auto_off" />
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.NavigationBarView android:background="@drawable/system_bar_background" android:layout_width="320.0dip" android:layout_height="720.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/navi_left" android:background="@android:color/black" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:id="@id/layout_lights" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dz23_layout_paddingTop">
+            <ImageView android:id="@id/iv_light_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_turn_left" />
+            <ImageView android:id="@id/iv_light_far" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_light_far" />
+            <ImageView android:id="@id/iv_light_fog_front" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_fog_light_front" />
+            <ImageView android:id="@id/iv_light_fog_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_fog_light_back" />
+            <ImageView android:id="@id/iv_light_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_turn_right" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dz23_layout_paddingTop" android:layout_below="@id/layout_lights" android:layout_centerHorizontal="true">
+            <ImageView android:id="@id/iv_light_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_normal_light" />
+            <Space android:layout_width="21.0dip" android:layout_height="0.0dip" />
+            <ImageView android:id="@id/iv_light_dipped" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_dipped_light" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/dz23_tv_speed_textSize" android:textColor="@android:color/white" android:id="@id/tv_speed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dz23_tv_speed_marginEnd" android:layout_marginRight="@dimen/dz23_tv_speed_marginEnd" android:text="0" android:layout_centerInParent="true" android:layout_marginHorizontal="@dimen/dz23_tv_speed_marginEnd" />
+        <TextView android:textSize="@dimen/dz23_tv_gear_textSize" android:textColor="@android:color/white" android:id="@id/tv_gear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="P" android:layout_toLeftOf="@id/tv_speed" android:layout_centerVertical="true" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_navi_bar_car" android:layout_toRightOf="@id/tv_speed" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/iv_door_lf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_door_lf" android:layout_toRightOf="@id/tv_speed" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/iv_door_lb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_door_lb" android:layout_toRightOf="@id/tv_speed" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/iv_door_rf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_door_rf" android:layout_toRightOf="@id/tv_speed" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/iv_door_rb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_door_rb" android:layout_toRightOf="@id/tv_speed" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="center" android:id="@id/layout_drive" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dz23_layout_drive_marginTop" android:layout_below="@id/tv_speed">
+            <Space android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="0.5" />
+            <ImageView android:id="@id/iv_brake_failure" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_transmission" android:layout_weight="1.0" />
+            <ImageView android:id="@id/iv_parking_brake" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_parking" android:layout_weight="1.0" />
+            <ImageView android:id="@id/iv_esp" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_esp" android:layout_weight="1.0" />
+            <ImageView android:id="@id/iv_wheel_lock" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_wheel_lock" android:layout_weight="1.0" />
+            <ImageView android:id="@id/iv_abs" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_abs" android:layout_weight="1.0" />
+            <Space android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="0.5" />
+        </LinearLayout>
+        <GridLayout android:orientation="horizontal" android:id="@id/layout_car_status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dz23_layout_paddingTop" android:layout_alignParentBottom="true" android:rowCount="2" android:columnCount="7">
+            <ImageView android:id="@id/iv_dcdc_error" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_battery" android:layout_column="0" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_power_battery_error" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_battery_warning" android:layout_column="1" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_power_battery_low" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_battery_checking" android:layout_column="2" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_power_battery_charging" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_gas" android:layout_column="3" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_battery_disconnect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_battery_negative" android:layout_column="4" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_battery_temp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_battery_temp" android:layout_column="5" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_battery_insulation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_energy" android:layout_column="6" android:layout_row="0" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_belt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_belt" android:layout_column="0" android:layout_row="1" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_turtle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_turtle" android:layout_column="1" android:layout_row="1" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_refresh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_refresh" android:layout_column="2" android:layout_row="1" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_plug" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_plug" android:layout_column="3" android:layout_row="1" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_engine_warning" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_engine_warning" android:layout_column="4" android:layout_row="1" android:layout_columnWeight="1.0" />
+            <ImageView android:id="@id/iv_engine_heat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dz23_icon_engine_heat" android:layout_column="5" android:layout_row="1" android:layout_columnWeight="1.0" />
+        </GridLayout>
+    </RelativeLayout>
+</com.android.systemui.statusbar.phone.NavigationBarView>
