@@ -19,9 +19,21 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install analysis tools
+        shell: bash
         run: |
+          set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y apktool jadx p7zip-full unzip file
+          sudo apt-get install -y apktool p7zip-full unzip file curl jq
+          JADX_URL="$(curl -fsSL https://api.github.com/repos/skylot/jadx/releases/latest | jq -r '.assets[] | select(.name | test("^jadx-[0-9.]+\\.zip$")) | .browser_download_url' | head -n 1)"
+          if [ -z "$JADX_URL" ] || [ "$JADX_URL" = "null" ]; then
+            echo "Could not locate the official JADX release archive."
+            exit 1
+          fi
+          curl -fL "$JADX_URL" -o /tmp/jadx.zip
+          sudo mkdir -p /opt/jadx
+          sudo unzip -q /tmp/jadx.zip -d /opt/jadx
+          sudo ln -sf /opt/jadx/bin/jadx /usr/local/bin/jadx
+          jadx --version
 
       - name: Analyze APK with apktool and JADX
         working-directory: artifacts/framework-res
@@ -85,7 +97,6 @@ jobs:
           if [ -d analysis/apktool ]; then
             find analysis/apktool -maxdepth 2 -type f | sort > analysis/apktool-file-list.txt
           fi
-          echo "apktool_exit=$APKTOOL_EXIT" >> "$GITHUB_OUTPUT" || true
           echo "Analysis finished."
 
       - name: Commit analysis results
