@@ -1,4 +1,4 @@
-name: Unpack BluetoothService
+name: Unpack BluetoothService and MtkSystemUI
 
 on:
   push:
@@ -21,19 +21,27 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y p7zip-full
 
-      - name: Extract split archive into BluetoothService
+      - name: Extract archives into their own folders
         run: |
-          cd artifacts/BluetoothService
-          7z x BluetoothService.zip -o. -y
-          test "$(find . -type f ! -name 'BluetoothService.zip' ! -name 'BluetoothService.z[0-9]*' | wc -l)" -gt 0
+          set -e
+          for folder in artifacts/BluetoothService artifacts/MtkSystemUI; do
+            archive="$(basename "$folder").zip"
+            if [ -f "$folder/$archive" ]; then
+              echo "Extracting $folder/$archive into $folder"
+              (cd "$folder" && 7z x "$archive" -o. -y)
+              test "$(find "$folder" -type f ! -name '*.zip' ! -name '*.z[0-9]*' | wc -l)" -gt 0
+            else
+              echo "Archive not found: $folder/$archive"
+            fi
+          done
 
       - name: Commit extracted files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A artifacts/BluetoothService
+          git add -A artifacts/BluetoothService artifacts/MtkSystemUI
           if ! git diff --cached --quiet; then
-            git commit -m "Extract BluetoothService files into archive directory"
+            git commit -m "Extract BluetoothService and MtkSystemUI archives in place"
             git push
           else
             echo "No extracted file changes."
