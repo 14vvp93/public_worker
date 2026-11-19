@@ -1,4 +1,4 @@
-name: Unpack BluetoothService and MtkSystemUI
+name: Unpack BluetoothService, MtkSystemUI and framework-res
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Extract archives into their own folders
         run: |
           set -e
-          for folder in artifacts/BluetoothService artifacts/MtkSystemUI; do
+          for folder in artifacts/BluetoothService artifacts/MtkSystemUI artifacts/framework-res; do
             archive="$(basename "$folder").zip"
             if [ -f "$folder/$archive" ]; then
               echo "Extracting $folder/$archive into $folder"
@@ -39,9 +39,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A artifacts/BluetoothService artifacts/MtkSystemUI
+          git add -A artifacts/BluetoothService artifacts/MtkSystemUI artifacts/framework-res
           if ! git diff --cached --quiet; then
-            git commit -m "Extract BluetoothService and MtkSystemUI archives in place"
+            git commit -m "Extract BluetoothService, MtkSystemUI and framework-res archives in place"
             git push
           else
             echo "No extracted file changes."
