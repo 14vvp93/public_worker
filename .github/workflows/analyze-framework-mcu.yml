@@ -71,6 +71,11 @@ jobs:
             echo "===== $relative =====" | tee -a analysis/vdex-extraction.log
             vdexExtractor -i "$file" -o "$out" -f --ignore-crc-error 2>&1 | tee -a analysis/vdex-extraction.log || true
             vdexExtractor -i "$file" -o "$out" -f --deps 2>&1 >> analysis/vdex-dependencies.txt || true
+            case "$relative" in
+              boot-framework.vdex|oat/arm/services.vdex|oat/arm/mediatek-services.vdex|boot-mediatek-framework.vdex)
+                vdexExtractor -i "$file" -o "$out" -f --ignore-crc-error --dis -l "analysis/${safe_name%.vdex}-disassembly.txt" >/dev/null 2>&1 || true
+                ;;
+            esac
 
             while IFS= read -r -d '' dex; do
               echo "===== $relative :: $(basename "$dex") =====" >> analysis/raw-strings.txt
@@ -97,6 +102,9 @@ jobs:
             echo
             echo "## Candidate classes"
             find analysis/decompiled -type f -name '*.java' | grep -Ei 'mcu|accessory|headset|mediatek|serial|uart' | head -n 1000 || true
+            echo
+            echo "## McuService disassembly"
+            grep -n -E -C 12 'McuService|android/carsource|IMcuManager|IMcuListener|MCUD_MESSAGE|SOCKET_NAME_MCU' analysis/*-disassembly.txt | head -n 5000 || true
             echo
             echo "## VDEX dependency matches"
             grep -Ein -C 2 'McuService|headset|accessory|mcu|mediatek|serial|uart' analysis/vdex-dependencies.txt | head -n 2000 || true
