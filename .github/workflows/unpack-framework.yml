@@ -1,0 +1,44 @@
+name: Unpack framework archive
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/unpack-framework.yml"
+      - "rom/system/framework/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate and extract split ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="rom/system/framework/framework.zip"
+          test -s "$archive"
+          test -s "rom/system/framework/framework.z01"
+          test -s "rom/system/framework/framework.z02"
+          unzip -t "$archive"
+          mkdir -p unpacked/framework
+          unzip -o "$archive" -d unpacked/framework
+          find unpacked/framework -type f -printf '%P\n' | sort > unpacked/FILE-LIST.txt
+          printf 'Extracted files: '
+          find unpacked/framework -type f | wc -l
+          du -sh unpacked/framework
+
+      - name: Upload extracted framework
+        uses: actions/upload-artifact@v4
+        with:
+          name: framework-unpacked
+          path: unpacked/
+          if-no-files-found: error
+          retention-days: 14
