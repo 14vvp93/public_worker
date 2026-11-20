@@ -106,6 +106,9 @@ jobs:
             echo "## McuService disassembly"
             grep -n -E -C 12 'McuService|android/carsource|IMcuManager|IMcuListener|MCUD_MESSAGE|SOCKET_NAME_MCU' analysis/*-disassembly.txt | head -n 5000 || true
             echo
+            echo "## SourceService disassembly"
+            grep -n -E -C 60 'Landroid/sourceservice/SourceService;|SourceService|muxMediaPlayer|onActivityStatus|BT_UI|A2DP' analysis/*-disassembly.txt | head -n 16000 || true
+            echo
             echo "## VDEX dependency matches"
             grep -Ein -C 2 'McuService|headset|accessory|mcu|mediatek|serial|uart' analysis/vdex-dependencies.txt | head -n 2000 || true
           } > analysis/MCU-REPORT.md
