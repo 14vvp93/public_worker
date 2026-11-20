@@ -1,0 +1,125 @@
+name: Analyze MT8163 framework MCU services
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/analyze-framework-mcu.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with Git LFS objects
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Fetch LFS objects
+        shell: bash
+        run: |
+          set -euo pipefail
+          git lfs install
+          git lfs pull
+          git lfs checkout
+
+      - name: Verify framework binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="rom/system/framework"
+          mkdir -p analysis
+          {
+            echo "## Framework JAR verification"
+            for name in services.jar mediatek-services.jar framework.jar mediatek-framework.jar mediatek-common.jar CustomPropInterface.jar hdmihidlmanager.jar mtk-wifi-service.jar; do
+              file="$target/$name"
+              if [[ ! -f "$file" ]]; then
+                echo "MISSING $name"
+              elif head -c 20 "$file" | grep -q "git-lfs.github.com"; then
+                echo "LFS_POINTER $name"
+              elif unzip -tqq "$file" >/dev/null 2>&1; then
+                echo "VALID_JAR $name $(stat -c%s "$file") bytes"
+              else
+                echo "NOT_A_VALID_ZIP $name $(stat -c%s "$file") bytes"
+              fi
+            done
+          } | tee analysis/jar-verification.txt
+
+      - name: Install JADX
+        shell: bash
+        run: |
+          set -euo pipefail
+          release="$(curl -fsSL https://api.github.com/repos/skylot/jadx/releases/latest)"
+          asset_url="$(printf '%s' "$release" | jq -r '.assets[] | select(.name | test("jadx-[0-9.]+\\.zip$")) | .browser_download_url' | head -n1)"
+          test -n "$asset_url"
+          curl -fsSL "$asset_url" -o /tmp/jadx.zip
+          mkdir -p /opt/jadx
+          unzip -q /tmp/jadx.zip -d /opt/jadx
+          chmod +x /opt/jadx/bin/jadx
+          echo "/opt/jadx/bin" >> "$GITHUB_PATH"
+
+      - name: Scan and decompile framework services
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="rom/system/framework"
+          mkdir -p analysis/decompiled analysis/raw
+          jars=(
+            services.jar
+            mediatek-services.jar
+            framework.jar
+            mediatek-framework.jar
+            mediatek-common.jar
+            CustomPropInterface.jar
+            hdmihidlmanager.jar
+            mtk-wifi-service.jar
+            framework-oahl-backward-compatibility.jar
+          )
+
+          : > analysis/raw-strings.txt
+          for name in "${jars[@]}"; do
+            file="$target/$name"
+            [[ -f "$file" ]] || continue
+            if head -c 20 "$file" | grep -q "git-lfs.github.com"; then
+              echo "SKIP LFS POINTER: $name" | tee -a analysis/raw-strings.txt
+              continue
+            fi
+            if ! unzip -tqq "$file" >/dev/null 2>&1; then
+              echo "SKIP INVALID ZIP: $name" | tee -a analysis/raw-strings.txt
+              continue
+            fi
+
+            echo "===== $name =====" >> analysis/raw-strings.txt
+            unzip -p "$file" 'classes*.dex' 2>/dev/null | strings -a >> analysis/raw-strings.txt || true
+            jadx --no-res --show-bad-code -d "analysis/decompiled/${name%.jar}" "$file" >"analysis/${name%.jar}-jadx.log" 2>&1 || true
+          done
+
+          {
+            echo "# MCU framework analysis"
+            echo
+            cat analysis/jar-verification.txt
+            echo
+            echo "## Raw DEX string matches"
+            grep -Ein -C 3 'McuService|MCU|mcu|headset state|accessory|accessory.?manager|uart|serial|mtk.*(service|mcu)|com\\.mediatek' analysis/raw-strings.txt | head -n 2000 || true
+            echo
+            echo "## Decompiled source matches"
+            grep -RInE -C 4 'McuService|headset state|accessory|accessory.?manager|mcu|MCU' analysis/decompiled --include='*.java' | head -n 3000 || true
+            echo
+            echo "## Candidate class files"
+            find analysis/decompiled -type f -name '*.java' | grep -Ei 'mcu|accessory|headset|mediatek|systemserver' | head -n 500 || true
+          } > analysis/MCU-REPORT.md
+
+          cat analysis/MCU-REPORT.md
+
+      - name: Upload analysis report and decompiled sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: mt8163-framework-mcu-analysis
+          path: analysis/
+          if-no-files-found: error
+          retention-days: 14
