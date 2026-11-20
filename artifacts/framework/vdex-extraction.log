@@ -1,0 +1,295 @@
+===== boot-android.hidl.base-V1.0-java.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-android.hidl.base-V1.0-java.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-android.hidl.base-V1.0-java'
+===== boot-android.hidl.manager-V1.0-java.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-android.hidl.manager-V1.0-java.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-android.hidl.manager-V1.0-java'
+===== boot-android.test.base.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-android.test.base.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-android.test.base'
+===== boot-apache-xml.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-apache-xml.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-apache-xml'
+===== boot-bouncycastle.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-bouncycastle.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-bouncycastle'
+===== boot-carservices.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-carservices.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-carservices'
+===== boot-conscrypt.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-conscrypt.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-conscrypt'
+===== boot-core-libart.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-core-libart.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-core-libart'
+===== boot-ext.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-ext.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-ext'
+===== boot-framework-oahl-backward-compatibility.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-framework-oahl-backward-compatibility.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-framework-oahl-backward-compatibility'
+===== boot-framework.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-framework.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 3 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-framework'
+===== boot-hdmihidlmanager.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-hdmihidlmanager.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-hdmihidlmanager'
+===== boot-ims-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-ims-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-ims-common'
+===== boot-mediatek-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-mediatek-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-mediatek-common'
+===== boot-mediatek-framework.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-mediatek-framework.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-mediatek-framework'
+===== boot-mediatek-ims-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-mediatek-ims-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-mediatek-ims-common'
+===== boot-mediatek-telecom-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-mediatek-telecom-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-mediatek-telecom-common'
+===== boot-mediatek-telephony-base.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-mediatek-telephony-base.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-mediatek-telephony-base'
+===== boot-mediatek-telephony-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-mediatek-telephony-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-mediatek-telephony-common'
+===== boot-okhttp.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-okhttp.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-okhttp'
+===== boot-telephony-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-telephony-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-telephony-common'
+===== boot-voip-common.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot-voip-common.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot-voip-common'
+===== boot.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/boot.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/boot'
+===== oat/arm/CustomPropInterface.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/CustomPropInterface.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_CustomPropInterface'
+===== oat/arm/am.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/am.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_am'
+===== oat/arm/android.test.mock.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/android.test.mock.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_android.test.mock'
+===== oat/arm/android.test.runner.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/android.test.runner.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_android.test.runner'
+===== oat/arm/appwidget.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/appwidget.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_appwidget'
+===== oat/arm/bmgr.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/bmgr.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_bmgr'
+===== oat/arm/bu.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/bu.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_bu'
+===== oat/arm/com.android.future.usb.accessory.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/com.android.future.usb.accessory.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_com.android.future.usb.accessory'
+===== oat/arm/com.android.location.provider.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/com.android.location.provider.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_com.android.location.provider'
+===== oat/arm/com.android.media.remotedisplay.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/com.android.media.remotedisplay.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_com.android.media.remotedisplay'
+===== oat/arm/com.android.mediadrm.signer.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/com.android.mediadrm.signer.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_com.android.mediadrm.signer'
+===== oat/arm/com.goodix.nfc.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/com.goodix.nfc.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_com.goodix.nfc'
+===== oat/arm/com.nxp.nfc.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/com.nxp.nfc.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_com.nxp.nfc'
+===== oat/arm/content.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/content.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_content'
+===== oat/arm/dpm.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/dpm.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_dpm'
+===== oat/arm/duraspeed.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/duraspeed.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_duraspeed'
+===== oat/arm/ethernet-service.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/ethernet-service.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_ethernet-service'
+===== oat/arm/hid.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/hid.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_hid'
+===== oat/arm/input.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/input.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_input'
+===== oat/arm/javax.obex.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/javax.obex.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_javax.obex'
+===== oat/arm/locksettings.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/locksettings.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_locksettings'
+===== oat/arm/media_cmd.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/media_cmd.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_media_cmd'
+===== oat/arm/mediatek-framework-net.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/mediatek-framework-net.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_mediatek-framework-net'
+===== oat/arm/mediatek-services.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/mediatek-services.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_mediatek-services'
+===== oat/arm/monkey.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/monkey.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_monkey'
+===== oat/arm/mtk-wifi-service.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/mtk-wifi-service.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_mtk-wifi-service'
+===== oat/arm/org.apache.http.legacy.boot.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/org.apache.http.legacy.boot.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_org.apache.http.legacy.boot'
+===== oat/arm/requestsync.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/requestsync.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_requestsync'
+===== oat/arm/services.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/services.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_services'
+===== oat/arm/sm.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/sm.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_sm'
+===== oat/arm/svc.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/svc.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_svc'
+===== oat/arm/telecom.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/telecom.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_telecom'
+===== oat/arm/theme-utils.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/theme-utils.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_theme-utils'
+===== oat/arm/uiautomator.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/uiautomator.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_uiautomator'
+===== oat/arm/vr.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/vr.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_vr'
+===== oat/arm/wifi-service.vdex =====
+[INFO] Processing 1 file(s) from rom/system/framework/oat/arm/wifi-service.vdex
+[INFO] 1 out of 1 Vdex files have been processed
+[INFO] 1 Dex files have been extracted in total
+[INFO] Extracted Dex files are available in 'analysis/vdex/oat_arm_wifi-service'
