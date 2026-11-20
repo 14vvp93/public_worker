@@ -24,7 +24,8 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y 7zip
+          sudo apt-get install -y p7zip-full
+          command -v 7z
 
       - name: Validate and extract split ZIP
         shell: bash
@@ -34,9 +35,9 @@ jobs:
           test -s "$archive"
           test -s "rom/system/framework/framework.z01"
           test -s "rom/system/framework/framework.z02"
-          7zz t "$archive"
+          7z t "$archive"
           mkdir -p unpacked/framework
-          7zz x "$archive" -o"unpacked/framework" -y
+          7z x "$archive" -o"unpacked/framework" -y
           find unpacked/framework -type f -printf '%P\\n' | sort > unpacked/FILE-LIST.txt
           printf 'Extracted files: '
           find unpacked/framework -type f | wc -l
