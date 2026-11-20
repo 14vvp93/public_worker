@@ -185,3 +185,57 @@ JADX completed with exit code 3 and reported 68 errors. The output contains `sou
 ---
 
 **Conclusion:** the actual service implementation, Binder transaction contract, callback protocol, Parcelable layouts, AVRCP command mapping and manifest export configuration have been inspected. A vendor Binder adapter can now be implemented without guessing the protocol. The only blocking verification before enabling it on the target is a real bind/callback test against the installed firmware APK and its runtime access policy.
+
+
+## 10. Callback and Accessory integration notes (2026-11-20)
+
+This section records the focused follow-up inspection of `IMusicCallback.java` and the corresponding service implementation.
+
+### Callback delivery details
+
+The callback Stub uses descriptor `com.hcn.bluetooth.service.IMusicCallback` and transaction IDs 1–4:
+
+| ID | Callback | Binder delivery |
+|---:|---|---|
+| 1 | `onA2dpConnectStateChanged(int)` | one-way |
+| 2 | `onAvrcpConnectStateChanged(int)` | one-way |
+| 3 | `onMetadataChanged(String, String, String)` | one-way |
+| 4 | `onPlayStatusChanged(MusicPlayState)` | synchronous |
+
+The service uses `RemoteCallbackList<IMusicCallback>`. On registration it adds the callback and immediately invokes, in order, `onMetadataChanged(title, artist, album)` and `onPlayStatusChanged(currentState)`. It does **not** immediately invoke either connection-state callback. The client must therefore query `isA2dpConnected()` and `isAvrcpConnected()` after registration to establish its initial connection snapshot; subsequent changes arrive through callbacks.
+
+The callback implementation must be safe to receive Binder calls off the UI thread. Copy callback values into an immutable module-level snapshot and dispatch state publication to the appropriate application thread. Treat metadata strings and the Parcelable as nullable/possibly incomplete input.
+
+### Teardown distinction
+
+There are two different operations and they must not be confused:
+
+- `unregisterBTMusicCallback(callback)`: removes only this callback from the service's `RemoteCallbackList`; use this during normal client teardown.
+- `unRegMusicClientBinder()`: tears down the separately registered music-client Binder, sends STOP if cached playback state is PLAYING, and calls `releaseA2dp()`; do not use as routine callback cleanup.
+
+The service stores a single `mMusicBinder` for `regMusicClientBinder(IBinder)`; this is separate from the callback list. The Accessory integration should not register this client Binder unless a concrete requirement for that vendor-side client-death mechanism is established.
+
+### Safe initial connection sequence
+
+1. Bind explicitly to package `com.hcn.bluetoothservice`, class `com.hcn.bluetooth.service.BluetoothMusicService`, using the service action already declared in the manifest.
+2. Convert the returned Binder with `IBluetoothMusicService.Stub.asInterface()`.
+3. Register one `IMusicCallback.Stub` instance.
+4. Query `isA2dpConnected()`, `isAvrcpConnected()`, `isA2dpPlaying()`, and, if needed, `getConnectDevice()` / `getID3Info()` to establish the initial snapshot.
+5. Publish the normalized snapshot through the Accessory module's existing state/event boundary. Events must consume the state observed by Accessory rather than independently re-deriving it.
+6. On module disable or service disconnect, unregister the exact callback instance when the remote interface is still usable, then unbind and clear stale connection/playback state. Make cleanup idempotent and handle `RemoteException` and Binder death.
+
+Do not call `requestA2dp()` merely because binding succeeded: the service implementation calls `mSourceInfo.onRequestPlayAudio("com.autochips.bluetooth/.BtMusicActivity")` before scheduling the request, so this is an active routing/playback operation, not a passive status query.
+
+### Playback arbitration requirements
+
+The Accessory coordinator must distinguish the Bluetooth sink state from the active media player's state. In particular:
+
+- Do not send AVRCP PLAY merely because ACC became active or the service connected.
+- Before issuing PLAY, inspect the actual playback state and preserve an already-playing media session; this rule is independent of the player brand (AIMP is only an example).
+- Keep the existing ACC policy: determine ACC state after the module is enabled, and publish the state that Accessory actually observes to Events.
+- Bluetooth restoration after ACC must wait for the required readiness/connection condition; media-player handling must not inherit that wait unnecessarily.
+- Prefer callbacks for ongoing state changes; no polling loop is required for this Binder interface.
+
+### Verification status
+
+Static inspection of the checked-in JADX output confirms the callback transaction behavior and the service-side registration/dispatch sequence described above. This is not yet a successful runtime integration test. Binding permission/policy, actual callback delivery, and behavior on the installed MT8163 firmware APK remain to be verified on-device.
