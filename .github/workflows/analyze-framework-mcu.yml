@@ -31,6 +31,7 @@ jobs:
           set -euo pipefail
           git clone --depth 1 https://github.com/anestisb/vdexExtractor.git /tmp/vdexExtractor
           cd /tmp/vdexExtractor
+          sed -i 's/-Werror/-Werror -Wno-error=vla-parameter/' src/Makefile
           ./make.sh gcc
           test -x bin/vdexExtractor
           echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
