@@ -109,6 +109,12 @@ jobs:
             echo "## SourceService disassembly"
             grep -n -E -C 60 'Landroid/sourceservice/SourceService;|SourceService|muxMediaPlayer|onActivityStatus|BT_UI|A2DP' analysis/*-disassembly.txt | head -n 16000 || true
             echo
+            echo "## SourceInfo API"
+            grep -RInE -C 12 'SourceInfo|getSourcePackage|onRequestPlayAudio|sourceservice' analysis/decompiled --include='*.java' | head -n 12000 || true
+            echo
+            echo "## SourceInfo disassembly"
+            grep -n -E -C 80 'Landroid/sourceservice/SourceInfo;|getSourcePackage|onRequestPlayAudio|sourceservice' analysis/*-disassembly.txt | head -n 20000 || true
+            echo
             echo "## VDEX dependency matches"
             grep -Ein -C 2 'McuService|headset|accessory|mcu|mediatek|serial|uart' analysis/vdex-dependencies.txt | head -n 2000 || true
           } > analysis/MCU-REPORT.md
@@ -128,6 +134,13 @@ jobs:
             fi
           done
           cp analysis/vdex-extraction.log analysis/vdex-dependencies.txt analysis/raw-strings.txt "$target/"
+          mkdir -p "$target/sourceinfo"
+          while IFS= read -r -d '' source; do
+            relative="${source#analysis/decompiled/}"
+            mkdir -p "$target/sourceinfo/$(dirname "$relative")"
+            cp "$source" "$target/sourceinfo/$relative"
+          done < <(find analysis/decompiled -type f -name '*.java' -print0 | xargs -0 -r grep -lE 'SourceInfo|getSourcePackage|onRequestPlayAudio|package android\.sourceservice' | tr '\\n' '\\0')
+
           for log in analysis/*-jadx.log; do
             if [[ -f "$log" ]]; then cp "$log" "$target/"; fi
           done
