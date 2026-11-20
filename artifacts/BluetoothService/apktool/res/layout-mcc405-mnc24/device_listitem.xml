@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/device_item" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="@dimen/y55"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/device_item_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="@dimen/x16">
-        <TextView android:textSize="@dimen/x20" android:textColor="@color/bt_device_name_color" android:ellipsize="end" android:id="@id/item_remote_device_name" android:layout_width="@dimen/x195" android:layout_height="wrap_content" android:singleLine="true" android:paddingEnd="@dimen/x5" />
-        <ImageView android:layout_gravity="center_vertical" android:id="@id/device_select" android:background="@drawable/set_rb_off" android:layout_width="@dimen/x43" android:layout_height="@dimen/y49" />
-    </LinearLayout>
-    <Button android:id="@id/btn_config_profile" android:background="@drawable/more" android:layout_width="@dimen/x46" android:layout_height="@dimen/y52" />
-</LinearLayout>

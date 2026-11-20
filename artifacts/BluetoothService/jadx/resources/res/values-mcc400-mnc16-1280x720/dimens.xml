@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="btn_missed_layout_height">112dp</dimen>
-    <dimen name="btn_missed_layout_width">166dp</dimen>
-</resources>

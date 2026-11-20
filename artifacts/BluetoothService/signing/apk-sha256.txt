@@ -1,1 +1,0 @@
-52e0d6503551dc573939749db6f9dc0344ce6ca30ea15b029e84919d4e027125  firmware/AutoBtClient/AutoBtClient.apk
