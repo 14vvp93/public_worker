@@ -26,31 +26,44 @@ jobs:
           sudo apt-get install -y p7zip-full
           command -v 7z
 
-      - name: Validate and extract split ZIP
+      - name: Extract or flatten framework contents
         shell: bash
         run: |
           set -euo pipefail
           target="rom/system/framework"
           archive="$target/framework.zip"
-          test -s "$archive"
-          test -s "$target/framework.z01"
-          test -s "$target/framework.z02"
-          7z t "$archive"
-
           temp_dir="$(mktemp -d)"
           trap 'rm -rf "$temp_dir"' EXIT
-          7z x "$archive" "-o$temp_dir" -y
 
-          file_count="$(find "$temp_dir" -type f | wc -l)"
-          test "$file_count" -gt 0
-          cp -a "$temp_dir/." "$target/"
+          if [[ -s "$archive" && -s "$target/framework.z01" && -s "$target/framework.z02" ]]; then
+            7z t "$archive"
+            7z x "$archive" "-o$temp_dir" -y
 
-          rm "$target/framework.zip" "$target/framework.z01" "$target/framework.z02"
+            source_dir="$temp_dir"
+            if [[ -d "$temp_dir/framework" ]] && [[ "$(find "$temp_dir" -mindepth 1 -maxdepth 1 | wc -l)" -eq 1 ]]; then
+              source_dir="$temp_dir/framework"
+            fi
 
-          printf 'Extracted files: %s\n' "$file_count"
+            file_count="$(find "$source_dir" -type f | wc -l)"
+            test "$file_count" -gt 0
+            cp -a "$source_dir/." "$target/"
+            rm "$target/framework.zip" "$target/framework.z01" "$target/framework.z02"
+          elif [[ -d "$target/framework" ]]; then
+            shopt -s dotglob nullglob
+            entries=("$target/framework"/*)
+            test "${#entries[@]}" -gt 0
+            mv "$target/framework"/* "$target/"
+            rmdir "$target/framework"
+            file_count="${#entries[@]}"
+          else
+            echo "Neither split archive nor nested extracted directory exists." >&2
+            exit 1
+          fi
+
+          printf 'Framework entries processed: %s\n' "$file_count"
           du -sh "$target"
 
-      - name: Commit extracted files and remove archives
+      - name: Commit framework files
         shell: bash
         run: |
           set -euo pipefail
@@ -61,5 +74,5 @@ jobs:
             echo "No repository changes to commit."
             exit 0
           fi
-          git commit -m "Extract system framework archive"
+          git commit -m "Place extracted framework files in system framework directory"
           git push
