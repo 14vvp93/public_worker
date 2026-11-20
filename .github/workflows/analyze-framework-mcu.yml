@@ -15,40 +15,25 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository with Git LFS objects
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          lfs: true
 
-      - name: Fetch LFS objects
+      - name: Install analysis dependencies
         shell: bash
         run: |
           set -euo pipefail
-          git lfs install
-          git lfs pull
-          git lfs checkout
+          sudo apt-get update
+          sudo apt-get install -y build-essential zlib1g-dev git
 
-      - name: Verify framework binaries
+      - name: Build VDEX extractor
         shell: bash
         run: |
           set -euo pipefail
-          target="rom/system/framework"
-          mkdir -p analysis
-          {
-            echo "## Framework JAR verification"
-            for name in services.jar mediatek-services.jar framework.jar mediatek-framework.jar mediatek-common.jar CustomPropInterface.jar hdmihidlmanager.jar mtk-wifi-service.jar; do
-              file="$target/$name"
-              if [[ ! -f "$file" ]]; then
-                echo "MISSING $name"
-              elif head -c 20 "$file" | grep -q "git-lfs.github.com"; then
-                echo "LFS_POINTER $name"
-              elif unzip -tqq "$file" >/dev/null 2>&1; then
-                echo "VALID_JAR $name $(stat -c%s "$file") bytes"
-              else
-                echo "NOT_A_VALID_ZIP $name $(stat -c%s "$file") bytes"
-              fi
-            done
-          } | tee analysis/jar-verification.txt
+          git clone --depth 1 https://github.com/anestisb/vdexExtractor.git /tmp/vdexExtractor
+          cd /tmp/vdexExtractor
+          ./make.sh gcc
+          test -x bin/vdexExtractor
+          echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
 
       - name: Install JADX
         shell: bash
@@ -63,60 +48,62 @@ jobs:
           chmod +x /opt/jadx/bin/jadx
           echo "/opt/jadx/bin" >> "$GITHUB_PATH"
 
-      - name: Scan and decompile framework services
+      - name: Extract and analyze every framework VDEX
         shell: bash
         run: |
           set -euo pipefail
           target="rom/system/framework"
-          mkdir -p analysis/decompiled analysis/raw
-          jars=(
-            services.jar
-            mediatek-services.jar
-            framework.jar
-            mediatek-framework.jar
-            mediatek-common.jar
-            CustomPropInterface.jar
-            hdmihidlmanager.jar
-            mtk-wifi-service.jar
-            framework-oahl-backward-compatibility.jar
-          )
-
+          mkdir -p analysis/vdex analysis/decompiled
+          : > analysis/vdex-extraction.log
           : > analysis/raw-strings.txt
-          for name in "${jars[@]}"; do
-            file="$target/$name"
-            [[ -f "$file" ]] || continue
-            if head -c 20 "$file" | grep -q "git-lfs.github.com"; then
-              echo "SKIP LFS POINTER: $name" | tee -a analysis/raw-strings.txt
-              continue
-            fi
-            if ! unzip -tqq "$file" >/dev/null 2>&1; then
-              echo "SKIP INVALID ZIP: $name" | tee -a analysis/raw-strings.txt
-              continue
-            fi
+          : > analysis/vdex-dependencies.txt
 
-            echo "===== $name =====" >> analysis/raw-strings.txt
-            unzip -p "$file" 'classes*.dex' 2>/dev/null | strings -a >> analysis/raw-strings.txt || true
-            jadx --no-res --show-bad-code -d "analysis/decompiled/${name%.jar}" "$file" >"analysis/${name%.jar}-jadx.log" 2>&1 || true
+          mapfile -d '' vdex_files < <(find "$target" -type f -name '*.vdex' -print0 | sort -z)
+          test "${#vdex_files[@]}" -gt 0
+
+          for file in "${vdex_files[@]}"; do
+            relative="${file#"$target"/}"
+            safe_name="${relative//\//_}"
+            out="analysis/vdex/${safe_name%.vdex}"
+            mkdir -p "$out"
+
+            echo "===== $relative =====" | tee -a analysis/vdex-extraction.log
+            vdexExtractor -i "$file" -o "$out" -f --ignore-crc-error 2>&1 | tee -a analysis/vdex-extraction.log || true
+            vdexExtractor -i "$file" -o "$out" -f --deps 2>&1 >> analysis/vdex-dependencies.txt || true
+
+            while IFS= read -r -d '' dex; do
+              echo "===== $relative :: $(basename "$dex") =====" >> analysis/raw-strings.txt
+              strings -a "$dex" >> analysis/raw-strings.txt
+              dex_name="$(basename "$dex" .dex)"
+              jadx --no-res --show-bad-code -d "analysis/decompiled/${safe_name%.vdex}_${dex_name}" "$dex" >"analysis/${safe_name%.vdex}-jadx.log" 2>&1 || true
+            done < <(find "$out" -type f \( -name '*.dex' -o -name '*.cdex' \) -print0)
           done
 
           {
-            echo "# MCU framework analysis"
+            echo "# MT8163 framework MCU analysis"
             echo
-            cat analysis/jar-verification.txt
+            echo "## VDEX files processed"
+            find "$target" -type f -name '*.vdex' -printf '%P (%s bytes)\n' | sort
             echo
-            echo "## Raw DEX string matches"
-            grep -Ein -C 3 'McuService|MCU|mcu|headset state|accessory|accessory.?manager|uart|serial|mtk.*(service|mcu)|com\\.mediatek' analysis/raw-strings.txt | head -n 2000 || true
+            echo "## Extractor summary"
+            grep -E 'Processing|processed|extracted|Extracted Dex|ERROR|FATAL|WARNING' analysis/vdex-extraction.log | tail -n 500 || true
+            echo
+            echo "## MCU and accessory strings"
+            grep -Ein -C 4 'McuService|headset state|accessory|accessory.?manager|mcu|MCU|uart|serial|com\\.mediatek' analysis/raw-strings.txt | head -n 3000 || true
             echo
             echo "## Decompiled source matches"
-            grep -RInE -C 4 'McuService|headset state|accessory|accessory.?manager|mcu|MCU' analysis/decompiled --include='*.java' | head -n 3000 || true
+            grep -RInE -C 5 'McuService|headset state|accessory|accessory.?manager|mcu|MCU|uart|serial' analysis/decompiled --include='*.java' | head -n 5000 || true
             echo
-            echo "## Candidate class files"
-            find analysis/decompiled -type f -name '*.java' | grep -Ei 'mcu|accessory|headset|mediatek|systemserver' | head -n 500 || true
+            echo "## Candidate classes"
+            find analysis/decompiled -type f -name '*.java' | grep -Ei 'mcu|accessory|headset|mediatek|serial|uart' | head -n 1000 || true
+            echo
+            echo "## VDEX dependency matches"
+            grep -Ein -C 2 'McuService|headset|accessory|mcu|mediatek|serial|uart' analysis/vdex-dependencies.txt | head -n 2000 || true
           } > analysis/MCU-REPORT.md
 
           cat analysis/MCU-REPORT.md
 
-      - name: Upload analysis report and decompiled sources
+      - name: Upload analysis results
         uses: actions/upload-artifact@v4
         with:
           name: mt8163-framework-mcu-analysis
