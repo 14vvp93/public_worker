@@ -55,10 +55,8 @@ The client-side mapping identified for AVRCP is:
 | Value | Command |
 |---:|---|
 | 0 | PLAY |
-| 1 | PAUSE |
-| 2 | NEXT |
-| 3 | PREVIOUS |
-| 4–5 | Additional commands exist in the client mapping; exact symbolic names and semantics must be verified from the source before use |
+| 1–4 | Command names and semantics must be verified from the generated client interface source before use |
+| 5 | PREVIOUS |
 
 Do not send PLAY automatically when a media session is already active. The Accessory module must avoid duplicate playback starts.
 
