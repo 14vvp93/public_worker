@@ -119,7 +119,11 @@ jobs:
           target="artifacts/framework"
           mkdir -p "$target"
           cp analysis/MCU-REPORT.md "$target/"
-          cp analysis/*-disassembly.txt "$target/"
+          for dump in analysis/*-disassembly.txt; do
+            if [[ -f "$dump" ]]; then
+              gzip -9 -c "$dump" > "$target/$(basename "$dump").gz"
+            fi
+          done
           cp analysis/vdex-extraction.log analysis/vdex-dependencies.txt analysis/raw-strings.txt "$target/"
           for log in analysis/*-jadx.log; do
             if [[ -f "$log" ]]; then cp "$log" "$target/"; fi
