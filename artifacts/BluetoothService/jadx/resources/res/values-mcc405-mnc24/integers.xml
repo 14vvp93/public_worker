@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="mini_call_view_type">1</integer>
+    <integer name="monitor_screen_orientation">1</integer>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BluetoothService</string>
+    <string name="bluetooth_pairing_device_down_error_message">Nedá sa nadviazať komunikáciu s</string>
+    <string name="bluetooth_pairing_error_message">Problém pri párovaní s</string>
+    <string name="bluetooth_pairing_pin_error_message">Problém pri párovaní, PIN alebo prístupový kód je nesprávny.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Párovanie odmietnuté</string>
+    <string name="bluetooth_profile_a2dp">Zdroj zvuku</string>
+    <string name="bluetooth_profile_a2dp_sink">Audio prijímač</string>
+    <string name="bluetooth_profile_headset_client">Telefónny klient</string>
+    <string name="bluetooth_profile_pan_NAP">Prístupový bod</string>
+    <string name="bluetooth_profile_pbap">Zdieľanie kontaktov</string>
+    <string name="bluetooth_unpair_device_message">Odpojte zariadenie, odpojte toto zariadenie v telefóne a prekontrolujte Bluetooth zariadenie!</string>
+    <string name="str_a2dp_device_connected">Hudobné zariadenie pripojené</string>
+    <string name="str_bt_call_abnormal">Nepodarené volanie</string>
+    <string name="str_bt_call_accept_held">Podržať a prijať</string>
+    <string name="str_bt_call_accept_terminate">Ukončiť a prijať</string>
+    <string name="str_bt_call_active">Hovor aktívny</string>
+    <string name="str_bt_call_held">Hovor pozdržaný</string>
+    <string name="str_bt_call_merge">Spojenie hovorov</string>
+    <string name="str_bt_call_multiparty">Konferenčný hovor</string>
+    <string name="str_bt_call_swap">Prepnúť hovor</string>
+    <string name="str_bt_call_waiting">Čakanie hovoru</string>
+    <string name="str_calling_phone_number">10086</string>
+    <string name="str_handsfree_device_connected">Handsfree pripojené</string>
+    <string name="str_hid_device_connected">HID zariadenie pripojené</string>
+    <string name="str_income_call_status">Prichádzajúci hovor</string>
+    <string name="str_letter_hicar_tips">HiCar je spustený, Bluetooth nie je povolený.</string>
+    <string name="str_out_call_status">Odchádzajúci hovor</string>
+    <string name="time_text">00:00:00</string>
+    <string name="unkown">Neznámy</string>
+</resources>

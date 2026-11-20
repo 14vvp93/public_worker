@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Perkhidmatan Bluetooth</string>
+    <string name="bluetooth_pairing_device_down_error_message">Tidak dapat menjalin komunikasi dengan</string>
+    <string name="bluetooth_pairing_error_message">Terdapat masalah berpasangan dengan</string>
+    <string name="bluetooth_pairing_pin_error_message">Terdapat masalah berpasangan dengan kerana PIN atau Kunci Laluan tidak betul.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Berpasangan ditolak oleh</string>
+    <string name="bluetooth_profile_a2dp">Sumber audio</string>
+    <string name="bluetooth_profile_a2dp_sink">Penerima audio</string>
+    <string name="bluetooth_profile_headset_client">Telefon pelanggan</string>
+    <string name="bluetooth_profile_pan_NAP">Titik Akses Rangkaian</string>
+    <string name="bluetooth_profile_pbap">Perkongsian kenalan</string>
+    <string name="bluetooth_unpair_device_message">Nyahpasangkan Peranti, Sila Nyahpasangkan mesin ini dalam Telefon dan imbas Peranti Bluetooth lagi!</string>
+    <string name="str_a2dp_device_connected">Peranti muzik disambungkan</string>
+    <string name="str_bt_call_abnormal">Panggilan tak normal</string>
+    <string name="str_bt_call_accept_held">Pegang dan Terima</string>
+    <string name="str_bt_call_accept_terminate">Hentikan Dan Terima</string>
+    <string name="str_bt_call_active">Panggilan Aktif</string>
+    <string name="str_bt_call_held">Panggilan Ditahan</string>
+    <string name="str_bt_call_merge">Gabungkan Panggilan</string>
+    <string name="str_bt_call_multiparty">Panggilan Pelbagai Pihak</string>
+    <string name="str_bt_call_swap">Tukar Panggilan</string>
+    <string name="str_bt_call_waiting">Panggilan Menunggu</string>
+    <string name="str_calling_phone_number">10086</string>
+    <string name="str_handsfree_device_connected">Peranti bebas tangan disambungkan</string>
+    <string name="str_hid_device_connected">Peranti HID disambungkan</string>
+    <string name="str_income_call_status">Panggilan Masuk</string>
+    <string name="str_letter_hicar_tips">HiCar sedang berjalan, operasi bluetooth tidak dibenarkan</string>
+    <string name="str_out_call_status">Panggilan Keluar</string>
+    <string name="time_text">00:00:00</string>
+    <string name="unkown">tidak diketahui</string>
+</resources>

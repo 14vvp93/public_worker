@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BluetoothService</string>
+    <string name="bluetooth_pairing_device_down_error_message">Kan geen communicatie met</string>
+    <string name="bluetooth_pairing_error_message">Er was een probleem met het koppelen met</string>
+    <string name="bluetooth_pairing_pin_error_message">Er is een probleem opgetreden bij het koppelen omdat de PIN-code of Passkey onjuist is.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Koppeling geweigerd</string>
+    <string name="bluetooth_profile_a2dp">Audiobron</string>
+    <string name="bluetooth_profile_a2dp_sink">Audioreceiver</string>
+    <string name="bluetooth_profile_headset_client">Telefoonclient</string>
+    <string name="bluetooth_profile_pan_NAP">Netwerktoegangspunt</string>
+    <string name="bluetooth_profile_pbap">Contact delen</string>
+    <string name="bluetooth_unpair_device_message">Apparaat ontkoppelen, ontkoppel deze machine in de telefoon en scan het Bluetooth-apparaat opnieuw!</string>
+    <string name="str_a2dp_device_connected">Muziekapparaat verbonden</string>
+    <string name="str_bt_call_abnormal">Abnormaal gesprek</string>
+    <string name="str_bt_call_accept_held">Vastgehouden en geaccepteerd</string>
+    <string name="str_bt_call_accept_terminate">Beëindigen en accepteren</string>
+    <string name="str_bt_call_active">Actief gesprek</string>
+    <string name="str_bt_call_held">Gesprek in wacht</string>
+    <string name="str_bt_call_merge">Gesprek samenvoegen</string>
+    <string name="str_bt_call_multiparty">Meerdere partijen gesprek</string>
+    <string name="str_bt_call_swap">Gesprek wisselen</string>
+    <string name="str_bt_call_waiting">Wachtende oproep</string>
+    <string name="str_calling_phone_number">10086</string>
+    <string name="str_handsfree_device_connected">Handsfree verbonden</string>
+    <string name="str_hid_device_connected">HID-apparaat verbonden</string>
+    <string name="str_income_call_status">Inkomende oproep</string>
+    <string name="str_letter_hicar_tips">HiCar is actief, Bluetooth-bediening is niet toegestaan.</string>
+    <string name="str_out_call_status">Uitgaand gesprek</string>
+    <string name="time_text">00:00:00</string>
+    <string name="unkown">Onbekend</string>
+</resources>

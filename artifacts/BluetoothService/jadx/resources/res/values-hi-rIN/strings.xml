@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ब्लूटूथ सेवा</string>
+    <string name="bluetooth_pairing_device_down_error_message">के साथ कनेक्शन स्थापित करने में असमर्थ</string>
+    <string name="bluetooth_pairing_error_message">के साथ पेयरिंग में समस्या आई</string>
+    <string name="bluetooth_pairing_pin_error_message">पिन या पासकी गलत होने के कारण पेयरिंग में समस्या हुई।</string>
+    <string name="bluetooth_pairing_rejected_error_message">द्वारा पेयरिंग अस्वीकृत</string>
+    <string name="bluetooth_profile_a2dp">ऑडियो स्रोत</string>
+    <string name="bluetooth_profile_a2dp_sink">ऑडियो रिसीवर</string>
+    <string name="bluetooth_profile_headset_client">फोन क्लाइंट</string>
+    <string name="bluetooth_profile_pan_NAP">नेटवर्क एक्सेस पॉइंट</string>
+    <string name="bluetooth_profile_pbap">कॉन्टैक्ट शेयरिंग</string>
+    <string name="bluetooth_unpair_device_message">डिवाइस बंद करें। कृपया इस डिवाइस को अपने फ़ोन से डिस्कनेक्ट करें और ब्लूटूथ डिवाइस को पुनः स्कैन करें!</string>
+    <string name="str_a2dp_device_connected">संगीत डिवाइस कनेक्ट है</string>
+    <string name="str_bt_call_abnormal">असामान्य कॉल</string>
+    <string name="str_bt_call_accept_held">होल्ड और स्वीकार</string>
+    <string name="str_bt_call_accept_terminate">समाप्त करें और स्वीकार करें</string>
+    <string name="str_bt_call_active">कॉल सक्रिय</string>
+    <string name="str_bt_call_held">कॉल होल्ड</string>
+    <string name="str_bt_call_merge">कॉल मर्ज करें</string>
+    <string name="str_bt_call_multiparty">मल्टीपार्टी कॉल</string>
+    <string name="str_bt_call_swap">कॉल स्वैप करें</string>
+    <string name="str_bt_call_waiting">कॉल वेटिंग</string>
+    <string name="str_calling_phone_number">10086</string>
+    <string name="str_handsfree_device_connected">हैंड्सफ्री डिवाइस कनेक्टेड</string>
+    <string name="str_hid_device_connected">HID डिवाइस कनेक्टेड</string>
+    <string name="str_income_call_status">इनकमिंग कॉल</string>
+    <string name="str_letter_hicar_tips">HiCar चल रहा है, ब्लूटूथ संचालन की अनुमति नहीं है।</string>
+    <string name="str_out_call_status">आउटगोइंग कॉल</string>
+    <string name="time_text">00:00:00</string>
+    <string name="unkown">अज्ञात</string>
+</resources>

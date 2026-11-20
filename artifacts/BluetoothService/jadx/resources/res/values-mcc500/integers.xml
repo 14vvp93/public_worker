@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="call_view_mini_window_gravity">48</integer>
+    <integer name="call_view_mini_window_height">-1</integer>
+    <integer name="call_view_mini_window_type">2014</integer>
+    <integer name="call_view_mini_window_width">-1</integer>
+    <integer name="call_view_window_gravity">17</integer>
+    <integer name="call_view_window_height">-1</integer>
+    <integer name="call_view_window_type">2001</integer>
+    <integer name="call_view_window_width">-1</integer>
+</resources>

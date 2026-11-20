@@ -1,0 +1,4 @@
+JADX_VERSION=v1.5.7
+JADX_EXIT_CODE=3
+INPUT=artifacts/BluetoothService.apk
+OUTPUT=artifacts/BluetoothService/jadx
