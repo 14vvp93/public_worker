@@ -72,7 +72,7 @@ jobs:
             vdexExtractor -i "$file" -o "$out" -f --ignore-crc-error 2>&1 | tee -a analysis/vdex-extraction.log || true
             vdexExtractor -i "$file" -o "$out" -f --deps 2>&1 >> analysis/vdex-dependencies.txt || true
             case "$relative" in
-              boot-framework.vdex|oat/arm/services.vdex|oat/arm/mediatek-services.vdex|boot-mediatek-framework.vdex)
+              boot-framework.vdex|boot-carservices.vdex|oat/arm/services.vdex|oat/arm/mediatek-services.vdex|boot-mediatek-framework.vdex)
                 vdexExtractor -i "$file" -o "$out" -f --ignore-crc-error --dis -l "analysis/${safe_name%.vdex}-disassembly.txt" >/dev/null 2>&1 || true
                 ;;
             esac
