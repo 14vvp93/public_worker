@@ -6,11 +6,10 @@ on:
       - main
     paths:
       - ".github/workflows/unpack-framework.yml"
-      - "rom/system/framework/**"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   unpack:
@@ -31,22 +30,36 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          archive="rom/system/framework/framework.zip"
+          target="rom/system/framework"
+          archive="$target/framework.zip"
           test -s "$archive"
-          test -s "rom/system/framework/framework.z01"
-          test -s "rom/system/framework/framework.z02"
+          test -s "$target/framework.z01"
+          test -s "$target/framework.z02"
           7z t "$archive"
-          mkdir -p unpacked/framework
-          7z x "$archive" -o"unpacked/framework" -y
-          find unpacked/framework -type f -printf '%P\\n' | sort > unpacked/FILE-LIST.txt
-          printf 'Extracted files: '
-          find unpacked/framework -type f | wc -l
-          du -sh unpacked/framework
 
-      - name: Upload extracted framework
-        uses: actions/upload-artifact@v4
-        with:
-          name: framework-unpacked
-          path: unpacked/
-          if-no-files-found: error
-          retention-days: 14
+          temp_dir="$(mktemp -d)"
+          trap 'rm -rf "$temp_dir"' EXIT
+          7z x "$archive" "-o$temp_dir" -y
+
+          file_count="$(find "$temp_dir" -type f | wc -l)"
+          test "$file_count" -gt 0
+          cp -a "$temp_dir/." "$target/"
+
+          rm "$target/framework.zip" "$target/framework.z01" "$target/framework.z02"
+
+          printf 'Extracted files: %s\n' "$file_count"
+          du -sh "$target"
+
+      - name: Commit extracted files and remove archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- rom/system/framework
+          if git diff --cached --quiet; then
+            echo "No repository changes to commit."
+            exit 0
+          fi
+          git commit -m "Extract system framework archive"
+          git push
