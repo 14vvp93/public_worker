@@ -19,6 +19,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install 7-Zip
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y 7zip
+
       - name: Validate and extract split ZIP
         shell: bash
         run: |
@@ -27,10 +34,10 @@ jobs:
           test -s "$archive"
           test -s "rom/system/framework/framework.z01"
           test -s "rom/system/framework/framework.z02"
-          unzip -t "$archive"
+          7zz t "$archive"
           mkdir -p unpacked/framework
-          unzip -o "$archive" -d unpacked/framework
-          find unpacked/framework -type f -printf '%P\n' | sort > unpacked/FILE-LIST.txt
+          7zz x "$archive" -o"unpacked/framework" -y
+          find unpacked/framework -type f -printf '%P\\n' | sort > unpacked/FILE-LIST.txt
           printf 'Extracted files: '
           find unpacked/framework -type f | wc -l
           du -sh unpacked/framework
