@@ -1,0 +1,84 @@
+name: Decompile BluetoothService APK
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/decompile-bluetoothservice.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: decompile-bluetoothservice
+  cancel-in-progress: false
+
+jobs:
+  jadx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Download JADX
+        id: jadx
+        shell: bash
+        run: |
+          set -euo pipefail
+          release="$(curl -fsSL https://api.github.com/repos/skylot/jadx/releases/latest)"
+          asset_url="$(jq -r '.assets[] | select(.name | test("^jadx-[0-9.]+\\.zip$")) | .browser_download_url' <<< "$release" | head -n 1)"
+          version="$(jq -r '.tag_name' <<< "$release")"
+          test -n "$asset_url"
+          curl -fL --retry 3 "$asset_url" -o /tmp/jadx.zip
+          mkdir -p /tmp/jadx
+          unzip -q /tmp/jadx.zip -d /tmp/jadx
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "JADX $version installed"
+
+      - name: Verify input APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s artifacts/BluetoothService.apk
+          sha256sum artifacts/BluetoothService.apk
+
+      - name: Decompile APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="artifacts/BluetoothService/jadx"
+          rm -rf "$output"
+          mkdir -p "$output"
+          jadx_bin="$(find /tmp/jadx -type f -path '*/bin/jadx' -print -quit)"
+          test -x "$jadx_bin"
+          "$jadx_bin" --show-bad-code --threads-count 2 -d "$output" artifacts/BluetoothService.apk 2>&1 | tee "$output/jadx.log"
+          sha256sum artifacts/BluetoothService.apk > "$output/input.sha256"
+          printf 'JADX_VERSION=%s\n' "${{ steps.jadx.outputs.version }}" > "$output/BUILD_INFO.txt"
+          printf 'INPUT=artifacts/BluetoothService.apk\n' >> "$output/BUILD_INFO.txt"
+          printf 'OUTPUT=artifacts/BluetoothService/jadx\n' >> "$output/BUILD_INFO.txt"
+          find "$output" -type f | sort > "$output/FILE_INDEX.txt"
+
+      - name: Commit JADX output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts/BluetoothService/jadx
+          if git diff --cached --quiet; then
+            echo "No JADX output changes"
+            exit 0
+          fi
+          git commit -m "Add JADX decompilation for BluetoothService"
+          git push
