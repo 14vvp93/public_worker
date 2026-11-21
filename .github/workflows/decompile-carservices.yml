@@ -164,7 +164,7 @@ jobs:
             exit 1
           fi
 
-          printf 'COMPACTDEX_COUNT=%s\\n' "${#cdex_files[@]}" > "$output/EXTRACTION_INFO.txt"
+          printf 'COMPACTDEX_COUNT=%s\n' "${#cdex_files[@]}" > "$output/EXTRACTION_INFO.txt"
           file "${cdex_files[@]}" | tee "$output/compactdex-file-info.txt"
 
       - name: Convert CompactDEX to standard DEX
@@ -197,12 +197,13 @@ jobs:
           fi
 
           for dex in "${dex_files[@]}"; do
-            if ! head -c 8 "$dex" | grep -aq '^dex\\n'; then
-              echo "Invalid standard DEX header: $dex" >&2
+            magic="$(od -An -tx1 -N4 "$dex" | tr -d ' \\n')"
+            if [[ "$magic" != "6465780a" ]]; then
+              echo "Invalid standard DEX header: $dex (magic=$magic)" >&2
               exit 1
             fi
           done
-          printf 'DEX_COUNT=%s\\n' "${#dex_files[@]}" > "$output/CONVERSION_INFO.txt"
+          printf 'DEX_COUNT=%s\n' "${#dex_files[@]}" > "$output/CONVERSION_INFO.txt"
           file "${dex_files[@]}" | tee "$output/dex-file-info.txt"
 
       - name: Decompile standard DEX with JADX
@@ -237,16 +238,16 @@ jobs:
               echo "JADX produced no Java source files for $dex." >&2
               exit 1
             fi
-            printf 'JADX_EXIT_CODE=%s\\nJAVA_SOURCE_COUNT=%s\\n' "$status" "$source_count" > "$target/BUILD_INFO.txt"
+            printf 'JADX_EXIT_CODE=%s\nJAVA_SOURCE_COUNT=%s\n' "$status" "$source_count" > "$target/BUILD_INFO.txt"
           done
 
           input="rom/system/framework/boot-carservices.vdex"
           sha256sum "$GITHUB_WORKSPACE/$input" > "$output/input.sha256"
           {
-            printf 'INPUT=%s\\n' "$input"
-            printf 'JADX_VERSION=%s\\n' "${{ steps.jadx.outputs.version }}"
-            printf 'DEX_COUNT=%s\\n' "${#dex_files[@]}"
-            printf 'JAVA_SOURCE_COUNT=%s\\n' "$(find "$jadx_output" -type f -name '*.java' | wc -l)"
+            printf 'INPUT=%s\n' "$input"
+            printf 'JADX_VERSION=%s\n' "${{ steps.jadx.outputs.version }}"
+            printf 'DEX_COUNT=%s\n' "${#dex_files[@]}"
+            printf 'JAVA_SOURCE_COUNT=%s\n' "$(find "$jadx_output" -type f -name '*.java' | wc -l)"
           } > "$output/BUILD_INFO.txt"
           find "$output" -type f | sort > "$output/FILE_INDEX.txt"
 
