@@ -105,7 +105,7 @@ jobs:
           archive="$deps_dir/deps.zip"
           mkdir -p "$deps_dir"
 
-          converter_url="https://1drv.ms/u/s!ArDC4mvMyPrRhEq96XX-LsCACF2s"
+          converter_url="https://github.com/anestisb/vdexExtractor/files/2351606/compact_dex_converter_linux.zip"
           curl --fail --location --silent --show-error --retry 2 \
             "$converter_url" --output "$archive"
 
@@ -114,7 +114,15 @@ jobs:
           echo "Static converter archive SHA-256: $archive_sha"
 
           unzip -q -o "$archive" -d "$deps_dir"
+          converter_source="$(find "$deps_dir" -type f -name compact_dex_converter -print -quit)"
+          test -n "$converter_source"
           converter="$deps_dir/bin/compact_dex_converter"
+          mkdir -p "$(dirname "$converter")"
+          if [[ "$converter_source" != "$converter" ]]; then
+            install -m 0755 "$converter_source" "$converter"
+          else
+            chmod 0755 "$converter"
+          fi
           test -x "$converter"
           file "$converter" | tee "$deps_dir/converter-file.txt"
           file "$converter" | grep -q 'ELF 64-bit LSB.*x86-64'
