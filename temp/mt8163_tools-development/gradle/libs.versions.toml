@@ -1,0 +1,15 @@
+[versions]
+agp = "9.5.1"
+coreKtx = "1.19.1"
+appcompat = "1.8.0"
+fragment = "1.9.1"
+xposedApi = "82"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
+xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposedApi" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }

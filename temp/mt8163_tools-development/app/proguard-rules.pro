@@ -1,0 +1,2 @@
+-keep class com.mt8163tools.hooks.XposedEntry { *; }
+-dontwarn de.robv.android.xposed.**

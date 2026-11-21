@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MT8163 Tools</string>
+    <string name="app_version">Version 0.1.0</string>
+    <string name="module_on">ON</string>
+    <string name="module_off">OFF</string>
+    <string name="module_enabled">Module enabled</string>
+    <string name="module_disabled">Module disabled</string>
+    <string name="voltage_title">Battery voltage correction</string>
+    <string name="voltage_description">Adjust the software voltage offset. This does not change the physical battery voltage or charging behavior.</string>
+    <string name="voltage_offset_label">Voltage offset</string>
+    <string name="voltage_reset">Reset to 0.0 V</string>
+    <string name="events_empty">No events recorded.</string>
+</resources>

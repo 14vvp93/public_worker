@@ -1,0 +1,9 @@
+<resources>
+    <color name="color_background">#17191D</color>
+    <color name="color_sidebar">#202329</color>
+    <color name="color_surface">#252930</color>
+    <color name="color_selected">#382126</color>
+    <color name="color_accent">#FF334F</color>
+    <color name="color_text_primary">#F4F5F7</color>
+    <color name="color_text_secondary">#9298A3</color>
+</resources>
