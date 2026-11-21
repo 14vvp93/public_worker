@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: decompile-carservices
@@ -251,20 +252,6 @@ jobs:
           } > "$output/BUILD_INFO.txt"
           find "$output" -type f | sort > "$output/FILE_INDEX.txt"
 
-      - name: Commit decompilation results
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add artifacts/CarServises
-          if git diff --cached --quiet; then
-            echo "No decompilation output changes."
-            exit 0
-          fi
-          git commit -m "Add CarServices VDEX decompilation"
-          git push
-
       - name: Upload decompilation artifact
         uses: actions/upload-artifact@v4
         with:
@@ -272,3 +259,17 @@ jobs:
           path: artifacts/CarServises/
           if-no-files-found: error
           retention-days: 30
+
+      - name: Create pull request with decompilation results
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/carservices-decompilation
+          delete-branch: true
+          add-paths: artifacts/CarServises/
+          commit-message: Add CarServices VDEX decompilation
+          title: Add CarServices VDEX decompilation
+          body: |
+            This pull request adds the decompiled Java sources and supporting files generated from `boot-carservices.vdex`.
+            
+            The workflow extracts CompactDEX, converts it to standard DEX, and decompiles it with JADX.
