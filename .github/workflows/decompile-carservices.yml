@@ -94,52 +94,30 @@ jobs:
           sed -i 's/-Werror/-Wno-error/' src/Makefile
           ./make.sh gcc
           test -x bin/vdexExtractor
-          chmod +x tools/deodex/run.sh
           echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
 
       - name: Download static CompactDEX converter
         shell: bash
         run: |
           set -euo pipefail
-          deps_dir="/tmp/vdexExtractor/tools/deodex/hostTools/Linux/api-28"
-          archive="$deps_dir/deps.zip"
+          deps_dir="/tmp/compact-dex-converter"
+          archive="$deps_dir/converter.zip"
           mkdir -p "$deps_dir"
 
-          converter_url="https://github.com/anestisb/vdexExtractor/files/2351606/compact_dex_converter_linux.zip"
           curl --fail --location --silent --show-error --retry 2 \
-            "$converter_url" --output "$archive"
+            "https://github.com/anestisb/vdexExtractor/files/2351606/compact_dex_converter_linux.zip" \
+            --output "$archive"
 
           unzip -tq "$archive"
-          archive_sha="$(sha256sum "$archive" | cut -d ' ' -f1)"
-          echo "Static converter archive SHA-256: $archive_sha"
-
           unzip -q -o "$archive" -d "$deps_dir"
           converter_source="$(find "$deps_dir" -type f -name compact_dex_converter -print -quit)"
           test -n "$converter_source"
-          converter="$deps_dir/bin/compact_dex_converter"
-          mkdir -p "$(dirname "$converter")"
-          if [[ "$converter_source" != "$converter" ]]; then
-            install -m 0755 "$converter_source" "$converter"
-          else
-            chmod 0755 "$converter"
-          fi
-          test -x "$converter"
+
+          converter="$deps_dir/compact_dex_converter"
+          install -m 0755 "$converter_source" "$converter"
           file "$converter" | tee "$deps_dir/converter-file.txt"
           file "$converter" | grep -q 'ELF 64-bit LSB.*x86-64'
-
-          ldd_output="$(ldd "$converter" 2>&1 || true)"
-          if grep -qF 'not a dynamic executable' <<< "$ldd_output"; then
-            echo "Static Linux x86-64 converter confirmed."
-          else
-            echo "Expected a statically linked converter, but dynamic dependencies were detected." >&2
-            printf '%s\\n' "$ldd_output" >&2
-            exit 1
-          fi
-
-          sed -i "s/^readonly L_DEPS_API_28_SIG=.*/readonly L_DEPS_API_28_SIG='$archive_sha'/" \
-            /tmp/vdexExtractor/tools/deodex/constants.sh
-          grep 'L_DEPS_API_28_SIG' /tmp/vdexExtractor/tools/deodex/constants.sh
-          "$converter" 2>&1 | head -n 20 || test "${PIPESTATUS[0]}" -eq 1
+          echo "$deps_dir" >> "$GITHUB_PATH"
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -168,28 +146,83 @@ jobs:
           file "$input"
           sha256sum "$input"
 
-      - name: Extract, convert CompactDEX and decompile
+      - name: Extract CompactDEX from VDEX
         shell: bash
         run: |
           set -euo pipefail
-          input="rom/system/framework/boot-carservices.vdex"
+          input="$GITHUB_WORKSPACE/rom/system/framework/boot-carservices.vdex"
           output="$GITHUB_WORKSPACE/artifacts/CarServises"
-          rm -rf "$output"
-          mkdir -p "$output/jadx"
+          extracted="$output/extracted"
+          mkdir -p "$extracted"
 
-          bash /tmp/vdexExtractor/tools/deodex/run.sh -i "$GITHUB_WORKSPACE/$input" -o "$output" -k 2>&1 | tee "$output/deodex.log"
+          vdexExtractor -i "$input" -o "$extracted" --ignore-crc-error 2>&1 | tee "$output/vdex-extractor.log"
 
-          deodexed="$output/vdexExtractor_deodexed"
-          mapfile -d '' dex_files < <(find "$deodexed" -type f -name '*.dex' -print0 | sort -z)
+          mapfile -d '' cdex_files < <(find "$extracted" -type f -name '*.cdex' -print0 | sort -z)
+          if (( ${#cdex_files[@]} == 0 )); then
+            echo "vdexExtractor did not produce CompactDEX files." >&2
+            find "$extracted" -type f -print >&2
+            exit 1
+          fi
+
+          printf 'COMPACTDEX_COUNT=%s\\n' "${#cdex_files[@]}" > "$output/EXTRACTION_INFO.txt"
+          file "${cdex_files[@]}" | tee "$output/compactdex-file-info.txt"
+
+      - name: Convert CompactDEX to standard DEX
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$GITHUB_WORKSPACE/artifacts/CarServises"
+          extracted="$output/extracted"
+          converted="$output/converted"
+          mkdir -p "$converted"
+
+          mapfile -d '' cdex_files < <(find "$extracted" -type f -name '*.cdex' -print0 | sort -z)
+          if (( ${#cdex_files[@]} == 0 )); then
+            echo "No CompactDEX files found for conversion." >&2
+            exit 1
+          fi
+
+          compact_dex_converter -w "$converted" "${cdex_files[@]}" 2>&1 | tee "$output/compact-dex-converter.log"
+
+          while IFS= read -r -d '' converted_cdex; do
+            dex_file="${converted_cdex%.cdex}.dex"
+            mv "$converted_cdex" "$dex_file"
+          done < <(find "$converted" -type f -name '*.cdex' -print0)
+
+          mapfile -d '' dex_files < <(find "$converted" -type f -name '*.dex' -print0 | sort -z)
           if (( ${#dex_files[@]} == 0 )); then
-            echo "No standard DEX files were produced by CompactDEX conversion." >&2
-            find "$output" -maxdepth 5 -type f -print >&2
+            echo "CompactDEX converter did not produce standard DEX files." >&2
+            find "$converted" -type f -print >&2
+            exit 1
+          fi
+
+          for dex in "${dex_files[@]}"; do
+            if ! head -c 8 "$dex" | grep -aq '^dex\\n'; then
+              echo "Invalid standard DEX header: $dex" >&2
+              exit 1
+            fi
+          done
+          printf 'DEX_COUNT=%s\\n' "${#dex_files[@]}" > "$output/CONVERSION_INFO.txt"
+          file "${dex_files[@]}" | tee "$output/dex-file-info.txt"
+
+      - name: Decompile standard DEX with JADX
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$GITHUB_WORKSPACE/artifacts/CarServises"
+          converted="$output/converted"
+          jadx_output="$output/jadx"
+          mkdir -p "$jadx_output"
+
+          mapfile -d '' dex_files < <(find "$converted" -type f -name '*.dex' -print0 | sort -z)
+          if (( ${#dex_files[@]} == 0 )); then
+            echo "No standard DEX files found for JADX." >&2
             exit 1
           fi
 
           for dex in "${dex_files[@]}"; do
             name="$(basename "$dex" .dex)"
-            target="$output/jadx/$name"
+            target="$jadx_output/$name"
             mkdir -p "$target"
             set +e
             jadx --show-bad-code --threads-count 2 -d "$target" "$dex" 2>&1 | tee "$target/jadx.log"
@@ -198,21 +231,22 @@ jobs:
             if [[ "$status" -ne 0 && "$status" -ne 3 ]]; then
               exit "$status"
             fi
-            test -d "$target/sources"
-            source_count="$(find "$target/sources" -type f -name '*.java' | wc -l)"
+
+            source_count="$(find "$target/sources" -type f -name '*.java' 2>/dev/null | wc -l)"
             if (( source_count == 0 )); then
               echo "JADX produced no Java source files for $dex." >&2
               exit 1
             fi
-            printf 'JADX_EXIT_CODE=%s\nJAVA_SOURCE_COUNT=%s\n' "$status" "$source_count" > "$target/BUILD_INFO.txt"
+            printf 'JADX_EXIT_CODE=%s\\nJAVA_SOURCE_COUNT=%s\\n' "$status" "$source_count" > "$target/BUILD_INFO.txt"
           done
 
-          sha256sum "$input" > "$output/input.sha256"
+          input="rom/system/framework/boot-carservices.vdex"
+          sha256sum "$GITHUB_WORKSPACE/$input" > "$output/input.sha256"
           {
-            printf 'INPUT=%s\n' "$input"
-            printf 'JADX_VERSION=%s\n' "${{ steps.jadx.outputs.version }}"
-            printf 'DEX_COUNT=%s\n' "${#dex_files[@]}"
-            printf 'JAVA_SOURCE_COUNT=%s\n' "$(find "$output/jadx" -type f -name '*.java' | wc -l)"
+            printf 'INPUT=%s\\n' "$input"
+            printf 'JADX_VERSION=%s\\n' "${{ steps.jadx.outputs.version }}"
+            printf 'DEX_COUNT=%s\\n' "${#dex_files[@]}"
+            printf 'JAVA_SOURCE_COUNT=%s\\n' "$(find "$jadx_output" -type f -name '*.java' | wc -l)"
           } > "$output/BUILD_INFO.txt"
           find "$output" -type f | sort > "$output/FILE_INDEX.txt"
 
