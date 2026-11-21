@@ -1,0 +1,4 @@
+INPUT=rom/system/framework/boot-carservices.vdex
+JADX_VERSION=3cbbc23
+DEX_COUNT=1
+JAVA_SOURCE_COUNT=48
