@@ -113,11 +113,11 @@ jobs:
           converter_source="$(find "$deps_dir" -type f -name compact_dex_converter -print -quit)"
           test -n "$converter_source"
 
-          converter="$deps_dir/compact_dex_converter"
-          install -m 0755 "$converter_source" "$converter"
-          file "$converter" | tee "$deps_dir/converter-file.txt"
-          file "$converter" | grep -q 'ELF 64-bit LSB.*x86-64'
-          echo "$deps_dir" >> "$GITHUB_PATH"
+          chmod 0755 "$converter_source"
+          converter_dir="$(dirname "$converter_source")"
+          file "$converter_source" | tee "$deps_dir/converter-file.txt"
+          file "$converter_source" | grep -q 'ELF 64-bit LSB.*x86-64'
+          echo "$converter_dir" >> "$GITHUB_PATH"
 
       - name: Set up Java
         uses: actions/setup-java@v4
