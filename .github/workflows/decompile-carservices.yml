@@ -95,6 +95,8 @@ jobs:
           ./make.sh gcc
           test -x bin/vdexExtractor
           chmod +x tools/deodex/run.sh
+          sed -i "s#https://onedrive.live.com/download?cid=D1FAC8CC6BE2C2B0\&resid=D1FAC8CC6BE2C2B0%21581\&authkey=AE_kzPqzG_-R4T0#https://1drv.ms/u/s!ArDC4mvMyPrRhEsiuPjOF_ssIfOe#" tools/deodex/constants.sh
+          grep "L_DEPS_URL_API_28" tools/deodex/constants.sh
           echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
 
       - name: Set up Java
