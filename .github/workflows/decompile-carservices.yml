@@ -16,6 +16,59 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  inspect-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Inspect CarServices inputs
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p artifacts/input-inspection
+          report="artifacts/input-inspection/REPORT.txt"
+          {
+            echo "=== carservices.jar ==="
+            ls -l rom/system/framework/carservices.jar
+            file rom/system/framework/carservices.jar
+            sha256sum rom/system/framework/carservices.jar
+            echo
+            echo "--- ZIP integrity ---"
+            unzip -t rom/system/framework/carservices.jar
+            echo "unzip_exit_code=$?"
+            echo
+            echo "--- ZIP entries ---"
+            unzip -l rom/system/framework/carservices.jar
+            echo "unzip_list_exit_code=$?"
+            echo
+            echo "--- JAR entries ---"
+            jar tf rom/system/framework/carservices.jar
+            echo "jar_list_exit_code=$?"
+            echo
+            echo "--- Manifest ---"
+            unzip -p rom/system/framework/carservices.jar META-INF/MANIFEST.MF
+            echo
+            echo "=== boot-carservices.vdex ==="
+            ls -l rom/system/framework/boot-carservices.vdex
+            file rom/system/framework/boot-carservices.vdex
+            sha256sum rom/system/framework/boot-carservices.vdex
+            echo
+            echo "--- VDEX header ---"
+            xxd -l 64 rom/system/framework/boot-carservices.vdex
+          } > "$report" 2>&1
+          cat "$report"
+
+      - name: Upload input inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: CarServices-input-inspection
+          path: artifacts/input-inspection/REPORT.txt
+          if-no-files-found: error
+          retention-days: 30
+
   decompile:
     runs-on: ubuntu-latest
     timeout-minutes: 45
