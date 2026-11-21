@@ -18,7 +18,7 @@ concurrency:
 jobs:
   decompile:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,21 +43,23 @@ jobs:
           test -x bin/vdexExtractor
           echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
 
-      - name: Install JADX
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Build JADX from source
         id: jadx
         shell: bash
         run: |
           set -euo pipefail
-          release="$(curl -fsSL https://api.github.com/repos/skylot/jadx/releases/latest)"
-          asset_url="$(jq -r '.assets[] | select(.name | test("^jadx-[0-9.]+\\.zip$")) | .browser_download_url' <<< "$release" | head -n 1)"
-          version="$(jq -r '.tag_name' <<< "$release")"
-          test -n "$asset_url"
-          curl -fL --retry 3 "$asset_url" -o /tmp/jadx.zip
-          mkdir -p /opt/jadx
-          unzip -q /tmp/jadx.zip -d /opt/jadx
-          chmod +x /opt/jadx/bin/jadx
-          echo "/opt/jadx/bin" >> "$GITHUB_PATH"
-          echo "version=$version" >> "$GITHUB_OUTPUT"
+          git clone --depth 1 https://github.com/skylot/jadx.git /tmp/jadx
+          cd /tmp/jadx
+          ./gradlew dist --no-daemon
+          test -x build/jadx/bin/jadx
+          echo "/tmp/jadx/build/jadx/bin" >> "$GITHUB_PATH"
+          echo "version=$(git describe --tags --always)" >> "$GITHUB_OUTPUT"
 
       - name: Verify VDEX input
         shell: bash
