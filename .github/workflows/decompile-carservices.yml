@@ -80,7 +80,7 @@ jobs:
           vdexExtractor -i "$input" -o "$output/dex" -f --ignore-crc-error 2>&1 | tee "$output/vdex-extractor.log"
 
           mapfile -d '' dex_files < <(find "$output/dex" -type f -name '*.dex' -print0 | sort -z)
-          if [[ "${dex_files[@]}" == "" ]]; then
+          if (( ${#dex_files[@]} == 0 )); then
             echo "No DEX files were extracted from VDEX." >&2
             find "$output/dex" -maxdepth 3 -type f -print >&2
             exit 1
