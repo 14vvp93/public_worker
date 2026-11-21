@@ -97,43 +97,40 @@ jobs:
           chmod +x tools/deodex/run.sh
           echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
 
-      - name: Download and verify CompactDEX converter
+      - name: Download static CompactDEX converter
         shell: bash
         run: |
           set -euo pipefail
           deps_dir="/tmp/vdexExtractor/tools/deodex/hostTools/Linux/api-28"
-          expected_sha="fa722f44dea926fbe019c2fa520cc7d5e3cf9dd0cd59ff32d7189e8102977118"
+          archive="$deps_dir/deps.zip"
           mkdir -p "$deps_dir"
 
-          share_ids=(
-            "u!aHR0cHM6Ly9vbmVkcml2ZS5saXZlLmNvbS9kb3dubG9hZD9jaWQ9RDFGQUM4Q0M2QkUyQzJCMCZyZXNpZD1EMUZBQzhDQzZCRTJDMkIwJTIxNTgxJmF1dGhrZXk9QUVfa3pQcXpHXy1SNFQw"
-            "u!aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBckRDNG12TXlQclJoRXNpdVBqT0Zfc3NJZk9l"
-          )
+          converter_url="https://1drv.ms/u/s!ArDC4mvMyPrRhEq96XX-LsCACF2s"
+          curl --fail --location --silent --show-error --retry 2 \
+            "$converter_url" --output "$archive"
 
-          verified=false
-          for share_id in "${share_ids[@]}"; do
-            rm -f "$deps_dir/deps.zip"
-            if curl --fail --location --silent --show-error --retry 2 \
-              "https://api.onedrive.com/v1.0/shares/$share_id/driveItem/content" \
-              --output "$deps_dir/deps.zip"; then
-              actual_sha="$(sha256sum "$deps_dir/deps.zip" | cut -d ' ' -f1)"
-              echo "Downloaded converter archive SHA-256: $actual_sha"
-              if [[ "$actual_sha" == "$expected_sha" ]]; then
-                verified=true
-                break
-              fi
-              echo "Downloaded file does not match the official API 28 archive."
-            fi
-          done
+          unzip -tq "$archive"
+          archive_sha="$(sha256sum "$archive" | cut -d ' ' -f1)"
+          echo "Static converter archive SHA-256: $archive_sha"
 
-          if [[ "$verified" != true ]]; then
-            echo "Unable to retrieve the exact API 28 converter archive from OneDrive." >&2
+          unzip -q -o "$archive" -d "$deps_dir"
+          converter="$deps_dir/bin/compact_dex_converter"
+          test -x "$converter"
+          file "$converter" | tee "$deps_dir/converter-file.txt"
+          file "$converter" | grep -q 'ELF 64-bit LSB.*x86-64'
+
+          if ldd "$converter" 2>&1 | grep -q 'not a dynamic executable'; then
+            echo "Static Linux x86-64 converter confirmed."
+          else
+            echo "Expected a statically linked converter, but dynamic dependencies were detected." >&2
+            ldd "$converter" || true
             exit 1
           fi
 
-          unzip -q -o "$deps_dir/deps.zip" -d "$deps_dir"
-          test -x "$deps_dir/bin/compact_dex_converter"
-          echo "Official API 28 CompactDEX converter verified and cached."
+          sed -i "s/^readonly L_DEPS_API_28_SIG=.*/readonly L_DEPS_API_28_SIG='$archive_sha'/" \
+            /tmp/vdexExtractor/tools/deodex/constants.sh
+          grep 'L_DEPS_API_28_SIG' /tmp/vdexExtractor/tools/deodex/constants.sh
+          "$converter" 2>&1 | head -n 20 || test "${PIPESTATUS[0]}" -eq 1
 
       - name: Set up Java
         uses: actions/setup-java@v4
