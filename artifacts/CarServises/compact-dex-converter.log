@@ -1,0 +1,2 @@
+compact_dex_converter I 11-21 11:51:09  3000  3000 compact_dex_converter_main.cc:175] StandardDex file successfully extracted to /home/runner/work/public_worker/public_worker/artifacts/CarServises/converted/boot-carservices_classes.cdex
+Opened '/home/runner/work/public_worker/public_worker/artifacts/CarServises/extracted/boot-carservices_classes.cdex', DEX version '001'
