@@ -127,11 +127,12 @@ jobs:
           file "$converter" | tee "$deps_dir/converter-file.txt"
           file "$converter" | grep -q 'ELF 64-bit LSB.*x86-64'
 
-          if ldd "$converter" 2>&1 | grep -q 'not a dynamic executable'; then
+          ldd_output="$(ldd "$converter" 2>&1 || true)"
+          if grep -qF 'not a dynamic executable' <<< "$ldd_output"; then
             echo "Static Linux x86-64 converter confirmed."
           else
             echo "Expected a statically linked converter, but dynamic dependencies were detected." >&2
-            ldd "$converter" || true
+            printf '%s\\n' "$ldd_output" >&2
             exit 1
           fi
 
