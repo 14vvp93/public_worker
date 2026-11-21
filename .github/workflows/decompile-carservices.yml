@@ -95,9 +95,45 @@ jobs:
           ./make.sh gcc
           test -x bin/vdexExtractor
           chmod +x tools/deodex/run.sh
-          sed -i "s#https://onedrive.live.com/download?cid=D1FAC8CC6BE2C2B0\&resid=D1FAC8CC6BE2C2B0%21581\&authkey=AE_kzPqzG_-R4T0#https://1drv.ms/u/s!ArDC4mvMyPrRhEsiuPjOF_ssIfOe#" tools/deodex/constants.sh
-          grep "L_DEPS_URL_API_28" tools/deodex/constants.sh
           echo "/tmp/vdexExtractor/bin" >> "$GITHUB_PATH"
+
+      - name: Download and verify CompactDEX converter
+        shell: bash
+        run: |
+          set -euo pipefail
+          deps_dir="/tmp/vdexExtractor/tools/deodex/hostTools/Linux/api-28"
+          expected_sha="fa722f44dea926fbe019c2fa520cc7d5e3cf9dd0cd59ff32d7189e8102977118"
+          mkdir -p "$deps_dir"
+
+          share_ids=(
+            "u!aHR0cHM6Ly9vbmVkcml2ZS5saXZlLmNvbS9kb3dubG9hZD9jaWQ9RDFGQUM4Q0M2QkUyQzJCMCZyZXNpZD1EMUZBQzhDQzZCRTJDMkIwJTIxNTgxJmF1dGhrZXk9QUVfa3pQcXpHXy1SNFQw"
+            "u!aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBckRDNG12TXlQclJoRXNpdVBqT0Zfc3NJZk9l"
+          )
+
+          verified=false
+          for share_id in "${share_ids[@]}"; do
+            rm -f "$deps_dir/deps.zip"
+            if curl --fail --location --silent --show-error --retry 2 \
+              "https://api.onedrive.com/v1.0/shares/$share_id/driveItem/content" \
+              --output "$deps_dir/deps.zip"; then
+              actual_sha="$(sha256sum "$deps_dir/deps.zip" | cut -d ' ' -f1)"
+              echo "Downloaded converter archive SHA-256: $actual_sha"
+              if [[ "$actual_sha" == "$expected_sha" ]]; then
+                verified=true
+                break
+              fi
+              echo "Downloaded file does not match the official API 28 archive."
+            fi
+          done
+
+          if [[ "$verified" != true ]]; then
+            echo "Unable to retrieve the exact API 28 converter archive from OneDrive." >&2
+            exit 1
+          fi
+
+          unzip -q -o "$deps_dir/deps.zip" -d "$deps_dir"
+          test -x "$deps_dir/bin/compact_dex_converter"
+          echo "Official API 28 CompactDEX converter verified and cached."
 
       - name: Set up Java
         uses: actions/setup-java@v4
