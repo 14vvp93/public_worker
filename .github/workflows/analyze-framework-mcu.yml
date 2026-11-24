@@ -14,6 +14,7 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -96,7 +97,6 @@ jobs:
             echo
             echo "## MCU and accessory strings"
             grep -Ein -C 4 'McuService|headset state|accessory|accessory.?manager|mcu|MCU|uart|serial|com\\.mediatek' analysis/raw-strings.txt | head -n 3000 || true
-            echo
             echo
             echo "## Android task lifecycle source matches (services.vdex)"
             grep -RInE -C 8 'class (RecentTasks|TaskRecord|TaskPersister|ActivityStackSupervisor)|mPersistedTaskIds|removedFromRecents|autoRemoveRecents|addLocked|trim' analysis/decompiled/oat_arm_services_* --include='*.java' | head -n 30000 || true
