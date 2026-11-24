@@ -97,6 +97,9 @@ jobs:
             echo "## MCU and accessory strings"
             grep -Ein -C 4 'McuService|headset state|accessory|accessory.?manager|mcu|MCU|uart|serial|com\\.mediatek' analysis/raw-strings.txt | head -n 3000 || true
             echo
+            echo
+            echo "## Android task lifecycle source matches (services.vdex)"
+            grep -RInE -C 8 'class (RecentTasks|TaskRecord|TaskPersister|ActivityStackSupervisor)|mPersistedTaskIds|removedFromRecents|autoRemoveRecents|addLocked|trim' analysis/decompiled/oat_arm_services_* --include='*.java' | head -n 30000 || true
             echo "## Decompiled source matches"
             grep -RInE -C 5 'McuService|headset state|accessory|accessory.?manager|mcu|MCU|uart|serial' analysis/decompiled --include='*.java' | head -n 5000 || true
             echo
@@ -140,6 +143,20 @@ jobs:
             mkdir -p "$target/sourceinfo/$(dirname "$relative")"
             cp "$source" "$target/sourceinfo/$relative"
           done < <(find analysis/decompiled -type f -name '*.java' -print0 | xargs -0 -r grep -lE 'SourceInfo|getSourcePackage|onRequestPlayAudio|package android\.sourceservice' | tr '\\n' '\\0')
+
+          mkdir -p "$target/services"
+          : > "$target/services/FILE_INDEX.txt"
+          for root in analysis/decompiled/oat_arm_services_*; do
+            [[ -d "$root" ]] || continue
+            while IFS= read -r -d '' source; do
+              if grep -Eq 'class (RecentTasks|TaskRecord|TaskPersister|ActivityStackSupervisor)' "$source"; then
+                relative="${source#"$root"/}"
+                mkdir -p "$target/services/$(dirname "$relative")"
+                cp "$source" "$target/services/$relative"
+                printf '%s\\n' "$relative" >> "$target/services/FILE_INDEX.txt"
+              fi
+            done < <(find "$root" -type f -name '*.java' -print0)
+          done
 
           for log in analysis/*-jadx.log; do
             if [[ -f "$log" ]]; then cp "$log" "$target/"; fi
