@@ -1,0 +1,132 @@
+name: Decompile CD3313 kernel module
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/decompile-cd3313.yml'
+      - 'rom/system/vendor/lib/cd3313.ko'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: decompile-cd3313-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  decompile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install Ghidra and ARM binutils
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y binutils-arm-linux-gnueabi
+          url=$(curl -fsSL https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/tags/Ghidra_11.3.2_build | jq -er '.assets[] | select(.name | endswith(".zip")) | .browser_download_url')
+          curl -fL --retry 3 "$url" -o "$RUNNER_TEMP/ghidra.zip"
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          ghidra=$(find "$RUNNER_TEMP" -type f -path '*/support/analyzeHeadless' -print -quit)
+          test -n "$ghidra"
+          echo "GHIDRA_HEADLESS=$ghidra" >> "$GITHUB_ENV"
+      - name: Decompile ELF with DWARF and export diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir="$GITHUB_WORKSPACE/rom/system/vendor/lib"
+          input="$dir/cd3313.ko"
+          test -s "$input"
+          mkdir -p "$RUNNER_TEMP/ghidra-project" "$RUNNER_TEMP/ghidra-scripts"
+          cat > "$RUNNER_TEMP/ghidra-scripts/ExportCd3313.java" <<'JAVA'
+          import ghidra.app.script.GhidraScript;
+          import ghidra.app.decompiler.DecompInterface;
+          import ghidra.app.decompiler.DecompileResults;
+          import ghidra.program.model.listing.Function;
+          import ghidra.program.model.listing.FunctionIterator;
+          import java.io.PrintWriter;
+          import java.nio.charset.StandardCharsets;
+          import java.nio.file.Files;
+          import java.nio.file.Paths;
+
+          public class ExportCd3313 extends GhidraScript {
+              public void run() throws Exception {
+                  String[] args = getScriptArgs();
+                  DecompInterface decomp = new DecompInterface();
+                  if (!decomp.openProgram(currentProgram))
+                      throw new IllegalStateException("Cannot open imported ELF");
+                  int total = 0, ok = 0;
+                  try (PrintWriter out = new PrintWriter(Files.newBufferedWriter(
+                          Paths.get(args[0]), StandardCharsets.UTF_8));
+                       PrintWriter log = new PrintWriter(Files.newBufferedWriter(
+                          Paths.get(args[1]), StandardCharsets.UTF_8))) {
+                      out.println("/* Ghidra decompiler output; NOT buildable original source. */");
+                      FunctionIterator functions = currentProgram.getFunctionManager().getFunctions(true);
+                      while (functions.hasNext() && !monitor.isCancelled()) {
+                          Function f = functions.next();
+                          if (f.isExternal()) continue;
+                          total++;
+                          out.printf("%n/* %s @ %s */%n", f.getName(), f.getEntryPoint());
+                          DecompileResults r = decomp.decompileFunction(f, 60, monitor);
+                          if (r.decompileCompleted() && r.getDecompiledFunction() != null) {
+                              out.println(r.getDecompiledFunction().getC());
+                              ok++;
+                              log.printf("OK %s %s%n", f.getEntryPoint(), f.getName());
+                          } else {
+                              out.println("/* Decompilation failed; see log and disassembly. */");
+                              log.printf("FAIL %s %s: %s%n", f.getEntryPoint(), f.getName(), r.getErrorMessage());
+                          }
+                      }
+                      log.printf("Functions: %d; decompiled: %d%n", total, ok);
+                      if (ok == 0 || monitor.isCancelled() || out.checkError() || log.checkError())
+                          throw new IllegalStateException("No usable complete export");
+                  } finally {
+                      decomp.dispose();
+                  }
+              }
+          }
+          JAVA
+          arm-linux-gnueabi-objdump -drwC "$input" > "$dir/cd3313.disasm.S"
+          arm-linux-gnueabi-readelf -aW "$input" > "$dir/cd3313.elf.txt"
+          arm-linux-gnueabi-readelf --debug-dump=info,decodedline "$input" > "$dir/cd3313.dwarf.txt"
+          arm-linux-gnueabi-nm -anS "$input" > "$dir/cd3313.symbols.txt"
+          (cd "$dir"; sha256sum cd3313.ko > cd3313.sha256)
+          "$GHIDRA_HEADLESS" "$RUNNER_TEMP/ghidra-project" cd3313 \
+            -import "$input" -overwrite -analysisTimeoutPerFile 300 \
+            -scriptPath "$RUNNER_TEMP/ghidra-scripts" \
+            -postScript ExportCd3313.java "$dir/cd3313.decompiled.c" "$dir/cd3313.decompile.log" \
+            -deleteProject
+          test -s "$dir/cd3313.decompiled.c"
+          grep -Eq 'Functions: [0-9]+; decompiled: [1-9][0-9]*' "$dir/cd3313.decompile.log"
+          (cd "$dir"; sha256sum -c cd3313.sha256)
+      - name: Upload analysis artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cd3313-decompiled
+          path: |
+            rom/system/vendor/lib/cd3313.decompiled.c
+            rom/system/vendor/lib/cd3313.decompile.log
+            rom/system/vendor/lib/cd3313.disasm.S
+            rom/system/vendor/lib/cd3313.elf.txt
+            rom/system/vendor/lib/cd3313.dwarf.txt
+            rom/system/vendor/lib/cd3313.symbols.txt
+            rom/system/vendor/lib/cd3313.sha256
+          if-no-files-found: error
+      - name: Commit generated files beside original module
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir=rom/system/vendor/lib
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$dir/cd3313.decompiled.c" "$dir/cd3313.decompile.log" "$dir/cd3313.disasm.S" "$dir/cd3313.elf.txt" "$dir/cd3313.dwarf.txt" "$dir/cd3313.symbols.txt" "$dir/cd3313.sha256"
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Decompile cd3313.ko with Ghidra'
+          git push origin "HEAD:$GITHUB_REF_NAME"
