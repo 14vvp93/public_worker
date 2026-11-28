@@ -102,17 +102,21 @@ jobs:
             -import "$input" -overwrite -analysisTimeoutPerFile 300 \
             -scriptPath "$RUNNER_TEMP/ghidra-scripts" \
             -postScript ExportCd3313.java "$dir/cd3313.decompiled.c" "$dir/cd3313.decompile.log" \
-            -deleteProject
+            -scriptlog "$dir/cd3313.ghidra-script.log" \
+            -log "$dir/cd3313.ghidra.log" -deleteProject
           test -s "$dir/cd3313.decompiled.c"
           grep -Eq 'Functions: [0-9]+; decompiled: [1-9][0-9]*' "$dir/cd3313.decompile.log"
           (cd "$dir"; sha256sum -c cd3313.sha256)
       - name: Upload analysis artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cd3313-decompiled
           path: |
             rom/system/vendor/lib/cd3313.decompiled.c
             rom/system/vendor/lib/cd3313.decompile.log
+            rom/system/vendor/lib/cd3313.ghidra.log
+            rom/system/vendor/lib/cd3313.ghidra-script.log
             rom/system/vendor/lib/cd3313.disasm.S
             rom/system/vendor/lib/cd3313.elf.txt
             rom/system/vendor/lib/cd3313.dwarf.txt
